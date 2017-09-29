@@ -1,0 +1,31 @@
+c:\users\kyo\documents\visual studio 2015\Projects\MIPP\MIPP\bin\Debug\MIPP.exe.config
+c:\users\kyo\documents\visual studio 2015\Projects\MIPP\MIPP\bin\Debug\MIPP.exe
+c:\users\kyo\documents\visual studio 2015\Projects\MIPP\MIPP\bin\Debug\MIPP.pdb
+c:\users\kyo\documents\visual studio 2015\Projects\MIPP\MIPP\obj\Debug\MIPP.csprojResolveAssemblyReference.cache
+c:\users\kyo\documents\visual studio 2015\Projects\MIPP\MIPP\obj\Debug\MIPP.Properties.Resources.resources
+c:\users\kyo\documents\visual studio 2015\Projects\MIPP\MIPP\obj\Debug\MIPP.csproj.GenerateResource.Cache
+c:\users\kyo\documents\visual studio 2015\Projects\MIPP\MIPP\obj\Debug\MIPP.exe
+c:\users\kyo\documents\visual studio 2015\Projects\MIPP\MIPP\obj\Debug\MIPP.pdb
+c:\users\kyo\documents\visual studio 2015\Projects\MIPP\MIPP\obj\Debug\MIPP.FormScreen.resources
+c:\users\kyo\documents\visual studio 2015\Projects\MIPP\MIPP\obj\Debug\MIPP.MDI_MIPP.resources
+c:\users\kyo\documents\visual studio 2015\Projects\MIPP\MIPP\bin\Debug\MySql.Data.dll
+C:\Users\Kyo\Documents\GitHub\MIPP\MIPP\bin\Debug\MIPP.exe.config
+C:\Users\Kyo\Documents\GitHub\MIPP\MIPP\obj\Debug\MIPP.exe
+C:\Users\Kyo\Documents\GitHub\MIPP\MIPP\obj\Debug\MIPP.pdb
+C:\Users\Kyo\Documents\GitHub\MIPP\MIPP\bin\Debug\MIPP.exe
+C:\Users\Kyo\Documents\GitHub\MIPP\MIPP\bin\Debug\MIPP.pdb
+C:\Users\Kyo\Documents\GitHub\MIPP\MIPP\bin\Debug\MySql.Data.dll
+C:\Users\Kyo\Documents\GitHub\MIPP\MIPP\obj\Debug\MIPP.csprojResolveAssemblyReference.cache
+C:\Users\Kyo\Documents\GitHub\MIPP\MIPP\obj\Debug\MIPP.FormScreen.resources
+C:\Users\Kyo\Documents\GitHub\MIPP\MIPP\obj\Debug\MIPP.MDI_MIPP.resources
+C:\Users\Kyo\Documents\GitHub\MIPP\MIPP\obj\Debug\MIPP.Properties.Resources.resources
+C:\Users\Kyo\Documents\GitHub\MIPP\MIPP\obj\Debug\MIPP.csproj.GenerateResource.Cache
+C:\Users\Kyo\Documents\GitHub\MIPP\MIPP\obj\Debug\MIPP.Resource1.resources
+C:\Users\Kyo\Documents\GitHub\MIPP\MIPP\obj\Debug\MIPP.Forms.FormDepartment.resources
+C:\Users\Kyo\Documents\GitHub\MIPP\MIPP\obj\Debug\MIPP.Forms.FormShop.resources
+C:\Users\Kyo\Documents\GitHub\MIPP\MIPP\obj\Debug\MIPP.Forms.FormImage.resources
+C:\Users\Kyo\Documents\GitHub\MIPP\MIPP\bin\Debug\Interop.WMPLib.dll
+C:\Users\Kyo\Documents\GitHub\MIPP\MIPP\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\Kyo\Documents\GitHub\MIPP\MIPP\obj\Debug\Interop.WMPLib.dll
+C:\Users\Kyo\Documents\GitHub\MIPP\MIPP\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\Kyo\Documents\GitHub\MIPP\MIPP\obj\Debug\MIPP.csproj.ResolveComReference.cache
