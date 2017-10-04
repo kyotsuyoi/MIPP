@@ -15,6 +15,8 @@ namespace MIPP.Forms
 
         DataSet DS = new DataSet();
         Department department = new Department();
+        Administrator Ad = new Administrator();
+        InputBox IB = new InputBox();
         ClassImage CI = new ClassImage();
         int ImageID = 0;
 
@@ -74,6 +76,29 @@ namespace MIPP.Forms
                 MessageBox.Show("Verifique ID e Nome do departamento!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+            var DT = Ad.LoadPassword();
+
+            DT.Read();
+            string value = String.Format("{0}", DT[0]);
+            string value1 = "";
+            if (IB.InputBoxFunction("Insert a password", "Password:", ref value1) == DialogResult.OK)
+            {
+                if (value != value1)
+                {
+                    MessageBox.Show("Wrong Pass!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+            }
+            else
+            {
+                return;
+            }
+
+            if (MessageBox.Show("Deseja apagar este produto?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (department.Delete(int.Parse(mtbID.Text)) == false) { return; }
+            }
+
 
             if (MessageBox.Show("Deseja excluir este departamento?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {

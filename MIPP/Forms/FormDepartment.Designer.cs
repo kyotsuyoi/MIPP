@@ -64,9 +64,9 @@
             this.gbDepart.Controls.Add(this.btnDelete);
             this.gbDepart.Controls.Add(this.btnSave);
             this.gbDepart.Location = new System.Drawing.Point(16, 9);
-            this.gbDepart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbDepart.Margin = new System.Windows.Forms.Padding(4);
             this.gbDepart.Name = "gbDepart";
-            this.gbDepart.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbDepart.Padding = new System.Windows.Forms.Padding(4);
             this.gbDepart.Size = new System.Drawing.Size(381, 500);
             this.gbDepart.TabIndex = 1022;
             this.gbDepart.TabStop = false;
@@ -77,8 +77,8 @@
             this.dgvImage.AllowUserToAddRows = false;
             this.dgvImage.AllowUserToDeleteRows = false;
             this.dgvImage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvImage.Location = new System.Drawing.Point(16, 21);
-            this.dgvImage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvImage.Location = new System.Drawing.Point(16, 20);
+            this.dgvImage.Margin = new System.Windows.Forms.Padding(4);
             this.dgvImage.Name = "dgvImage";
             this.dgvImage.ReadOnly = true;
             this.dgvImage.Size = new System.Drawing.Size(357, 469);
@@ -91,7 +91,7 @@
             // 
             this.cbActivated.AutoSize = true;
             this.cbActivated.Location = new System.Drawing.Point(301, 22);
-            this.cbActivated.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbActivated.Margin = new System.Windows.Forms.Padding(4);
             this.cbActivated.Name = "cbActivated";
             this.cbActivated.Size = new System.Drawing.Size(61, 21);
             this.cbActivated.TabIndex = 1029;
@@ -104,7 +104,7 @@
             this.btnPhoto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPhoto.BackgroundImage")));
             this.btnPhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnPhoto.Location = new System.Drawing.Point(193, 442);
-            this.btnPhoto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPhoto.Margin = new System.Windows.Forms.Padding(4);
             this.btnPhoto.Name = "btnPhoto";
             this.btnPhoto.Size = new System.Drawing.Size(53, 49);
             this.btnPhoto.TabIndex = 1019;
@@ -134,7 +134,7 @@
             // mtbID
             // 
             this.mtbID.Location = new System.Drawing.Point(61, 22);
-            this.mtbID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mtbID.Margin = new System.Windows.Forms.Padding(4);
             this.mtbID.Mask = "0000";
             this.mtbID.Name = "mtbID";
             this.mtbID.Size = new System.Drawing.Size(44, 22);
@@ -143,7 +143,7 @@
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(61, 54);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(305, 22);
             this.txtName.TabIndex = 1025;
@@ -153,7 +153,7 @@
             this.btnUpdate.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnUpdate.BackgroundImage")));
             this.btnUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnUpdate.Location = new System.Drawing.Point(71, 442);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(53, 49);
             this.btnUpdate.TabIndex = 1022;
@@ -166,7 +166,7 @@
             this.dgvDepart.AllowUserToDeleteRows = false;
             this.dgvDepart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDepart.Location = new System.Drawing.Point(11, 91);
-            this.dgvDepart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvDepart.Margin = new System.Windows.Forms.Padding(4);
             this.dgvDepart.Name = "dgvDepart";
             this.dgvDepart.ReadOnly = true;
             this.dgvDepart.Size = new System.Drawing.Size(357, 343);
@@ -178,7 +178,7 @@
             this.btnDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDelete.BackgroundImage")));
             this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnDelete.Location = new System.Drawing.Point(132, 442);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(53, 49);
             this.btnDelete.TabIndex = 1023;
@@ -190,7 +190,7 @@
             this.btnSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSave.BackgroundImage")));
             this.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnSave.Location = new System.Drawing.Point(9, 442);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(53, 49);
             this.btnSave.TabIndex = 1024;
@@ -201,9 +201,9 @@
             // 
             this.groupBox1.Controls.Add(this.pbBackground);
             this.groupBox1.Location = new System.Drawing.Point(405, 9);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(976, 500);
             this.groupBox1.TabIndex = 1021;
             this.groupBox1.TabStop = false;
@@ -212,7 +212,7 @@
             // pbBackground
             // 
             this.pbBackground.Location = new System.Drawing.Point(8, 21);
-            this.pbBackground.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbBackground.Margin = new System.Windows.Forms.Padding(4);
             this.pbBackground.Name = "pbBackground";
             this.pbBackground.Size = new System.Drawing.Size(960, 468);
             this.pbBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -228,7 +228,7 @@
             this.Controls.Add(this.gbDepart);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "FormDepartment";
             this.Text = "Departamento";

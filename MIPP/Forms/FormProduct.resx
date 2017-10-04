@@ -117,35 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnUpdate.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        xAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACjSURBVEhL7dK9
-        CYAwEIZhl9Hewso1nEGcwRHEFVzEzj47RU44OOGL8S+nxRWPSeHlDWiW9c5/gh55XqiysBoLX9IvflOW
-        1Yb3zTDD96UkYVpj8VfD8gIEzbBXwt3kdtTCIWiGPQrX7QiDDM2wU2E+SH5DWukHOoqjs9ijMK1HcXQW
-        uxWWF4gFQi6FQ9BMjIUhFJPQTMy/wylYWI2F1Xwf1uf8Cgj6H475dvCXAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="btnDelete.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        xAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAE/SURBVEhL7ZNB
-        asJQEIa9jFKIPJuCQoMbhYgbocXS0pWIQt20QimF6sKVCLrpFTyA+9Jdu5ZeoAfoATzAyB9IGJuRDFqf
-        FLL48mDy8n+ZyUsmM1jSUcAlm81ZJRVbIxVbQy0efFCE6xYjeA3r1fRdfP43fy4GGvlBxEDK4Owt5vA9
-        Ugbnf4k1SBmcRHE+XyDfnNCD54qCbUhZHFXH84sKrWbP9NZqbIRfd9pBrVw/36gDKYeTKHYcQ+2SoZ/x
-        YyBf3NSC4P5tjb5H9/R66cekQMriqDoGzTOHvl56kRwvMvE9UQqkDI5ajDB867Dzz6duTMaRMjg7dYwR
-        Y902ZiBlcFTiYaUUdYrDhBrGjNpd1Yvt15Aoxngh5NIQHDpMASuva1B1DCF+KeneriSKjTkV6/ui6vgQ
-        pGJrHF9snyWtAXJmPO4dUJUPAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="btnSave.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        xAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAB7SURBVEhL7c2x
-        DYAgEIVhl8Gewk2chhEcyc6enTDXkBfzIJeIZ4xXfJIQef80pVxeIZ8QZlMeNuNhM+pwOkoV41LhnZzr
-        ttP3V8PDQhN/JCzYBrodRvgP20DfCmuwDeThJjbewzaQh5vYeA/bQOrwaB4242EzPw7by+UEeCFC2ZNB
-        b2cAAAAASUVORK5CYII=
-</value>
-  </data>
 </root>

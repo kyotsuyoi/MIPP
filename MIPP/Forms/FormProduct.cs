@@ -1,12 +1,6 @@
-﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MIPP.Forms
@@ -15,6 +9,9 @@ namespace MIPP.Forms
     {
         DataSet DS = new DataSet();
         Product Pr = new Product();
+        Administrator Ad = new Administrator();
+        InputBox IB = new InputBox();
+
         public FormProduct()
         {
             InitializeComponent();
@@ -86,11 +83,30 @@ namespace MIPP.Forms
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if(mtbID.Text == "") 
+            if (mtbID.Text == "") 
             {
-                MessageBox.Show("Verifique os campos obrigatórios", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Verifique os campos obrigatórios!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+
+            var DT = Ad.LoadPassword();
+
+            DT.Read();
+            string value = String.Format("{0}", DT[0]);
+            string value1 = "";
+            if (IB.InputBoxFunction("Insert a password", "Password:", ref value1) == DialogResult.OK)
+            {
+                if (value != value1)
+                {
+                    MessageBox.Show("Wrong Pass!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+            }
+            else
+            {
+                return;
+            }
+
             if (MessageBox.Show("Deseja apagar este produto?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (Pr.Delete(int.Parse(mtbID.Text)) == false) { return; }
@@ -130,5 +146,19 @@ namespace MIPP.Forms
             DS = Pr.LoadGrid_SearchDepart(int.Parse(cmbDepart.Text));
             dgvProduct.DataSource = DS.Tables[0];
         }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            ClearAll();
+        }
+
+        private void ClearAll()
+        {
+            mtbID.Text = "";
+            txtDescription.Clear();
+            cmbDepart.Text = "";
+            LoadGrid();
+        }
+        
     }
 }

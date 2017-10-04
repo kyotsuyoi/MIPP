@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProduct));
             this.mtbID = new System.Windows.Forms.MaskedTextBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.cmbDepart = new System.Windows.Forms.ComboBox();
@@ -36,28 +35,35 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvProduct = new System.Windows.Forms.DataGridView();
+            this.btnSearchID = new System.Windows.Forms.Button();
+            this.btnSearchDepart = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnSearchDescription = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.btnSearchDescription = new System.Windows.Forms.Button();
-            this.btnSearchID = new System.Windows.Forms.Button();
-            this.btnSearchDepart = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // mtbID
             // 
-            this.mtbID.Location = new System.Drawing.Point(12, 25);
+            this.mtbID.Location = new System.Drawing.Point(7, 32);
+            this.mtbID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.mtbID.Mask = "000000000";
             this.mtbID.Name = "mtbID";
-            this.mtbID.Size = new System.Drawing.Size(65, 20);
+            this.mtbID.Size = new System.Drawing.Size(85, 22);
             this.mtbID.TabIndex = 0;
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(137, 25);
+            this.txtDescription.Location = new System.Drawing.Point(7, 81);
+            this.txtDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(224, 20);
+            this.txtDescription.Size = new System.Drawing.Size(297, 22);
             this.txtDescription.TabIndex = 1;
             // 
             // cmbDepart
@@ -66,35 +72,39 @@
             this.cmbDepart.FormattingEnabled = true;
             this.cmbDepart.Items.AddRange(new object[] {
             ""});
-            this.cmbDepart.Location = new System.Drawing.Point(425, 25);
+            this.cmbDepart.Location = new System.Drawing.Point(245, 32);
+            this.cmbDepart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbDepart.Name = "cmbDepart";
-            this.cmbDepart.Size = new System.Drawing.Size(45, 21);
+            this.cmbDepart.Size = new System.Drawing.Size(59, 24);
             this.cmbDepart.TabIndex = 10;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(422, 9);
+            this.label4.Location = new System.Drawing.Point(241, 12);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(39, 13);
+            this.label4.Size = new System.Drawing.Size(51, 17);
             this.label4.TabIndex = 9;
             this.label4.Text = "Depart";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(7, 12);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(18, 13);
+            this.label1.Size = new System.Drawing.Size(21, 17);
             this.label1.TabIndex = 11;
             this.label1.Text = "ID";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(134, 9);
+            this.label2.Location = new System.Drawing.Point(3, 61);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 13);
+            this.label2.Size = new System.Drawing.Size(71, 17);
             this.label2.TabIndex = 12;
             this.label2.Text = "Descrição";
             // 
@@ -103,102 +113,146 @@
             this.dgvProduct.AllowUserToAddRows = false;
             this.dgvProduct.AllowUserToDeleteRows = false;
             this.dgvProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProduct.Location = new System.Drawing.Point(12, 52);
+            this.dgvProduct.Location = new System.Drawing.Point(16, 131);
+            this.dgvProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvProduct.Name = "dgvProduct";
             this.dgvProduct.ReadOnly = true;
-            this.dgvProduct.Size = new System.Drawing.Size(499, 476);
+            this.dgvProduct.Size = new System.Drawing.Size(665, 507);
             this.dgvProduct.TabIndex = 1043;
             this.dgvProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvImage_CellClick);
             // 
+            // btnSearchID
+            // 
+            this.btnSearchID.BackgroundImage = global::MIPP.Properties.Resources.MagnifierBlue;
+            this.btnSearchID.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSearchID.Location = new System.Drawing.Point(102, 31);
+            this.btnSearchID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearchID.Name = "btnSearchID";
+            this.btnSearchID.Size = new System.Drawing.Size(25, 25);
+            this.btnSearchID.TabIndex = 1048;
+            this.btnSearchID.UseVisualStyleBackColor = true;
+            this.btnSearchID.Click += new System.EventHandler(this.btnSearchID_Click);
+            // 
+            // btnSearchDepart
+            // 
+            this.btnSearchDepart.BackgroundImage = global::MIPP.Properties.Resources.MagnifierBlue;
+            this.btnSearchDepart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSearchDepart.Location = new System.Drawing.Point(313, 33);
+            this.btnSearchDepart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearchDepart.Name = "btnSearchDepart";
+            this.btnSearchDepart.Size = new System.Drawing.Size(25, 25);
+            this.btnSearchDepart.TabIndex = 1049;
+            this.btnSearchDepart.UseVisualStyleBackColor = true;
+            this.btnSearchDepart.Click += new System.EventHandler(this.btnSearchDepart_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.BackgroundImage = global::MIPP.Properties.Resources.ClearButtonSlinBlue;
+            this.btnClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnClear.Location = new System.Drawing.Point(220, 40);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(4);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(53, 49);
+            this.btnClear.TabIndex = 1050;
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnSearchDescription
+            // 
+            this.btnSearchDescription.BackgroundImage = global::MIPP.Properties.Resources.MagnifierBlue;
+            this.btnSearchDescription.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSearchDescription.Location = new System.Drawing.Point(313, 81);
+            this.btnSearchDescription.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSearchDescription.Name = "btnSearchDescription";
+            this.btnSearchDescription.Size = new System.Drawing.Size(25, 25);
+            this.btnSearchDescription.TabIndex = 1047;
+            this.btnSearchDescription.UseVisualStyleBackColor = true;
+            this.btnSearchDescription.Click += new System.EventHandler(this.btnSearchDescription_Click);
+            // 
             // btnUpdate
-            //
-            this.btnUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnUpdate.Location = new System.Drawing.Point(229, 534);
+            // 
+            this.btnUpdate.BackgroundImage = global::MIPP.Properties.Resources.UpdateBlue;
+            this.btnUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnUpdate.Location = new System.Drawing.Point(97, 40);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(40, 40);
+            this.btnUpdate.Size = new System.Drawing.Size(53, 49);
             this.btnUpdate.TabIndex = 1044;
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnDelete
-            //
-            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnDelete.Location = new System.Drawing.Point(275, 534);
+            // 
+            this.btnDelete.BackgroundImage = global::MIPP.Properties.Resources.DeleteBlue;
+            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDelete.Location = new System.Drawing.Point(159, 40);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(40, 40);
+            this.btnDelete.Size = new System.Drawing.Size(53, 49);
             this.btnDelete.TabIndex = 1045;
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnSave
             // 
-            this.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnSave.Location = new System.Drawing.Point(183, 534);
+            this.btnSave.BackgroundImage = global::MIPP.Properties.Resources.SaveBlue;
+            this.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSave.Location = new System.Drawing.Point(36, 40);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(40, 40);
+            this.btnSave.Size = new System.Drawing.Size(53, 49);
             this.btnSave.TabIndex = 1046;
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // btnSearchDescription
+            // groupBox1
             // 
-            this.btnSearchDescription.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnSearchDescription.Location = new System.Drawing.Point(367, 25);
-            this.btnSearchDescription.Name = "btnSearchDescription";
-            this.btnSearchDescription.Size = new System.Drawing.Size(25, 20);
-            this.btnSearchDescription.TabIndex = 1047;
-            this.btnSearchDescription.Text = "Buscar";
-            this.btnSearchDescription.UseVisualStyleBackColor = true;
-            this.btnSearchDescription.Click += new System.EventHandler(this.btnSearchDescription_Click);
+            this.groupBox1.Controls.Add(this.mtbID);
+            this.groupBox1.Controls.Add(this.txtDescription);
+            this.groupBox1.Controls.Add(this.btnSearchDepart);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.btnSearchID);
+            this.groupBox1.Controls.Add(this.cmbDepart);
+            this.groupBox1.Controls.Add(this.btnSearchDescription);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Location = new System.Drawing.Point(16, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(350, 112);
+            this.groupBox1.TabIndex = 1051;
+            this.groupBox1.TabStop = false;
             // 
-            // btnSearchID
+            // groupBox2
             // 
-            this.btnSearchID.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnSearchID.Location = new System.Drawing.Point(83, 24);
-            this.btnSearchID.Name = "btnSearchID";
-            this.btnSearchID.Size = new System.Drawing.Size(25, 20);
-            this.btnSearchID.TabIndex = 1048;
-            this.btnSearchID.Text = "Buscar";
-            this.btnSearchID.UseVisualStyleBackColor = true;
-            this.btnSearchID.Click += new System.EventHandler(this.btnSearchID_Click);
-            // 
-            // btnSearchDepart
-            // 
-            this.btnSearchDepart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnSearchDepart.Location = new System.Drawing.Point(476, 26);
-            this.btnSearchDepart.Name = "btnSearchDepart";
-            this.btnSearchDepart.Size = new System.Drawing.Size(25, 20);
-            this.btnSearchDepart.TabIndex = 1049;
-            this.btnSearchDepart.Text = "Buscar";
-            this.btnSearchDepart.UseVisualStyleBackColor = true;
-            this.btnSearchDepart.Click += new System.EventHandler(this.btnSearchDepart_Click);
+            this.groupBox2.Controls.Add(this.btnClear);
+            this.groupBox2.Controls.Add(this.btnSave);
+            this.groupBox2.Controls.Add(this.btnDelete);
+            this.groupBox2.Controls.Add(this.btnUpdate);
+            this.groupBox2.Location = new System.Drawing.Point(373, 13);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(308, 111);
+            this.groupBox2.TabIndex = 1052;
+            this.groupBox2.TabStop = false;
             // 
             // FormProduct
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(523, 577);
-            this.Controls.Add(this.btnSearchDepart);
-            this.Controls.Add(this.btnSearchID);
-            this.Controls.Add(this.btnSearchDescription);
-            this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnSave);
+            this.ClientSize = new System.Drawing.Size(697, 652);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvProduct);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.cmbDepart);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtDescription);
-            this.Controls.Add(this.mtbID);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "FormProduct";
             this.Text = "Produto";
             this.Load += new System.EventHandler(this.FormProduct_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -217,5 +271,8 @@
         internal System.Windows.Forms.Button btnSearchDescription;
         internal System.Windows.Forms.Button btnSearchID;
         internal System.Windows.Forms.Button btnSearchDepart;
+        internal System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

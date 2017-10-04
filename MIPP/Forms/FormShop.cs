@@ -14,7 +14,8 @@ namespace MIPP.Forms
     {
         Shop S = new Shop();
         DataSet DS = new DataSet();
-
+        Administrator Ad = new Administrator();
+        InputBox IB = new InputBox();
         public FormShop()
         {
             InitializeComponent();
@@ -59,14 +60,39 @@ namespace MIPP.Forms
                 MessageBox.Show("Verifique ID e Nome da loja!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+            var DT = Ad.LoadPassword();
 
-            if (MessageBox.Show("Deseja este departamento?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            DT.Read();
+            string value = String.Format("{0}", DT[0]);
+            string value1 = "";
+            if (IB.InputBoxFunction("Insert a password", "Password:", ref value1) == DialogResult.OK)
+            {
+                if (value != value1)
+                {
+                    MessageBox.Show("Wrong Pass!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+            }
+            else
+            {
+                return;
+            }
+
+            if (MessageBox.Show("Deseja apagar este produto?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (S.Delete(int.Parse(mtbID.Text)) == false) { return; }
+            }
+
+
+            if (MessageBox.Show("Deseja apagar este departamento?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (S.Delete(int.Parse(mtbID.Text)) == false) { return; }
             }
 
             MessageBox.Show("Excluido!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadGrid();
+
+
         }
 
         private void dgvShop_CellClick(object sender, DataGridViewCellEventArgs e)

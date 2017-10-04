@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonClasses\Connection.cs" />
+    <Compile Include="Forms\Administrator.cs" />
     <Compile Include="Forms\ClassImage.cs" />
     <Compile Include="Forms\Department.cs" />
     <Compile Include="Forms\FormDepartment.cs">
@@ -111,6 +112,7 @@
     <Compile Include="Forms\FormScreen.Designer.cs">
       <DependentUpon>FormScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\InputBox.cs" />
     <Compile Include="Forms\Product.cs" />
     <Compile Include="Forms\Screen.cs" />
     <Compile Include="Forms\Shop.cs" />
@@ -133,6 +135,9 @@
     <EmbeddedResource Include="Forms\FormImage.resx">
       <DependentUpon>FormImage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormProduct.resx">
+      <DependentUpon>FormProduct.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormShop.resx">
       <DependentUpon>FormShop.cs</DependentUpon>
     </EmbeddedResource>
@@ -150,6 +155,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Resource1.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -176,6 +182,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MIPP.ico" />
+    <None Include="Resources\MagnifierBlue.png" />
+    <None Include="Resources\ClearButtonSlinBlue.png" />
+    <None Include="Resources\DeleteBlue.png" />
+    <None Include="Resources\UpdateBlue.png" />
+    <None Include="Resources\SaveBlue.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">

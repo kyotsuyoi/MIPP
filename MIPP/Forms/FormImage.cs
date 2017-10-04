@@ -155,6 +155,7 @@ namespace MIPP.Forms
                 MessageBox.Show("Selecione a imagem!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+
             if (CI.Delete(ID) == false) { return; }
 
             MessageBox.Show("Dados apagados com sucesso!", "Apagado", MessageBoxButtons.OK, MessageBoxIcon.Information);

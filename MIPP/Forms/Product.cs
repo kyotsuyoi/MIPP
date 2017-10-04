@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Data;
-using System.Drawing;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using MIPP.CommonClasses;
@@ -126,16 +125,13 @@ namespace MIPP.Forms
                 C.Connect.Dispose();
                 C.Connect.Close();
             }
-
         }
 
         public DataSet LoadGrid_SearchID(int ID)
         {
             try
             {
-                C.Connect.Close();
                 C.Connect.Open();
-
                 C.DA = new MySqlDataAdapter("SELECT * FROM produto WHERE id = " + ID, C.Connect);
                 DataSet DS = new DataSet();
                 C.DA.Fill(DS);
@@ -146,15 +142,18 @@ namespace MIPP.Forms
                 MessageBox.Show(ex.Message);
                 return null;
             }
+            finally
+            {
+                C.Connect.Dispose();
+                C.Connect.Close();
+            }
         }
 
         public DataSet LoadGrid_SearchDesciption(string Description)
         {
             try
             {
-                C.Connect.Close();
                 C.Connect.Open();
-
                 C.DA = new MySqlDataAdapter("SELECT * FROM produto WHERE descricao LIKE '%" + Description + "%'", C.Connect);
                 DataSet DS = new DataSet();
                 C.DA.Fill(DS);
@@ -165,15 +164,18 @@ namespace MIPP.Forms
                 MessageBox.Show(ex.Message);
                 return null;
             }
+            finally
+            {
+                C.Connect.Dispose();
+                C.Connect.Close();
+            }
         }
 
         public DataSet LoadGrid_SearchDepart(int Depart)
         {
             try
             {
-                C.Connect.Close();
                 C.Connect.Open();
-
                 C.DA = new MySqlDataAdapter("SELECT * FROM produto WHERE id_depto = " + Depart, C.Connect);
                 DataSet DS = new DataSet();
                 C.DA.Fill(DS);
@@ -183,6 +185,11 @@ namespace MIPP.Forms
             {
                 MessageBox.Show(ex.Message);
                 return null;
+            }
+            finally
+            {
+                C.Connect.Dispose();
+                C.Connect.Close();
             }
         }
         }
