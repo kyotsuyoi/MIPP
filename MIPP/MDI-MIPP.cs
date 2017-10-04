@@ -21,6 +21,7 @@ namespace MIPP
         FormShop FSh;
         FormDepartment FD;
         FormScreen FSc;
+        FormProduct FP;
 
         string Version;
 
@@ -52,41 +53,45 @@ namespace MIPP
                 c.Connect.Dispose();
             }
         }
-
-        private void telasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (FSc != null) { FSc.Close(); }
-            FSc = new FormScreen();
-            FSc.MdiParent = this;
-            FSc.Activate();
-            FSc.Show();
-        }
-
-        private void departamentosToolStripMenuItem_Click(object sender, EventArgs e)
+        
+        private void DepartamentosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (FD != null) { FD.Close(); }
-            FD = new FormDepartment();
-            FD.MdiParent = this;
+            FD = new FormDepartment { MdiParent = this };
             FD.Activate();
             FD.Show();
         }
 
-        private void lojasToolStripMenuItem_Click(object sender, EventArgs e)
+        private void LojasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (FSh != null) { FSh.Close(); }
-            FSh = new FormShop();
-            FSh.MdiParent = this;
+            FSh = new FormShop { MdiParent = this };
             FSh.Activate();
             FSh.Show();
         }
 
-        private void imagensToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ImagensToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (FI != null) { FI.Close(); }
-            FI = new FormImage();
-            FI.MdiParent = this;
+            FI = new FormImage { MdiParent = this };
             FI.Activate();
             FI.Show();
+        }
+
+        private void ProdutosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (FP != null) { FP.Close(); }
+            FP = new FormProduct { MdiParent = this };
+            FP.Activate();
+            FP.Show();
+        }
+
+        private void TelasMIPPPlayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (FSc != null) { FSc.Close(); }
+            FSc = new FormScreen { MdiParent = this };
+            FSc.Activate();
+            FSc.Show();
         }
     }
 }

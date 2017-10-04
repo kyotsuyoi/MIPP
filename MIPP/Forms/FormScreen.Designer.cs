@@ -61,6 +61,9 @@
             this.btnDeleteP = new System.Windows.Forms.Button();
             this.btnInsertP = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnReload = new System.Windows.Forms.Button();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.btnUpProd = new System.Windows.Forms.Button();
@@ -84,10 +87,10 @@
             this.dgvProd.AllowUserToAddRows = false;
             this.dgvProd.AllowUserToDeleteRows = false;
             this.dgvProd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProd.Location = new System.Drawing.Point(6, 19);
+            this.dgvProd.Location = new System.Drawing.Point(6, 69);
             this.dgvProd.Name = "dgvProd";
             this.dgvProd.ReadOnly = true;
-            this.dgvProd.Size = new System.Drawing.Size(440, 484);
+            this.dgvProd.Size = new System.Drawing.Size(440, 434);
             this.dgvProd.TabIndex = 0;
             this.toolTip.SetToolTip(this.dgvProd, "Duplo click para adicionar um produto na tela");
             this.dgvProd.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProd_CellDoubleClick);
@@ -383,10 +386,10 @@
             this.dgvImage.AllowUserToAddRows = false;
             this.dgvImage.AllowUserToDeleteRows = false;
             this.dgvImage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvImage.Location = new System.Drawing.Point(834, 31);
+            this.dgvImage.Location = new System.Drawing.Point(6, 138);
             this.dgvImage.Name = "dgvImage";
             this.dgvImage.ReadOnly = true;
-            this.dgvImage.Size = new System.Drawing.Size(440, 484);
+            this.dgvImage.Size = new System.Drawing.Size(440, 490);
             this.dgvImage.TabIndex = 1042;
             this.toolTip.SetToolTip(this.dgvImage, "Duplo click para gravar a foto da tela");
             this.dgvImage.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvImage_CellClick);
@@ -432,13 +435,48 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.dgvImage);
+            this.groupBox2.Controls.Add(this.txtSearch);
+            this.groupBox2.Controls.Add(this.btnSearch);
             this.groupBox2.Controls.Add(this.dgvProd);
+            this.groupBox2.Controls.Add(this.btnReload);
             this.groupBox2.Location = new System.Drawing.Point(828, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(456, 515);
             this.groupBox2.TabIndex = 1020;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Produtos do departamento";
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(20, 37);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(181, 20);
+            this.txtSearch.TabIndex = 1044;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnSearch.Location = new System.Drawing.Point(207, 35);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(69, 23);
+            this.btnSearch.TabIndex = 1043;
+            this.btnSearch.Text = "Buscar";
+            this.toolTip.SetToolTip(this.btnSearch, "Click para mudar a cor");
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // btnReload
+            // 
+            this.btnReload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnReload.Location = new System.Drawing.Point(282, 35);
+            this.btnReload.Name = "btnReload";
+            this.btnReload.Size = new System.Drawing.Size(69, 23);
+            this.btnReload.TabIndex = 1045;
+            this.btnReload.Text = "Atualizar";
+            this.toolTip.SetToolTip(this.btnReload, "Click para mudar a cor");
+            this.btnReload.UseVisualStyleBackColor = true;
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
             // 
             // openFileDialog
             // 
@@ -486,7 +524,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1283, 539);
             this.Controls.Add(this.btnPriceUpdate);
-            this.Controls.Add(this.dgvImage);
             this.Controls.Add(this.btnUpProd);
             this.Controls.Add(this.btnDownProd);
             this.Controls.Add(this.groupBox2);
@@ -511,6 +548,7 @@
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvImage)).EndInit();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -554,5 +592,8 @@
         private System.Windows.Forms.DataGridView dgvImage;
         private System.Windows.Forms.DataGridView dgvProdScreen;
         private AxWMPLib.AxWindowsMediaPlayer axWMP;
+        private System.Windows.Forms.TextBox txtSearch;
+        internal System.Windows.Forms.Button btnSearch;
+        internal System.Windows.Forms.Button btnReload;
     }
 }

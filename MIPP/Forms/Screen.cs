@@ -32,6 +32,27 @@ namespace MIPP.Forms
             }
         }
 
+        public DataSet LoadGrid_Search(int Loja_ID, int Depart_ID, int Screen_ID, string Description)
+        {
+            try
+            {
+                C.Connect.Close();
+                C.Connect.Open();
+
+                C.DA = new MySqlDataAdapter("SELECT p.id, p.descricao, pl.preco FROM (produto AS p JOIN preco_loja AS pl ON pl.id_prod = p.id) " +
+                                            "LEFT JOIN(SELECT * FROM produto_tela WHERE idTela = '" + Screen_ID + "' AND idLoja = '" + Loja_ID + "' AND idDepto = '" + Depart_ID + "') AS pt ON pt.idProduto = p.id " +
+                                            "WHERE pl.id_loja = '" + Loja_ID + "' AND p.id_depto = '" + Depart_ID + "' AND pt.idProduto is null AND p.descricao LIKE '%" + Description + "%'", C.Connect);
+                DataSet DS = new DataSet();
+                C.DA.Fill(DS);
+                return DS;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+        }
+
         public DataSet LoadGrid_ProdScreen(int Loja_ID, int Depart_ID, int Sceen_ID) {
             try
             {

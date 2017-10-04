@@ -579,6 +579,7 @@ namespace MIPP
             MessageBox.Show("Preços atualizados!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+
         private void cbVideo_CheckedChanged(object sender, EventArgs e)
         {
             if (cbVideo.Checked == true)
@@ -609,6 +610,28 @@ namespace MIPP
 
             dgvImage.DataSource = DS.Tables[0];
         }
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (cmbLoja.Text == "" || cmbDepart.Text == "" || cmbScreen.Text == "" || txtSearch.Text == "")
+            {
+                MessageBox.Show("Selecione a loja, Departamento, Tela e preencha o campo de pesquisa!", "Atenção"
+                ,MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            DS = SC.LoadGrid_Search(int.Parse(cmbLoja.Text),int.Parse(cmbDepart.Text),int.Parse(cmbScreen.Text),txtSearch.Text);
+            dgvProd.DataSource = DS.Tables[0];
+        }
 
+        private void btnReload_Click(object sender, EventArgs e)
+        {
+            if (cmbLoja.Text == "" || cmbDepart.Text == "" || cmbScreen.Text == "")
+            {
+                MessageBox.Show("Selecione a loja, Departamento, Tela!", "Atenção"
+                , MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            DS = SC.LoadGrid_Prod(int.Parse(cmbLoja.Text), int.Parse(cmbDepart.Text), int.Parse(cmbScreen.Text));
+            dgvProd.DataSource = DS.Tables[0];
+        }
     }
 }
