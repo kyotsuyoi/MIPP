@@ -31,14 +31,22 @@ namespace MIPP.Forms
 
         }
 
-
         public Boolean Insert(int ID, string Name, int ImageID, bool Activated)
         {
+            int b = 0;
+            if (Activated == true)
+            {
+                b = 1;
+            }
+            else
+            {
+                b = 0;
+            }
             try
             {
                 C.Connect.Close();
-                C.cmd = new MySqlCommand("INSERT INTO departamento (id, nome, background, ativo) " +
-                                    "VALUES ('" + ID + "', '" + Name + "', '" + ImageID + "', '" + Activated + "')",C.Connect);
+                C.cmd = new MySqlCommand("INSERT INTO departamento (id, nome, ativo) " +
+                                    "VALUES ('" + ID + "', '" + Name + "', '" + b + "')", C.Connect);
                 C.Connect.Open();
                 C.cmd.ExecuteNonQuery();
                 return true;
@@ -52,20 +60,20 @@ namespace MIPP.Forms
 
         public Boolean Update(int ID, string Name, int ImageID, bool Activated)
         {
-            int activ;
+            int b;
             if (Activated == true)
             {
-                activ = 1;
+                b = 1;
             }
             else
             {
-                activ = 0;
+                b = 0;
             }
 
             try
             {
                 C.Connect.Close();
-                C.cmd = new MySqlCommand ("UPDATE departamento SET nome = '" + Name + "', " + "background = '" + ImageID + "', " + "ativo = '" + activ + "' " +
+                C.cmd = new MySqlCommand ("UPDATE departamento SET nome = '" + Name + "', " + "ativo = '" + b + "', " + "background = '" + ImageID + "' " +
                                          "WHERE id = '" + ID + "'", C.Connect);
                 C.Connect.Open();
                 C.cmd.ExecuteNonQuery();

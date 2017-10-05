@@ -17,7 +17,7 @@ namespace MIPP.Forms
         Department department = new Department();
         Administrator Ad = new Administrator();
         InputBox IB = new InputBox();
-        ClassImage CI = new ClassImage();
+        Midia CI = new Midia();
         int ImageID = 0;
 
         public FormDepartment()
@@ -43,13 +43,13 @@ namespace MIPP.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (mtbID.Text=="" || mtbID.Text == "0" || txtName.Text == "" || ImageID == 0)
+            if (mtbID.Text=="" || mtbID.Text == "0" || txtName.Text == "")
             {
                 MessageBox.Show("Verifique ID e nome do departamento!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             
-            if (department.Insert(int.Parse(mtbID.Text), txtName.Text, ImageID, cbActivated.Checked) == true) { return; }
+            if (department.Insert(int.Parse(mtbID.Text), txtName.Text, ImageID, cbActivated.Checked) == false) { return; }
 
             MessageBox.Show("Salvo!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadGrid();
@@ -57,9 +57,9 @@ namespace MIPP.Forms
         
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (mtbID.Text == "" || mtbID.Text == "0" || txtName.Text == "" || ImageID == 0)
+            if (mtbID.Text == "" || mtbID.Text == "0" || txtName.Text == "")
             {
-                MessageBox.Show("Verifique ID e Nome do departamento!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Verifique ID e nome do departamento!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -191,9 +191,8 @@ namespace MIPP.Forms
         {
             if (cbActivated.Checked == true && (cbActivated.Checked == true && ImageID == 0))
             {
-                MessageBox.Show("Não pode ativar o departamento sem uma imagem!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                cbActivated.Checked = false;
-                return;
+                MessageBox.Show("O departamento esta sem uma imagem de fundo!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                //cbActivated.Checked = false;
             }
 
         }

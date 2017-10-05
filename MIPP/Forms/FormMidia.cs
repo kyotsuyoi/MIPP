@@ -12,15 +12,15 @@ using System.IO;
 
 namespace MIPP.Forms
 {
-    public partial class FormImage : Form
+    public partial class FormMidia : Form
     {
 
         DataSet DS = new DataSet();
-        ClassImage CI = new ClassImage();
+        Midia CI = new Midia();
         int ID;
         public int CallingDepart = 0;
 
-        public FormImage()
+        public FormMidia()
         {
             InitializeComponent();
         }
@@ -222,8 +222,11 @@ namespace MIPP.Forms
 
         private void rbImage_CheckedChanged(object sender, EventArgs e)
         {
-            pbImage.Image = null;
-            pbBackground.Image = null;
+            if (pbImage.Image == null && rbImage.Checked == true && rbBackground.Checked == false)
+            {
+                pbImage.Image = pbBackground.Image;
+                pbBackground.Image = null;
+            }
             axWMP.URL = null;
 
             if (rbImage.Checked == true)
@@ -236,8 +239,11 @@ namespace MIPP.Forms
 
         private void rbBackground_CheckedChanged(object sender, EventArgs e)
         {
-            pbImage.Image = null;
-            pbBackground.Image = null;
+            if (rbBackground.Image == null && rbBackground.Checked == true && rbImage.Checked == false)
+            {
+                pbBackground.Image = pbImage.Image;
+                pbImage.Image = null;
+            }
             axWMP.URL = null;
 
             if (rbBackground.Checked == true)

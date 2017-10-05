@@ -33,10 +33,11 @@
             this.cadastroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lojasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.departamentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.imagensToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MidiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configurarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.telasMIPPPlayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblAtualization = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,7 +59,7 @@
             this.cadastroToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lojasToolStripMenuItem,
             this.departamentosToolStripMenuItem,
-            this.imagensToolStripMenuItem,
+            this.MidiaToolStripMenuItem,
             this.produtosToolStripMenuItem});
             this.cadastroToolStripMenuItem.Name = "cadastroToolStripMenuItem";
             this.cadastroToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
@@ -78,12 +79,12 @@
             this.departamentosToolStripMenuItem.Text = "Departamentos";
             this.departamentosToolStripMenuItem.Click += new System.EventHandler(this.DepartamentosToolStripMenuItem_Click);
             // 
-            // imagensToolStripMenuItem
+            // MidiaToolStripMenuItem
             // 
-            this.imagensToolStripMenuItem.Name = "imagensToolStripMenuItem";
-            this.imagensToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
-            this.imagensToolStripMenuItem.Text = "Imagens";
-            this.imagensToolStripMenuItem.Click += new System.EventHandler(this.ImagensToolStripMenuItem_Click);
+            this.MidiaToolStripMenuItem.Name = "MidiaToolStripMenuItem";
+            this.MidiaToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
+            this.MidiaToolStripMenuItem.Text = "Midia";
+            this.MidiaToolStripMenuItem.Click += new System.EventHandler(this.ImagensToolStripMenuItem_Click);
             // 
             // produtosToolStripMenuItem
             // 
@@ -107,6 +108,15 @@
             this.telasMIPPPlayToolStripMenuItem.Text = "Telas MIPP Play";
             this.telasMIPPPlayToolStripMenuItem.Click += new System.EventHandler(this.TelasMIPPPlayToolStripMenuItem_Click);
             // 
+            // lblAtualization
+            // 
+            this.lblAtualization.AutoSize = true;
+            this.lblAtualization.Location = new System.Drawing.Point(12, 47);
+            this.lblAtualization.Name = "lblAtualization";
+            this.lblAtualization.Size = new System.Drawing.Size(17, 17);
+            this.lblAtualization.TabIndex = 2;
+            this.lblAtualization.Text = "X";
+            // 
             // MDI_MIPP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -115,6 +125,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1140, 793);
+            this.Controls.Add(this.lblAtualization);
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -124,6 +135,7 @@
             this.Name = "MDI_MIPP";
             this.Text = "MIPP";
             this.Load += new System.EventHandler(this.MDI_MIPP_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MDI_MIPP_FromClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -137,9 +149,10 @@
         private System.Windows.Forms.ToolStripMenuItem cadastroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lojasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem departamentosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem imagensToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MidiaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem produtosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem configurarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem telasMIPPPlayToolStripMenuItem;
+        private System.Windows.Forms.Label lblAtualization;
     }
 }

@@ -1,10 +1,7 @@
 ﻿using System;
 using System.IO;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MIPP.Forms;
@@ -17,7 +14,7 @@ namespace MIPP
 
         DataSet DS = new DataSet();
         Forms.Screen SC = new Forms.Screen();
-        ClassImage CI = new ClassImage();
+        Midia CI = new Midia();
         int vDepart = 0;
         int ImageID = 0;
 

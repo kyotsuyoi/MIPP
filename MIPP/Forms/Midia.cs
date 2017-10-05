@@ -7,7 +7,7 @@ using MIPP.CommonClasses;
 
 namespace MIPP.Forms
 {
-    class ClassImage
+    class Midia
     {
         Connection C = new Connection();
 
@@ -50,7 +50,7 @@ namespace MIPP.Forms
             try
             {
                 C.Connect.Open();
-                C.cmd = new MySqlCommand("UPDATE imagem SET descricao = '" + Description + "', " + "tipo = '" + type + "', " + "img = @blob " +
+                C.cmd = new MySqlCommand("UPDATE imagem SET id_depto = '"+ DepartID +"', descricao = '" + Description + "', " + "tipo = '" + type + "', " + "img = @blob " +
                                          "WHERE id = '" + ID + "'", C.Connect);
                 byte[] b;
                 if (image != null)
@@ -129,7 +129,7 @@ namespace MIPP.Forms
             try
             {
                 C.Connect.Open();
-                C.DA = new MySqlDataAdapter("SELECT id, id_depto, descricao, grade FROM imagem WHERE id_depto ='" + ID + "'", C.Connect);
+                C.DA = new MySqlDataAdapter("SELECT id, id_depto, descricao, tipo FROM imagem WHERE id_depto ='" + ID + "'", C.Connect);
                 DataSet DS = new DataSet();
                 C.DA.Fill(DS);
                 return DS;
@@ -195,7 +195,7 @@ namespace MIPP.Forms
             try
             {
                 C.Connect.Open();
-                C.DA = new MySqlDataAdapter("SELECT id, descricao FROM imagem WHERE id_depto ='" + ID + "' AND grade = '1'", C.Connect);
+                C.DA = new MySqlDataAdapter("SELECT id, descricao FROM imagem WHERE id_depto ='" + ID + "' AND tipo = '1'", C.Connect);
                 DataSet DS = new DataSet();
                 C.DA.Fill(DS);
                 return DS;
@@ -345,8 +345,7 @@ namespace MIPP.Forms
                 MySqlDataReader reader;
                 C.Connect.Open();
                 C.cmd = new MySqlCommand("SELECT id " +
-                                         "FROM departamento " +
-                                         "WHERE ativo = '1'", C.Connect);
+                                         "FROM departamento ORDER BY id", C.Connect);
                 reader = C.cmd.ExecuteReader();
                 
                 var DT = new DataTable();

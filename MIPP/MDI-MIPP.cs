@@ -1,28 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 using MIPP.CommonClasses;
 using MIPP.Forms;
+using MySql.Data.MySqlClient;
 
 namespace MIPP
 {
     public partial class MDI_MIPP : Form
     {
         //string system_version;
-        Connection c = new Connection();
 
-        FormImage FI;
+        MIPP M;
+        FormMidia FM;
         FormShop FSh;
         FormDepartment FD;
         FormScreen FSc;
         FormProduct FP;
-
+        Thread T;
+        bool vCheck = true;
+ 
         string Version;
 
         public MDI_MIPP()
@@ -32,28 +29,19 @@ namespace MIPP
 
         private void MDI_MIPP_Load(object sender, EventArgs e)
         {
-            Version = "0.5 Beta";
+            Version = "0.6 Beta";
             this.Text = this.Text + " " + Version;
             this.WindowState = FormWindowState.Maximized;
-            try
-            {
-                c.cmd.Connection = c.Connect;
-                c.Connect.Open();
-                //c.cmd.CommandText = "SELECT system_version FROM system_checks WHERE id = '2'";
-                //system_version = (string)c.cmd.ExecuteScalar();
-                //MessageBox.Show(""+s, "Teste", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro! " + ex.Message);
-            }
-            finally
-            {
-                c.Connect.Close();
-                c.Connect.Dispose();
-            }
+            M = new MIPP();
+
+            T = new Thread(ThreadProcess);
+            T.Start();
         }
-        
+        private void MDI_MIPP_FromClosing(object sender, EventArgs e)
+        {
+            vCheck = false;
+        }
+
         private void DepartamentosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (FD != null) { FD.Close(); }
@@ -72,10 +60,10 @@ namespace MIPP
 
         private void ImagensToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (FI != null) { FI.Close(); }
-            FI = new FormImage { MdiParent = this };
-            FI.Activate();
-            FI.Show();
+            if (FM != null) { FM.Close(); }
+            FM = new FormMidia { MdiParent = this };
+            FM.Activate();
+            FM.Show();
         }
 
         private void ProdutosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -92,6 +80,48 @@ namespace MIPP
             FSc = new FormScreen { MdiParent = this };
             FSc.Activate();
             FSc.Show();
+        }
+
+        private void ThreadProcess()
+        {
+            while (true)
+            {
+                var DT = M.LoadShop();
+
+                while (DT.Read())
+                {
+                    var php = new System.Net.WebClient();
+                    string ID = String.Format("{0}", DT[0]);
+
+                    try
+                    {
+                        if (this.lblAtualization.InvokeRequired)
+                        {
+                            this.lblAtualization.BeginInvoke((MethodInvoker)delegate ()
+                            { this.lblAtualization.Text = "Atualizando loja " + ID; });
+                        }
+                        else
+                        {
+                            this.lblAtualization.Text = "";
+                        }
+
+                        php.DownloadString("http://192.168.0.221:70/MIPP/insereProdutos.php?Unidade=" + ID);
+
+                        if (vCheck == false) { return; }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Erro", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
+
+                }
+
+                this.lblAtualization.BeginInvoke((MethodInvoker)delegate ()
+                { this.lblAtualization.Text = "Preços atualizados"; });
+
+                Thread.Sleep(60000);
+            }
         }
     }
 }
