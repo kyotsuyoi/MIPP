@@ -37,6 +37,7 @@
             this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configurarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.telasMIPPPlayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.telasBIPPPlayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblAtualization = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -96,7 +97,8 @@
             // configurarToolStripMenuItem
             // 
             this.configurarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.telasMIPPPlayToolStripMenuItem});
+            this.telasMIPPPlayToolStripMenuItem,
+            this.telasBIPPPlayToolStripMenuItem});
             this.configurarToolStripMenuItem.Name = "configurarToolStripMenuItem";
             this.configurarToolStripMenuItem.Size = new System.Drawing.Size(91, 24);
             this.configurarToolStripMenuItem.Text = "Configurar";
@@ -107,6 +109,13 @@
             this.telasMIPPPlayToolStripMenuItem.Size = new System.Drawing.Size(185, 26);
             this.telasMIPPPlayToolStripMenuItem.Text = "Telas MIPP Play";
             this.telasMIPPPlayToolStripMenuItem.Click += new System.EventHandler(this.TelasMIPPPlayToolStripMenuItem_Click);
+            // 
+            // telasBIPPPlayToolStripMenuItem
+            // 
+            this.telasBIPPPlayToolStripMenuItem.Name = "telasBIPPPlayToolStripMenuItem";
+            this.telasBIPPPlayToolStripMenuItem.Size = new System.Drawing.Size(185, 26);
+            this.telasBIPPPlayToolStripMenuItem.Text = "Telas BIPP Play";
+            this.telasBIPPPlayToolStripMenuItem.Click += new System.EventHandler(this.telasBIPPPlayToolStripMenuItem_Click);
             // 
             // lblAtualization
             // 
@@ -134,8 +143,8 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MDI_MIPP";
             this.Text = "MIPP";
-            this.Load += new System.EventHandler(this.MDI_MIPP_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MDI_MIPP_FromClosing);
+            this.Load += new System.EventHandler(this.MDI_MIPP_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -154,5 +163,6 @@
         private System.Windows.Forms.ToolStripMenuItem configurarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem telasMIPPPlayToolStripMenuItem;
         private System.Windows.Forms.Label lblAtualization;
+        private System.Windows.Forms.ToolStripMenuItem telasBIPPPlayToolStripMenuItem;
     }
 }

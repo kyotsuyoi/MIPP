@@ -15,6 +15,7 @@ namespace MIPP
         DataSet DS = new DataSet();
         Forms.Screen SC = new Forms.Screen();
         Midia CI = new Midia();
+        Department De = new Department();
         int vDepart = 0;
         int ImageID = 0;
 
@@ -133,14 +134,18 @@ namespace MIPP
 
         private void cmbDepart_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             if (cmbDepart.Text == "")
             {
                 dgvImage.DataSource = null;
                 dgvProd.DataSource = null;
                 pbBackground.Image = null;
                 pbScreen.Image = null;
+                lblDepart.Text = "";
                 return;
             }
+            lblDepart.Text = De.LoadDepart(int.Parse(cmbDepart.Text));
+
             LoadCombo_Screen();
             LoadDGV_Prod();
             pbBackground.Image = SC.LoadImage_BackgroundScreen(int.Parse(cmbDepart.Text));

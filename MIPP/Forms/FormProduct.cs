@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace MIPP.Forms
@@ -9,6 +10,7 @@ namespace MIPP.Forms
     {
         DataSet DS = new DataSet();
         Product Pr = new Product();
+        Department De = new Department();
         Administrator Ad = new Administrator();
         InputBox IB = new InputBox();
 
@@ -25,6 +27,7 @@ namespace MIPP.Forms
             {
                 cmbDepart.Items.Add(String.Format("{0}", DT[0]));
             }
+            ClearAll();
             LoadGrid();
         }
 
@@ -41,7 +44,7 @@ namespace MIPP.Forms
                 mtbID.Text = (dgvProduct[0, y].Value).ToString();
                 txtDescription.Text = (string)dgvProduct[1, y].Value;
                 cmbDepart.Text = (dgvProduct[2, y].Value).ToString();
-
+                pbPhoto.Image = Pr.LoadImage(int.Parse(mtbID.Text));
             }
             catch (Exception ex)
             {
@@ -75,7 +78,7 @@ namespace MIPP.Forms
                 MessageBox.Show("Verifique os campos obrigatórios", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            if (Pr.Update(int.Parse(mtbID.Text), txtDescription.Text, int.Parse(cmbDepart.Text)) == false) { return; }
+            if (Pr.Update(int.Parse(mtbID.Text), txtDescription.Text, int.Parse(cmbDepart.Text), pbPhoto.Image) == false) { return; }
 
             MessageBox.Show("Alterado!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadGrid();
@@ -157,8 +160,31 @@ namespace MIPP.Forms
             mtbID.Text = "";
             txtDescription.Clear();
             cmbDepart.Text = "";
+            lblDepart.Text = "";
+            pbPhoto.Image = null;
             LoadGrid();
         }
-        
+
+        private void CmbDepart_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbDepart.Text=="")
+            {
+                lblDepart.Text = "";
+                return;
+            }
+            lblDepart.Text = De.LoadDepart(int.Parse(cmbDepart.Text));
+        }
+
+        private void btnPhoto_Click(object sender, EventArgs e)
+        {
+            
+            OpenFileDialog OFD = new OpenFileDialog();
+            OFD.Filter = "Image Files (*.bmp, * .jpg, * .png) Then|*.bmp;*.jpg;*png";
+
+            if (OFD.ShowDialog() == DialogResult.OK)
+            {
+                pbPhoto.Image = Image.FromFile(OFD.FileName);
+            }
+        }
     }
 }

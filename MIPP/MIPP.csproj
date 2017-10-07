@@ -79,9 +79,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonClasses\Connection.cs" />
-    <Compile Include="Forms\Administrator.cs" />
-    <Compile Include="Forms\Midia.cs" />
-    <Compile Include="Forms\Department.cs" />
+    <Compile Include="Classes\Administrator.cs" />
+    <Compile Include="Classes\BIPP.cs" />
+    <Compile Include="Classes\Midia.cs" />
+    <Compile Include="Classes\Department.cs" />
+    <Compile Include="Forms\FormBIPP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormBIPP.Designer.cs">
+      <DependentUpon>FormBIPP.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormDepartment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,10 +119,10 @@
     <Compile Include="Forms\FormScreen.Designer.cs">
       <DependentUpon>FormScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\InputBox.cs" />
-    <Compile Include="Forms\Product.cs" />
-    <Compile Include="Forms\Screen.cs" />
-    <Compile Include="Forms\Shop.cs" />
+    <Compile Include="Classes\InputBox.cs" />
+    <Compile Include="Classes\Product.cs" />
+    <Compile Include="Classes\Screen.cs" />
+    <Compile Include="Classes\Shop.cs" />
     <Compile Include="MDI-MIPP.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +137,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource1.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\FormBIPP.resx">
+      <DependentUpon>FormBIPP.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormDepartment.resx">
       <DependentUpon>FormDepartment.cs</DependentUpon>
     </EmbeddedResource>

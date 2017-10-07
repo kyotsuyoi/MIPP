@@ -50,3 +50,4 @@ C:\Users\admin\Documents\GitHub\MIPP\obj\Debug\MIPP.exe
 C:\Users\admin\Documents\GitHub\MIPP\obj\Debug\MIPP.pdb
 C:\Users\admin\Documents\GitHub\MIPP\obj\Debug\MIPP.Forms.FormProduct.resources
 C:\Users\admin\Documents\GitHub\MIPP\obj\Debug\MIPP.Forms.FormMidia.resources
+C:\Users\admin\Documents\GitHub\MIPP\obj\Debug\MIPP.Forms.FormBIPP.resources

@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDepartment));
             this.gbDepart = new System.Windows.Forms.GroupBox();
+            this.dgvImage = new System.Windows.Forms.DataGridView();
             this.cbActivated = new System.Windows.Forms.CheckBox();
             this.btnPhoto = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,12 +41,11 @@
             this.dgvDepart = new System.Windows.Forms.DataGridView();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.dgvImage = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pbBackground = new System.Windows.Forms.PictureBox();
             this.gbDepart.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDepart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDepart)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBackground)).BeginInit();
             this.SuspendLayout();
@@ -71,6 +71,21 @@
             this.gbDepart.TabIndex = 1022;
             this.gbDepart.TabStop = false;
             this.gbDepart.Text = "Departamentos";
+            // 
+            // dgvImage
+            // 
+            this.dgvImage.AllowUserToAddRows = false;
+            this.dgvImage.AllowUserToDeleteRows = false;
+            this.dgvImage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvImage.Location = new System.Drawing.Point(16, 20);
+            this.dgvImage.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvImage.Name = "dgvImage";
+            this.dgvImage.ReadOnly = true;
+            this.dgvImage.Size = new System.Drawing.Size(357, 469);
+            this.dgvImage.TabIndex = 1023;
+            this.dgvImage.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvImage_CellClick);
+            this.dgvImage.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvImage_CellDoubleClick);
+            this.dgvImage.DoubleClick += new System.EventHandler(this.dgvImage_DoubleClick);
             // 
             // cbActivated
             // 
@@ -182,21 +197,6 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // dgvImage
-            // 
-            this.dgvImage.AllowUserToAddRows = false;
-            this.dgvImage.AllowUserToDeleteRows = false;
-            this.dgvImage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvImage.Location = new System.Drawing.Point(16, 20);
-            this.dgvImage.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvImage.Name = "dgvImage";
-            this.dgvImage.ReadOnly = true;
-            this.dgvImage.Size = new System.Drawing.Size(357, 469);
-            this.dgvImage.TabIndex = 1023;
-            this.dgvImage.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvImage_CellClick);
-            this.dgvImage.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvImage_CellDoubleClick);
-            this.dgvImage.DoubleClick += new System.EventHandler(this.dgvImage_DoubleClick);
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.pbBackground);
@@ -235,8 +235,8 @@
             this.Load += new System.EventHandler(this.FormDepartment_Load);
             this.gbDepart.ResumeLayout(false);
             this.gbDepart.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDepart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDepart)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbBackground)).EndInit();
             this.ResumeLayout(false);

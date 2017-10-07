@@ -3,87 +3,20 @@ using System.Data;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using MIPP.CommonClasses;
+using System.Drawing;
 
 namespace MIPP.Forms
 {
-    class Product
+    class BIPP
     {
         Connection C = new Connection();
-    
-        public Boolean Insert(int ID, string Description, int ID_Depart)
-        {
-            try
-            {
-                C.Connect.Open();
-                C.cmd = new MySqlCommand("INSERT INTO produto (id, descricao, id_depto) " +
-                                    "VALUES ('" + ID + "', '" + Description + "', '" + ID_Depart + "')", C.Connect);
-                
-                C.cmd.ExecuteNonQuery();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return false;
-            }
-            finally
-            {
-                C.Connect.Close();
-                C.Connect.Dispose();
-            }
-        }
-
-        public Boolean Update(int ID, string Description, int ID_Depart)
-        {
-
-            try
-            {
-                C.Connect.Open();
-                C.cmd = new MySqlCommand("UPDATE produto SET descricao = '" + Description + "', " + "id_depto = '" + ID_Depart + "'" +
-                                         "WHERE id = '" + ID + "'", C.Connect);
-                C.cmd.ExecuteNonQuery();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return false;
-            }
-            finally
-            {
-                C.Connect.Close();
-                C.Connect.Dispose();
-            }
-        }
-
-        public Boolean Delete(int ID)
-        {
-            try
-            {
-                C.Connect.Open();
-                C.cmd = new MySqlCommand("DELETE FROM produto " +
-                                    "WHERE `id`='" + ID + "' ", C.Connect);              
-                C.cmd.ExecuteNonQuery();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return false;
-            }
-            finally
-            {
-                C.Connect.Close();
-                C.Connect.Dispose();
-            }
-        }
 
         public DataSet LoadGrid()
         {
             try
             {
                 C.Connect.Open();
-                C.DA = new MySqlDataAdapter("SELECT * FROM produto", C.Connect);
+                C.DA = new MySqlDataAdapter("SELECT id, descricao, id_depto FROM produto", C.Connect);
                 DataSet DS = new DataSet();
                 C.DA.Fill(DS);
                 return DS;
@@ -132,7 +65,7 @@ namespace MIPP.Forms
             try
             {
                 C.Connect.Open();
-                C.DA = new MySqlDataAdapter("SELECT * FROM produto WHERE id = " + ID, C.Connect);
+                C.DA = new MySqlDataAdapter("SELECT id, descricao, id_depto FROM produto WHERE id = " + ID, C.Connect);
                 DataSet DS = new DataSet();
                 C.DA.Fill(DS);
                 return DS;
@@ -154,7 +87,7 @@ namespace MIPP.Forms
             try
             {
                 C.Connect.Open();
-                C.DA = new MySqlDataAdapter("SELECT * FROM produto WHERE descricao LIKE '%" + Description + "%'", C.Connect);
+                C.DA = new MySqlDataAdapter("SELECT id, descricao, id_depto FROM produto WHERE descricao LIKE '%" + Description + "%'", C.Connect);
                 DataSet DS = new DataSet();
                 C.DA.Fill(DS);
                 return DS;
@@ -176,7 +109,7 @@ namespace MIPP.Forms
             try
             {
                 C.Connect.Open();
-                C.DA = new MySqlDataAdapter("SELECT * FROM produto WHERE id_depto = " + Depart, C.Connect);
+                C.DA = new MySqlDataAdapter("SELECT ID, descricao, id_depto FROM produto WHERE id_depto = " + Depart, C.Connect);
                 DataSet DS = new DataSet();
                 C.DA.Fill(DS);
                 return DS;
@@ -192,6 +125,37 @@ namespace MIPP.Forms
                 C.Connect.Close();
             }
         }
+
+        public Image LoadImage(int ID)
+        {
+            Image image;
+            try
+            {
+
+                MySqlDataReader reader;
+                C.Connect.Open();
+                C.cmd = new MySqlCommand("SELECT foto " +
+                                         "FROM produto " +
+                                         "WHERE id = '" + ID + "' ", C.Connect);
+
+                reader = C.cmd.ExecuteReader();
+                reader.Read();
+                image = (Bitmap)new ImageConverter().ConvertFrom(reader.GetValue(0));
+
+                return image;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return image = null;
+            }
+            finally
+            {
+                C.Connect.Close();
+                C.Connect.Dispose();
+            }
+
         }
-    } 
+    }
+}
 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProduct));
             this.mtbID = new System.Windows.Forms.MaskedTextBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.cmbDepart = new System.Windows.Forms.ComboBox();
@@ -43,16 +44,22 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblDepart = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnPhoto = new System.Windows.Forms.Button();
+            this.pbPhoto = new System.Windows.Forms.PictureBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // mtbID
             // 
             this.mtbID.Location = new System.Drawing.Point(7, 32);
-            this.mtbID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mtbID.Margin = new System.Windows.Forms.Padding(4);
             this.mtbID.Mask = "000000000";
             this.mtbID.Name = "mtbID";
             this.mtbID.Size = new System.Drawing.Size(85, 22);
@@ -61,7 +68,7 @@
             // txtDescription
             // 
             this.txtDescription.Location = new System.Drawing.Point(7, 81);
-            this.txtDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDescription.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(297, 22);
             this.txtDescription.TabIndex = 1;
@@ -72,16 +79,17 @@
             this.cmbDepart.FormattingEnabled = true;
             this.cmbDepart.Items.AddRange(new object[] {
             ""});
-            this.cmbDepart.Location = new System.Drawing.Point(245, 32);
-            this.cmbDepart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbDepart.Location = new System.Drawing.Point(135, 34);
+            this.cmbDepart.Margin = new System.Windows.Forms.Padding(4);
             this.cmbDepart.Name = "cmbDepart";
             this.cmbDepart.Size = new System.Drawing.Size(59, 24);
             this.cmbDepart.TabIndex = 10;
+            this.cmbDepart.SelectedIndexChanged += new System.EventHandler(this.CmbDepart_SelectedIndexChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(241, 12);
+            this.label4.Location = new System.Drawing.Point(131, 14);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(51, 17);
@@ -113,11 +121,11 @@
             this.dgvProduct.AllowUserToAddRows = false;
             this.dgvProduct.AllowUserToDeleteRows = false;
             this.dgvProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProduct.Location = new System.Drawing.Point(16, 131);
-            this.dgvProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvProduct.Location = new System.Drawing.Point(688, 13);
+            this.dgvProduct.Margin = new System.Windows.Forms.Padding(4);
             this.dgvProduct.Name = "dgvProduct";
             this.dgvProduct.ReadOnly = true;
-            this.dgvProduct.Size = new System.Drawing.Size(665, 507);
+            this.dgvProduct.Size = new System.Drawing.Size(665, 626);
             this.dgvProduct.TabIndex = 1043;
             this.dgvProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvImage_CellClick);
             // 
@@ -126,7 +134,7 @@
             this.btnSearchID.BackgroundImage = global::MIPP.Properties.Resources.MagnifierBlue;
             this.btnSearchID.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSearchID.Location = new System.Drawing.Point(102, 31);
-            this.btnSearchID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearchID.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearchID.Name = "btnSearchID";
             this.btnSearchID.Size = new System.Drawing.Size(25, 25);
             this.btnSearchID.TabIndex = 1048;
@@ -138,7 +146,7 @@
             this.btnSearchDepart.BackgroundImage = global::MIPP.Properties.Resources.MagnifierBlue;
             this.btnSearchDepart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSearchDepart.Location = new System.Drawing.Point(313, 33);
-            this.btnSearchDepart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearchDepart.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearchDepart.Name = "btnSearchDepart";
             this.btnSearchDepart.Size = new System.Drawing.Size(25, 25);
             this.btnSearchDepart.TabIndex = 1049;
@@ -149,7 +157,7 @@
             // 
             this.btnClear.BackgroundImage = global::MIPP.Properties.Resources.ClearButtonSlinBlue;
             this.btnClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnClear.Location = new System.Drawing.Point(220, 40);
+            this.btnClear.Location = new System.Drawing.Point(190, 44);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(53, 49);
@@ -173,7 +181,7 @@
             // 
             this.btnUpdate.BackgroundImage = global::MIPP.Properties.Resources.UpdateBlue;
             this.btnUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnUpdate.Location = new System.Drawing.Point(97, 40);
+            this.btnUpdate.Location = new System.Drawing.Point(68, 44);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(53, 49);
@@ -185,7 +193,7 @@
             // 
             this.btnDelete.BackgroundImage = global::MIPP.Properties.Resources.DeleteBlue;
             this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnDelete.Location = new System.Drawing.Point(159, 40);
+            this.btnDelete.Location = new System.Drawing.Point(129, 44);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(53, 49);
@@ -197,7 +205,7 @@
             // 
             this.btnSave.BackgroundImage = global::MIPP.Properties.Resources.SaveBlue;
             this.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSave.Location = new System.Drawing.Point(36, 40);
+            this.btnSave.Location = new System.Drawing.Point(7, 44);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(53, 49);
@@ -207,6 +215,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblDepart);
             this.groupBox1.Controls.Add(this.mtbID);
             this.groupBox1.Controls.Add(this.txtDescription);
             this.groupBox1.Controls.Add(this.btnSearchDepart);
@@ -222,8 +231,19 @@
             this.groupBox1.TabIndex = 1051;
             this.groupBox1.TabStop = false;
             // 
+            // lblDepart
+            // 
+            this.lblDepart.AutoSize = true;
+            this.lblDepart.Location = new System.Drawing.Point(202, 41);
+            this.lblDepart.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDepart.Name = "lblDepart";
+            this.lblDepart.Size = new System.Drawing.Size(16, 17);
+            this.lblDepart.TabIndex = 1050;
+            this.lblDepart.Text = "_";
+            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnPhoto);
             this.groupBox2.Controls.Add(this.btnClear);
             this.groupBox2.Controls.Add(this.btnSave);
             this.groupBox2.Controls.Add(this.btnDelete);
@@ -234,16 +254,49 @@
             this.groupBox2.TabIndex = 1052;
             this.groupBox2.TabStop = false;
             // 
+            // btnPhoto
+            // 
+            this.btnPhoto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPhoto.BackgroundImage")));
+            this.btnPhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnPhoto.Location = new System.Drawing.Point(248, 44);
+            this.btnPhoto.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPhoto.Name = "btnPhoto";
+            this.btnPhoto.Size = new System.Drawing.Size(53, 49);
+            this.btnPhoto.TabIndex = 1051;
+            this.btnPhoto.UseVisualStyleBackColor = true;
+            this.btnPhoto.Click += new System.EventHandler(this.btnPhoto_Click);
+            // 
+            // pbPhoto
+            // 
+            this.pbPhoto.BackColor = System.Drawing.Color.Chartreuse;
+            this.pbPhoto.Location = new System.Drawing.Point(4, 12);
+            this.pbPhoto.Margin = new System.Windows.Forms.Padding(4);
+            this.pbPhoto.Name = "pbPhoto";
+            this.pbPhoto.Size = new System.Drawing.Size(658, 490);
+            this.pbPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbPhoto.TabIndex = 1053;
+            this.pbPhoto.TabStop = false;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.pbPhoto);
+            this.groupBox3.Location = new System.Drawing.Point(12, 130);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(669, 509);
+            this.groupBox3.TabIndex = 1054;
+            this.groupBox3.TabStop = false;
+            // 
             // FormProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(697, 652);
+            this.ClientSize = new System.Drawing.Size(1365, 652);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvProduct);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "FormProduct";
             this.Text = "Produto";
@@ -252,6 +305,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).EndInit();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -274,5 +329,9 @@
         internal System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label lblDepart;
+        private System.Windows.Forms.PictureBox pbPhoto;
+        private System.Windows.Forms.GroupBox groupBox3;
+        internal System.Windows.Forms.Button btnPhoto;
     }
 }

@@ -46,6 +46,7 @@
             this.pbImage = new System.Windows.Forms.PictureBox();
             this.pbBackground = new System.Windows.Forms.PictureBox();
             this.dgvImage = new System.Windows.Forms.DataGridView();
+            this.lblDepart = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axWMP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
@@ -55,6 +56,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblDepart);
             this.groupBox1.Controls.Add(this.axWMP);
             this.groupBox1.Controls.Add(this.rbVideo);
             this.groupBox1.Controls.Add(this.btnClear);
@@ -124,6 +126,7 @@
             this.cmbDepart.Name = "cmbDepart";
             this.cmbDepart.Size = new System.Drawing.Size(59, 24);
             this.cmbDepart.TabIndex = 1035;
+            this.cmbDepart.SelectedIndexChanged += new System.EventHandler(this.cmbDepart_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -262,6 +265,16 @@
             this.dgvImage.TabIndex = 2;
             this.dgvImage.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvImage_CellClick);
             // 
+            // lblDepart
+            // 
+            this.lblDepart.AutoSize = true;
+            this.lblDepart.Location = new System.Drawing.Point(484, 58);
+            this.lblDepart.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDepart.Name = "lblDepart";
+            this.lblDepart.Size = new System.Drawing.Size(16, 17);
+            this.lblDepart.TabIndex = 1051;
+            this.lblDepart.Text = "_";
+            // 
             // FormMidia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -304,5 +317,6 @@
         internal System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.RadioButton rbVideo;
         private AxWMPLib.AxWindowsMediaPlayer axWMP;
+        private System.Windows.Forms.Label lblDepart;
     }
 }

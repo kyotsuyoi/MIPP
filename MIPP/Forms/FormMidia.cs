@@ -16,7 +16,8 @@ namespace MIPP.Forms
     {
 
         DataSet DS = new DataSet();
-        Midia CI = new Midia();
+        Department De = new Department();
+        Midia Mi = new Midia();
         int ID;
         public int CallingDepart = 0;
 
@@ -27,7 +28,7 @@ namespace MIPP.Forms
 
         private void FormImage_Load(object sender, EventArgs e)
         {
-            var DT = CI.LoadCombo_Department();
+            var DT = Mi.LoadCombo_Department();
             while (DT.Read())
                 {
                     cmbDepart.Items.Add(String.Format("{0}", DT[0]));
@@ -71,7 +72,7 @@ namespace MIPP.Forms
                         type = 0;
                     }
 
-                    if (CI.Insert(int.Parse(cmbDepart.Text), txtDescription.Text, type, image, null) == false) { return; }
+                    if (Mi.Insert(int.Parse(cmbDepart.Text), txtDescription.Text, type, image, null) == false) { return; }
                 }
                 else
                 {
@@ -86,7 +87,7 @@ namespace MIPP.Forms
 
                     type = 2;
 
-                    if (CI.Insert(int.Parse(cmbDepart.Text), txtDescription.Text, type, null, video) == false) { return; }
+                    if (Mi.Insert(int.Parse(cmbDepart.Text), txtDescription.Text, type, null, video) == false) { return; }
                 }
             }
             catch (Exception ex)
@@ -121,7 +122,7 @@ namespace MIPP.Forms
                         type = 0;
                     }
                     
-                    if (CI.Update(ID, int.Parse(cmbDepart.Text), txtDescription.Text, type, image, null) == false) { return; }
+                    if (Mi.Update(ID, int.Parse(cmbDepart.Text), txtDescription.Text, type, image, null) == false) { return; }
                 }
                 else
                 {
@@ -136,7 +137,7 @@ namespace MIPP.Forms
 
                     type = 2;
 
-                    if (CI.Update(ID, int.Parse(cmbDepart.Text), txtDescription.Text, type, null, video) == false) { return; }
+                    if (Mi.Update(ID, int.Parse(cmbDepart.Text), txtDescription.Text, type, null, video) == false) { return; }
                 }
             }
             catch (Exception ex)
@@ -156,7 +157,7 @@ namespace MIPP.Forms
                 return;
             }
 
-            if (CI.Delete(ID) == false) { return; }
+            if (Mi.Delete(ID) == false) { return; }
 
             MessageBox.Show("Dados apagados com sucesso!", "Apagado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadDGV();
@@ -287,7 +288,7 @@ namespace MIPP.Forms
 
                 if (type == 0 || type == 1)
                 {
-                    Image image = CI.LoadImage(ID, int.Parse(cmbDepart.Text));
+                    Image image = Mi.LoadImage(ID, int.Parse(cmbDepart.Text));
 
                     if (rbBackground.Checked == true)
                     {
@@ -306,7 +307,7 @@ namespace MIPP.Forms
                     try
                     {
                         axWMP.close();
-                        byte[] video = CI.LoadVideo(ID, int.Parse(cmbDepart.Text));
+                        byte[] video = Mi.LoadVideo(ID, int.Parse(cmbDepart.Text));
                         File.WriteAllBytes(strTempFile, video);
                         axWMP.URL = strTempFile;
                         axWMP.Ctlcontrols.play();
@@ -335,7 +336,7 @@ namespace MIPP.Forms
             
             dgvImage.DataSource = null;
 
-            DS = CI.LoadGrid();
+            DS = Mi.LoadGrid();
             if (DS == null) { return; }
 
             dgvImage.DataSource = DS.Tables[0];
@@ -396,6 +397,15 @@ namespace MIPP.Forms
                 }
             }
         }
-        
+
+        private void cmbDepart_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbDepart.Text == "")
+            {
+                lblDepart.Text = "";
+                return;
+            }
+            lblDepart.Text = De.LoadDepart(int.Parse(cmbDepart.Text));
+        }
     }
 }

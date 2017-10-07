@@ -153,6 +153,33 @@ namespace MIPP.Forms
                 return null;
             }
         }
+        public string LoadDepart(int ID)
+        {
+            string S;
+            try
+            {
+                MySqlDataReader reader;
+                C.cmd = new MySqlCommand("SELECT nome " +
+                                         "FROM departamento " +
+                                         "WHERE id = '" + ID + "'", C.Connect);
 
+                C.Connect.Open();
+                reader = C.cmd.ExecuteReader();
+                reader.Read();
+                S = (string)reader.GetValue(0);
+
+                return S;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                C.Connect.Dispose();
+                C.Connect.Close();
+            }
+        }
     }
 }

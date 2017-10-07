@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Windows.Forms;
-using MIPP.CommonClasses;
 using MIPP.Forms;
-using MySql.Data.MySqlClient;
 
 namespace MIPP
 {
@@ -17,6 +15,7 @@ namespace MIPP
         FormDepartment FD;
         FormScreen FSc;
         FormProduct FP;
+        FormBIPP BIPP;
         Thread T;
         bool vCheck = true;
  
@@ -74,6 +73,14 @@ namespace MIPP
             FP.Show();
         }
 
+        private void telasBIPPPlayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (BIPP != null) { BIPP.Close(); }
+            BIPP = new FormBIPP { MdiParent = this };
+            BIPP.Activate();
+            BIPP.Show();
+        }
+
         private void TelasMIPPPlayToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (FSc != null) { FSc.Close(); }
@@ -118,10 +125,16 @@ namespace MIPP
                 }
 
                 this.lblAtualization.BeginInvoke((MethodInvoker)delegate ()
-                { this.lblAtualization.Text = "Preços atualizados"; });
+                { this.lblAtualization.Text = "Preços atualizados: " + DateTime.Now; });
 
-                Thread.Sleep(60000);
+                int s = 60000*5;
+                while (vCheck == true && s > 0)
+                {
+                    Thread.Sleep(1000);
+                    s -= 1000;
+                }
             }
         }
+
     }
 }
