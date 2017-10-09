@@ -31,6 +31,7 @@ namespace MIPP.Forms
         {
             DS = Pr.LoadGrid();
             dgvProduct.DataSource = DS.Tables[0];
+            dgvProduct1.DataSource = DS.Tables[0];
         }
 
         private void btnSearchID_Click(object sender, EventArgs e)
@@ -111,9 +112,39 @@ namespace MIPP.Forms
             }
         }
 
-        private void dataGridView1_CellCClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvProduct1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //fazer
+            int xy;
+            try
+            {
+                xy = dgvProduct1.CurrentRow.Index;
+
+                mtbID1.Text = (dgvProduct1[0, xy].Value).ToString();
+                txtDescription1.Text = (string)dgvProduct1[1, xy].Value;
+                dgvProduct1.Visible = false;
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            
+        }
+
+        private void btnLoadGrid_Click(object sender, EventArgs e)
+        {
+            dgvProduct1.Visible = true;
+        }
+
+        private void btnLoadGrid1_Click(object sender, EventArgs e)
+        {
+            dgvProduct1.Visible = true;
+        }
+
+        private void btnLoadGrid2_Click(object sender, EventArgs e)
+        {
+            dgvProduct1.Visible = true;
         }
     } 
 }

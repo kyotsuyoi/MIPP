@@ -42,7 +42,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.pbPhoto = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnLoadGrid = new System.Windows.Forms.Button();
             this.txtPrice1 = new System.Windows.Forms.TextBox();
             this.txtDescription1 = new System.Windows.Forms.TextBox();
             this.mtbID1 = new System.Windows.Forms.MaskedTextBox();
@@ -51,7 +51,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.pbPhoto1 = new System.Windows.Forms.PictureBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnLoadGrid1 = new System.Windows.Forms.Button();
             this.txtPrice2 = new System.Windows.Forms.TextBox();
             this.txtDescription2 = new System.Windows.Forms.TextBox();
             this.mtbID2 = new System.Windows.Forms.MaskedTextBox();
@@ -60,7 +60,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.pbPhoto2 = new System.Windows.Forms.PictureBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnLoadGrid2 = new System.Windows.Forms.Button();
             this.txtPrice3 = new System.Windows.Forms.TextBox();
             this.txtDescription3 = new System.Windows.Forms.TextBox();
             this.mtbID3 = new System.Windows.Forms.MaskedTextBox();
@@ -72,7 +72,7 @@
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.btnClear = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvProduct1 = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).BeginInit();
@@ -83,7 +83,7 @@
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoto3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProduct1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -99,9 +99,9 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(10, 10);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(267, 98);
             this.groupBox1.TabIndex = 1055;
             this.groupBox1.TabStop = false;
@@ -206,9 +206,9 @@
             // 
             this.groupBox3.Controls.Add(this.pbPhoto);
             this.groupBox3.Location = new System.Drawing.Point(10, 112);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(375, 414);
             this.groupBox3.TabIndex = 1056;
             this.groupBox3.TabStop = false;
@@ -225,7 +225,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.btnLoadGrid);
             this.groupBox2.Controls.Add(this.txtPrice1);
             this.groupBox2.Controls.Add(this.txtDescription1);
             this.groupBox2.Controls.Add(this.mtbID1);
@@ -234,22 +234,23 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.pbPhoto1);
             this.groupBox2.Location = new System.Drawing.Point(431, 122);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(346, 99);
             this.groupBox2.TabIndex = 1057;
             this.groupBox2.TabStop = false;
             // 
-            // button1
+            // btnLoadGrid
             // 
-            this.button1.Location = new System.Drawing.Point(285, 11);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(56, 19);
-            this.button1.TabIndex = 1059;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnLoadGrid.Location = new System.Drawing.Point(285, 11);
+            this.btnLoadGrid.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLoadGrid.Name = "btnLoadGrid";
+            this.btnLoadGrid.Size = new System.Drawing.Size(56, 19);
+            this.btnLoadGrid.TabIndex = 1059;
+            this.btnLoadGrid.Text = "button1";
+            this.btnLoadGrid.UseVisualStyleBackColor = true;
+            this.btnLoadGrid.Click += new System.EventHandler(this.btnLoadGrid_Click);
             // 
             // txtPrice1
             // 
@@ -315,7 +316,7 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.button2);
+            this.groupBox4.Controls.Add(this.btnLoadGrid1);
             this.groupBox4.Controls.Add(this.txtPrice2);
             this.groupBox4.Controls.Add(this.txtDescription2);
             this.groupBox4.Controls.Add(this.mtbID2);
@@ -324,22 +325,23 @@
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Controls.Add(this.pbPhoto2);
             this.groupBox4.Location = new System.Drawing.Point(431, 239);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox4.Size = new System.Drawing.Size(346, 99);
             this.groupBox4.TabIndex = 1059;
             this.groupBox4.TabStop = false;
             // 
-            // button2
+            // btnLoadGrid1
             // 
-            this.button2.Location = new System.Drawing.Point(285, 11);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(56, 19);
-            this.button2.TabIndex = 1060;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnLoadGrid1.Location = new System.Drawing.Point(285, 11);
+            this.btnLoadGrid1.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLoadGrid1.Name = "btnLoadGrid1";
+            this.btnLoadGrid1.Size = new System.Drawing.Size(56, 19);
+            this.btnLoadGrid1.TabIndex = 1060;
+            this.btnLoadGrid1.Text = "button2";
+            this.btnLoadGrid1.UseVisualStyleBackColor = true;
+            this.btnLoadGrid1.Click += new System.EventHandler(this.btnLoadGrid1_Click);
             // 
             // txtPrice2
             // 
@@ -405,7 +407,7 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.button3);
+            this.groupBox5.Controls.Add(this.btnLoadGrid2);
             this.groupBox5.Controls.Add(this.txtPrice3);
             this.groupBox5.Controls.Add(this.txtDescription3);
             this.groupBox5.Controls.Add(this.mtbID3);
@@ -414,22 +416,23 @@
             this.groupBox5.Controls.Add(this.label12);
             this.groupBox5.Controls.Add(this.pbPhoto3);
             this.groupBox5.Location = new System.Drawing.Point(431, 357);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox5.Size = new System.Drawing.Size(346, 99);
             this.groupBox5.TabIndex = 1059;
             this.groupBox5.TabStop = false;
             // 
-            // button3
+            // btnLoadGrid2
             // 
-            this.button3.Location = new System.Drawing.Point(285, 11);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(56, 19);
-            this.button3.TabIndex = 1061;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnLoadGrid2.Location = new System.Drawing.Point(285, 11);
+            this.btnLoadGrid2.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLoadGrid2.Name = "btnLoadGrid2";
+            this.btnLoadGrid2.Size = new System.Drawing.Size(56, 19);
+            this.btnLoadGrid2.TabIndex = 1061;
+            this.btnLoadGrid2.Text = "button3";
+            this.btnLoadGrid2.UseVisualStyleBackColor = true;
+            this.btnLoadGrid2.Click += new System.EventHandler(this.btnLoadGrid2_Click);
             // 
             // txtPrice3
             // 
@@ -497,7 +500,7 @@
             // 
             this.dgvProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProduct.Location = new System.Drawing.Point(324, 9);
-            this.dgvProduct.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvProduct.Margin = new System.Windows.Forms.Padding(2);
             this.dgvProduct.Name = "dgvProduct";
             this.dgvProduct.RowTemplate.Height = 24;
             this.dgvProduct.Size = new System.Drawing.Size(480, 107);
@@ -532,23 +535,23 @@
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // dataGridView1
+            // dgvProduct1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(587, 30);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(264, 99);
-            this.dataGridView1.TabIndex = 1064;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dgvProduct1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProduct1.Location = new System.Drawing.Point(33, 122);
+            this.dgvProduct1.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvProduct1.Name = "dgvProduct1";
+            this.dgvProduct1.RowTemplate.Height = 24;
+            this.dgvProduct1.Size = new System.Drawing.Size(398, 343);
+            this.dgvProduct1.TabIndex = 1064;
+            this.dgvProduct1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduct1_CellClick);
             // 
             // FormBIPP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(826, 535);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvProduct1);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.txtPrice);
             this.Controls.Add(this.label13);
@@ -559,7 +562,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "FormBIPP";
             this.Text = "BIPP - Busca Inteligente PegPese";
@@ -578,7 +581,7 @@
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoto3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProduct1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -627,9 +630,9 @@
         private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.Label label13;
         internal System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnLoadGrid;
+        private System.Windows.Forms.Button btnLoadGrid1;
+        private System.Windows.Forms.Button btnLoadGrid2;
+        private System.Windows.Forms.DataGridView dgvProduct1;
     }
 }
