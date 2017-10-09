@@ -110,5 +110,10 @@ namespace MIPP.Forms
                 MessageBox.Show(ex.Message, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+
+        private void dataGridView1_CellCClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     } 
 }
