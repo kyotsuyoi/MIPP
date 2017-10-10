@@ -106,19 +106,17 @@ namespace MIPP.Forms
             }
         }
 
-        public IDataReader LoadCombo_Department()
+        public DataSet LoadGrid(int ID)
         {
             try
             {
-                MySqlDataReader reader;
                 C.Connect.Open();
-                C.cmd = new MySqlCommand("SELECT id " +
-                                         "FROM departamento ", C.Connect);
-                reader = C.cmd.ExecuteReader();
-
-                var DT = new DataTable();
-                DT.Load(reader);
-                return DT.CreateDataReader();
+                C.DA = new MySqlDataAdapter("SELECT id, descricao, id_depto, preco FROM produto " +
+                    "INNER JOIN preco_loja ON preco_loja.id_prod = produto.id " +
+                    "WHERE id_loja = " + ID, C.Connect);
+                DataSet DS = new DataSet();
+                C.DA.Fill(DS);
+                return DS;
             }
             catch (Exception ex)
             {
@@ -127,8 +125,8 @@ namespace MIPP.Forms
             }
             finally
             {
-                C.Connect.Dispose();
                 C.Connect.Close();
+                C.Connect.Dispose();
             }
         }
 

@@ -11,20 +11,21 @@ namespace MIPP.Forms
     {
         Connection C = new Connection();
 
-        public DataSet LoadGrid()
+        public Boolean Insert(int ProdID, int ProdID1, int ProdID2, int ProdID3, int ShopID)
         {
             try
             {
                 C.Connect.Open();
-                C.DA = new MySqlDataAdapter("SELECT id, descricao, id_depto FROM produto", C.Connect);
-                DataSet DS = new DataSet();
-                C.DA.Fill(DS);
-                return DS;
+                C.cmd = new MySqlCommand("INSERT INTO bipp (id_prod, id_prod1, id_prod2, id_prod3, id_shop) " +
+                                    "VALUES ('" + ProdID + "', '" + ProdID1 + "', '" + ProdID2 + "', '" + ProdID3 + "', '" + ShopID + "')", C.Connect);
+
+                C.cmd.ExecuteNonQuery();
+                return true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                return null;
+                return false;
             }
             finally
             {
@@ -33,20 +34,61 @@ namespace MIPP.Forms
             }
         }
 
-        public IDataReader LoadCombo_Department()
+        public Boolean Update(int ProdID, int ProdID1, int ProdID2, int ProdID3, int ShopID)
+        {
+
+            try
+            {
+                C.Connect.Open();
+                C.cmd = new MySqlCommand("UPDATE bipp SET id_prod1 = '" + ProdID1 + "', id_prod2 = '" + ProdID2 + "', id_prod3" + ProdID3 +  
+                                         "WHERE id_prod = '" + ProdID + "'", C.Connect);
+                
+                C.cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            finally
+            {
+                C.Connect.Close();
+                C.Connect.Dispose();
+            }
+        }
+
+        public Boolean Delete(int ProdID)
         {
             try
             {
-                MySqlDataReader reader;
                 C.Connect.Open();
-                C.cmd = new MySqlCommand("SELECT id " +
-                                         "FROM departamento " +
-                                         "WHERE ativo = '1'", C.Connect);
-                reader = C.cmd.ExecuteReader();
+                C.cmd = new MySqlCommand("DELETE FROM bipp " +
+                                    "WHERE `id_prod`='" + ProdID + "' ", C.Connect);
+                C.cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            finally
+            {
+                C.Connect.Close();
+                C.Connect.Dispose();
+            }
+        }
 
-                var DT = new DataTable();
-                DT.Load(reader);
-                return DT.CreateDataReader();
+        public DataSet LoadGrid(int ID)
+        {
+            try
+            {
+                C.Connect.Open();
+                C.DA = new MySqlDataAdapter("SELECT * FROM bipp WHERE id_shop = " + ID, C.Connect);
+                DataSet DS = new DataSet();
+                C.DA.Fill(DS);
+                return DS;
             }
             catch (Exception ex)
             {
@@ -154,7 +196,93 @@ namespace MIPP.Forms
                 C.Connect.Close();
                 C.Connect.Dispose();
             }
+        }
 
+        public string LoadDescription(int ID)
+        {
+            string S;
+            try
+            {
+                MySqlDataReader reader;
+                C.cmd = new MySqlCommand("SELECT descricao " +
+                                         "FROM produto " +
+                                         "WHERE id = '" + ID + "'", C.Connect);
+
+                C.Connect.Open();
+                reader = C.cmd.ExecuteReader();
+                reader.Read();
+                S = (string)reader.GetValue(0);
+
+                return S;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                C.Connect.Dispose();
+                C.Connect.Close();
+            }
+        }
+
+        public Double LoadPrice(int ID, int ShopID)
+        {
+            Double S;
+            try
+            {
+                MySqlDataReader reader;
+                C.cmd = new MySqlCommand("SELECT preco " +
+                                         "FROM preco_loja " +
+                                         "WHERE id_prod = " + ID + " AND id_loja = " + ShopID, C.Connect);
+
+                C.Connect.Open();
+                reader = C.cmd.ExecuteReader();
+                reader.Read();
+                S = (Double)reader.GetValue(0);
+
+                return S;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return 0;
+            }
+            finally
+            {
+                C.Connect.Dispose();
+                C.Connect.Close();
+            }
+        }
+
+        public int LoadDepartament(int ID)
+        {
+            int I;
+            try
+            {
+                MySqlDataReader reader;
+                C.cmd = new MySqlCommand("SELECT id_depto " +
+                                         "FROM produto " +
+                                         "WHERE id = '" + ID + "'", C.Connect);
+
+                C.Connect.Open();
+                reader = C.cmd.ExecuteReader();
+                reader.Read();
+                I = (int)reader.GetValue(0);
+
+                return I;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return 0;
+            }
+            finally
+            {
+                C.Connect.Dispose();
+                C.Connect.Close();
+            }
         }
     }
 }

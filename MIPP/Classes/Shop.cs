@@ -93,6 +93,60 @@ namespace MIPP.Forms
                 return false;
             }
         }
-        
+
+        public IDataReader LoadCombo_Shop()
+        {
+            try
+            {
+                MySqlDataReader reader;
+                C.Connect.Open();
+                C.cmd = new MySqlCommand("SELECT id " +
+                                         "FROM loja ", C.Connect);
+                reader = C.cmd.ExecuteReader();
+
+                var DT = new DataTable();
+                DT.Load(reader);
+                return DT.CreateDataReader();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                C.Connect.Dispose();
+                C.Connect.Close();
+            }
+        }
+
+        public string LoadShop(int ID)
+        {
+            string S;
+            try
+            {
+                MySqlDataReader reader;
+                C.cmd = new MySqlCommand("SELECT nome " +
+                                         "FROM loja " +
+                                         "WHERE id = '" + ID + "'", C.Connect);
+
+                C.Connect.Open();
+                reader = C.cmd.ExecuteReader();
+                reader.Read();
+                S = (string)reader.GetValue(0);
+
+                return S;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                C.Connect.Dispose();
+                C.Connect.Close();
+            }
+        }
     }
 }

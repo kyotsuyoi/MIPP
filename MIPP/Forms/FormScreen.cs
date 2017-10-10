@@ -15,7 +15,9 @@ namespace MIPP
         DataSet DS = new DataSet();
         Forms.Screen SC = new Forms.Screen();
         Midia CI = new Midia();
+        Shop Sh = new Shop();
         Department De = new Department();
+
         int vDepart = 0;
         int ImageID = 0;
 
@@ -26,20 +28,18 @@ namespace MIPP
 
         private void FormScreen_Load(object sender, EventArgs e)
         {
-            MySqlDataReader reader;
+            var DT = Sh.LoadCombo_Shop();
 
-            reader = SC.LoadCombo_Loja();
-
-            while (reader.Read())
+            while (DT.Read())
             {
-                cmbLoja.Items.Add(String.Format("{0}", reader[0]));
+                cmbLoja.Items.Add(String.Format("{0}", DT[0]));
             }
 
-            reader = SC.LoadCombo_Departamento();
+            DT = SC.LoadCombo_Departamento();
 
-            while (reader.Read())
+            while (DT.Read())
             {
-                cmbDepart.Items.Add(String.Format("{0}", reader[0]));
+                cmbDepart.Items.Add(String.Format("{0}", DT[0]));
             }
             dgvImage.Visible = false;
             axWMP.Visible = false;

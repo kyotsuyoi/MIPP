@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnLoadGrid = new System.Windows.Forms.Button();
             this.lblDepart = new System.Windows.Forms.Label();
             this.mtbID = new System.Windows.Forms.MaskedTextBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
@@ -42,7 +43,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.pbPhoto = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnLoadGrid = new System.Windows.Forms.Button();
+            this.btnLoadGrid1 = new System.Windows.Forms.Button();
             this.txtPrice1 = new System.Windows.Forms.TextBox();
             this.txtDescription1 = new System.Windows.Forms.TextBox();
             this.mtbID1 = new System.Windows.Forms.MaskedTextBox();
@@ -51,7 +52,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.pbPhoto1 = new System.Windows.Forms.PictureBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.btnLoadGrid1 = new System.Windows.Forms.Button();
+            this.btnLoadGrid2 = new System.Windows.Forms.Button();
             this.txtPrice2 = new System.Windows.Forms.TextBox();
             this.txtDescription2 = new System.Windows.Forms.TextBox();
             this.mtbID2 = new System.Windows.Forms.MaskedTextBox();
@@ -60,7 +61,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.pbPhoto2 = new System.Windows.Forms.PictureBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.btnLoadGrid2 = new System.Windows.Forms.Button();
+            this.btnLoadGrid3 = new System.Windows.Forms.Button();
             this.txtPrice3 = new System.Windows.Forms.TextBox();
             this.txtDescription3 = new System.Windows.Forms.TextBox();
             this.mtbID3 = new System.Windows.Forms.MaskedTextBox();
@@ -68,11 +69,17 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.pbPhoto3 = new System.Windows.Forms.PictureBox();
-            this.dgvProduct = new System.Windows.Forms.DataGridView();
+            this.dgvBIPP = new System.Windows.Forms.DataGridView();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.btnClear = new System.Windows.Forms.Button();
-            this.dgvProduct1 = new System.Windows.Forms.DataGridView();
+            this.dgvProduct = new System.Windows.Forms.DataGridView();
+            this.lblShop = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.cmbShop = new System.Windows.Forms.ComboBox();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).BeginInit();
@@ -82,12 +89,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoto2)).BeginInit();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoto3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBIPP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProduct1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnLoadGrid);
             this.groupBox1.Controls.Add(this.lblDepart);
             this.groupBox1.Controls.Add(this.mtbID);
             this.groupBox1.Controls.Add(this.txtDescription);
@@ -98,13 +106,24 @@
             this.groupBox1.Controls.Add(this.btnSearchDescription);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(10, 10);
+            this.groupBox1.Location = new System.Drawing.Point(10, 11);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(267, 98);
+            this.groupBox1.Size = new System.Drawing.Size(267, 97);
             this.groupBox1.TabIndex = 1055;
             this.groupBox1.TabStop = false;
+            // 
+            // btnLoadGrid
+            // 
+            this.btnLoadGrid.Location = new System.Drawing.Point(207, 7);
+            this.btnLoadGrid.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLoadGrid.Name = "btnLoadGrid";
+            this.btnLoadGrid.Size = new System.Drawing.Size(56, 19);
+            this.btnLoadGrid.TabIndex = 1065;
+            this.btnLoadGrid.Text = "button1";
+            this.btnLoadGrid.UseVisualStyleBackColor = true;
+            this.btnLoadGrid.Click += new System.EventHandler(this.btnLoadGrid_Click);
             // 
             // lblDepart
             // 
@@ -225,7 +244,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btnLoadGrid);
+            this.groupBox2.Controls.Add(this.btnLoadGrid1);
             this.groupBox2.Controls.Add(this.txtPrice1);
             this.groupBox2.Controls.Add(this.txtDescription1);
             this.groupBox2.Controls.Add(this.mtbID1);
@@ -241,16 +260,16 @@
             this.groupBox2.TabIndex = 1057;
             this.groupBox2.TabStop = false;
             // 
-            // btnLoadGrid
+            // btnLoadGrid1
             // 
-            this.btnLoadGrid.Location = new System.Drawing.Point(285, 11);
-            this.btnLoadGrid.Margin = new System.Windows.Forms.Padding(2);
-            this.btnLoadGrid.Name = "btnLoadGrid";
-            this.btnLoadGrid.Size = new System.Drawing.Size(56, 19);
-            this.btnLoadGrid.TabIndex = 1059;
-            this.btnLoadGrid.Text = "button1";
-            this.btnLoadGrid.UseVisualStyleBackColor = true;
-            this.btnLoadGrid.Click += new System.EventHandler(this.btnLoadGrid_Click);
+            this.btnLoadGrid1.Location = new System.Drawing.Point(285, 11);
+            this.btnLoadGrid1.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLoadGrid1.Name = "btnLoadGrid1";
+            this.btnLoadGrid1.Size = new System.Drawing.Size(56, 19);
+            this.btnLoadGrid1.TabIndex = 1059;
+            this.btnLoadGrid1.Text = "button1";
+            this.btnLoadGrid1.UseVisualStyleBackColor = true;
+            this.btnLoadGrid1.Click += new System.EventHandler(this.btnLoadGrid1_Click);
             // 
             // txtPrice1
             // 
@@ -316,7 +335,7 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.btnLoadGrid1);
+            this.groupBox4.Controls.Add(this.btnLoadGrid2);
             this.groupBox4.Controls.Add(this.txtPrice2);
             this.groupBox4.Controls.Add(this.txtDescription2);
             this.groupBox4.Controls.Add(this.mtbID2);
@@ -332,16 +351,16 @@
             this.groupBox4.TabIndex = 1059;
             this.groupBox4.TabStop = false;
             // 
-            // btnLoadGrid1
+            // btnLoadGrid2
             // 
-            this.btnLoadGrid1.Location = new System.Drawing.Point(285, 11);
-            this.btnLoadGrid1.Margin = new System.Windows.Forms.Padding(2);
-            this.btnLoadGrid1.Name = "btnLoadGrid1";
-            this.btnLoadGrid1.Size = new System.Drawing.Size(56, 19);
-            this.btnLoadGrid1.TabIndex = 1060;
-            this.btnLoadGrid1.Text = "button2";
-            this.btnLoadGrid1.UseVisualStyleBackColor = true;
-            this.btnLoadGrid1.Click += new System.EventHandler(this.btnLoadGrid1_Click);
+            this.btnLoadGrid2.Location = new System.Drawing.Point(285, 11);
+            this.btnLoadGrid2.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLoadGrid2.Name = "btnLoadGrid2";
+            this.btnLoadGrid2.Size = new System.Drawing.Size(56, 19);
+            this.btnLoadGrid2.TabIndex = 1060;
+            this.btnLoadGrid2.Text = "button2";
+            this.btnLoadGrid2.UseVisualStyleBackColor = true;
+            this.btnLoadGrid2.Click += new System.EventHandler(this.btnLoadGrid2_Click);
             // 
             // txtPrice2
             // 
@@ -407,7 +426,7 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.btnLoadGrid2);
+            this.groupBox5.Controls.Add(this.btnLoadGrid3);
             this.groupBox5.Controls.Add(this.txtPrice3);
             this.groupBox5.Controls.Add(this.txtDescription3);
             this.groupBox5.Controls.Add(this.mtbID3);
@@ -423,16 +442,16 @@
             this.groupBox5.TabIndex = 1059;
             this.groupBox5.TabStop = false;
             // 
-            // btnLoadGrid2
+            // btnLoadGrid3
             // 
-            this.btnLoadGrid2.Location = new System.Drawing.Point(285, 11);
-            this.btnLoadGrid2.Margin = new System.Windows.Forms.Padding(2);
-            this.btnLoadGrid2.Name = "btnLoadGrid2";
-            this.btnLoadGrid2.Size = new System.Drawing.Size(56, 19);
-            this.btnLoadGrid2.TabIndex = 1061;
-            this.btnLoadGrid2.Text = "button3";
-            this.btnLoadGrid2.UseVisualStyleBackColor = true;
-            this.btnLoadGrid2.Click += new System.EventHandler(this.btnLoadGrid2_Click);
+            this.btnLoadGrid3.Location = new System.Drawing.Point(285, 11);
+            this.btnLoadGrid3.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLoadGrid3.Name = "btnLoadGrid3";
+            this.btnLoadGrid3.Size = new System.Drawing.Size(56, 19);
+            this.btnLoadGrid3.TabIndex = 1061;
+            this.btnLoadGrid3.Text = "button3";
+            this.btnLoadGrid3.UseVisualStyleBackColor = true;
+            this.btnLoadGrid3.Click += new System.EventHandler(this.btnLoadGrid3_Click);
             // 
             // txtPrice3
             // 
@@ -496,20 +515,20 @@
             this.pbPhoto3.TabIndex = 1054;
             this.pbPhoto3.TabStop = false;
             // 
-            // dgvProduct
+            // dgvBIPP
             // 
-            this.dgvProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProduct.Location = new System.Drawing.Point(324, 9);
-            this.dgvProduct.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvProduct.Name = "dgvProduct";
-            this.dgvProduct.RowTemplate.Height = 24;
-            this.dgvProduct.Size = new System.Drawing.Size(480, 107);
-            this.dgvProduct.TabIndex = 1060;
-            this.dgvProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduct_CellClick);
+            this.dgvBIPP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBIPP.Location = new System.Drawing.Point(324, 9);
+            this.dgvBIPP.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvBIPP.Name = "dgvBIPP";
+            this.dgvBIPP.RowTemplate.Height = 24;
+            this.dgvBIPP.Size = new System.Drawing.Size(480, 107);
+            this.dgvBIPP.TabIndex = 1060;
+            this.dgvBIPP.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBIPP_CellClick);
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(468, 487);
+            this.txtPrice.Location = new System.Drawing.Point(436, 487);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(92, 20);
             this.txtPrice.TabIndex = 1062;
@@ -517,7 +536,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(429, 489);
+            this.label13.Location = new System.Drawing.Point(397, 489);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(35, 13);
@@ -535,27 +554,96 @@
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // dgvProduct1
+            // dgvProduct
             // 
-            this.dgvProduct1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProduct1.Location = new System.Drawing.Point(33, 122);
-            this.dgvProduct1.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvProduct1.Name = "dgvProduct1";
-            this.dgvProduct1.RowTemplate.Height = 24;
-            this.dgvProduct1.Size = new System.Drawing.Size(398, 343);
-            this.dgvProduct1.TabIndex = 1064;
-            this.dgvProduct1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduct1_CellClick);
+            this.dgvProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProduct.Location = new System.Drawing.Point(33, 122);
+            this.dgvProduct.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvProduct.Name = "dgvProduct";
+            this.dgvProduct.RowTemplate.Height = 24;
+            this.dgvProduct.Size = new System.Drawing.Size(461, 343);
+            this.dgvProduct.TabIndex = 1064;
+            this.dgvProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduct_CellClick);
+            // 
+            // lblShop
+            // 
+            this.lblShop.AutoSize = true;
+            this.lblShop.Location = new System.Drawing.Point(607, 494);
+            this.lblShop.Name = "lblShop";
+            this.lblShop.Size = new System.Drawing.Size(13, 13);
+            this.lblShop.TabIndex = 1053;
+            this.lblShop.Text = "_";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(553, 472);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(27, 13);
+            this.label15.TabIndex = 1051;
+            this.label15.Text = "Loja";
+            // 
+            // cmbShop
+            // 
+            this.cmbShop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbShop.FormattingEnabled = true;
+            this.cmbShop.Items.AddRange(new object[] {
+            ""});
+            this.cmbShop.Location = new System.Drawing.Point(556, 489);
+            this.cmbShop.Name = "cmbShop";
+            this.cmbShop.Size = new System.Drawing.Size(45, 21);
+            this.cmbShop.TabIndex = 1052;
+            this.cmbShop.SelectedIndexChanged += new System.EventHandler(this.cmbShop_SelectedIndexChanged);
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackgroundImage = global::MIPP.Properties.Resources.SaveBlue;
+            this.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSave.Location = new System.Drawing.Point(662, 475);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(40, 40);
+            this.btnSave.TabIndex = 1067;
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackgroundImage = global::MIPP.Properties.Resources.DeleteBlue;
+            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDelete.Location = new System.Drawing.Point(754, 475);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(40, 40);
+            this.btnDelete.TabIndex = 1066;
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.BackgroundImage = global::MIPP.Properties.Resources.UpdateBlue;
+            this.btnUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnUpdate.Location = new System.Drawing.Point(708, 475);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(40, 40);
+            this.btnUpdate.TabIndex = 1065;
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // FormBIPP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(826, 535);
-            this.Controls.Add(this.dgvProduct1);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.lblShop);
+            this.Controls.Add(this.dgvProduct);
+            this.Controls.Add(this.label15);
             this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.cmbShop);
             this.Controls.Add(this.txtPrice);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.dgvProduct);
+            this.Controls.Add(this.dgvBIPP);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
@@ -580,8 +668,8 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoto3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBIPP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProduct1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -626,13 +714,20 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.PictureBox pbPhoto3;
-        private System.Windows.Forms.DataGridView dgvProduct;
+        private System.Windows.Forms.DataGridView dgvBIPP;
         private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.Label label13;
         internal System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Button btnLoadGrid;
         private System.Windows.Forms.Button btnLoadGrid1;
         private System.Windows.Forms.Button btnLoadGrid2;
-        private System.Windows.Forms.DataGridView dgvProduct1;
+        private System.Windows.Forms.Button btnLoadGrid3;
+        private System.Windows.Forms.DataGridView dgvProduct;
+        private System.Windows.Forms.Label lblShop;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ComboBox cmbShop;
+        private System.Windows.Forms.Button btnLoadGrid;
+        internal System.Windows.Forms.Button btnSave;
+        internal System.Windows.Forms.Button btnDelete;
+        internal System.Windows.Forms.Button btnUpdate;
     }
 }

@@ -21,7 +21,7 @@ namespace MIPP.Forms
 
         private void FormProduct_Load(object sender, EventArgs e)
         {
-            var DT = Pr.LoadCombo_Department();
+            var DT = De.LoadCombo_Department();
 
             while (DT.Read())
             {

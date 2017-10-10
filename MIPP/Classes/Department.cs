@@ -153,6 +153,7 @@ namespace MIPP.Forms
                 return null;
             }
         }
+
         public string LoadDepart(int ID)
         {
             string S;
@@ -169,6 +170,32 @@ namespace MIPP.Forms
                 S = (string)reader.GetValue(0);
 
                 return S;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                C.Connect.Dispose();
+                C.Connect.Close();
+            }
+        }
+
+        public IDataReader LoadCombo_Department()
+        {
+            try
+            {
+                MySqlDataReader reader;
+                C.Connect.Open();
+                C.cmd = new MySqlCommand("SELECT id " +
+                                         "FROM departamento ", C.Connect);
+                reader = C.cmd.ExecuteReader();
+
+                var DT = new DataTable();
+                DT.Load(reader);
+                return DT.CreateDataReader();
             }
             catch (Exception ex)
             {

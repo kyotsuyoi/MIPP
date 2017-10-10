@@ -80,27 +80,6 @@ namespace MIPP.Forms
             
         }
 
-        public MySqlDataReader LoadCombo_Loja()
-        {
-            try
-            {
-                MySqlDataReader reader;
-                C.Connect.Close();
-                C.Connect.Open();
-                C.cmd = new MySqlCommand("SELECT id " +
-                                         "FROM loja " +
-                                         "WHERE ativo = '1'", C.Connect);
-                reader = C.cmd.ExecuteReader();
-                return reader;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return null;
-            }
-            
-        }
-
         public MySqlDataReader LoadCombo_Departamento()
         {
             try
