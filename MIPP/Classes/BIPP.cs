@@ -11,13 +11,13 @@ namespace MIPP.Forms
     {
         Connection C = new Connection();
 
-        public Boolean Insert(int ProdID, int ProdID1, int ProdID2, int ProdID3, int ShopID)
+        public Boolean Insert()
         {
             try
             {
                 C.Connect.Open();
-                C.cmd = new MySqlCommand("INSERT INTO bipp (id_prod, id_prod1, id_prod2, id_prod3, id_shop) " +
-                                    "VALUES ('" + ProdID + "', '" + ProdID1 + "', '" + ProdID2 + "', '" + ProdID3 + "', '" + ShopID + "')", C.Connect);
+                C.cmd = new MySqlCommand("INSERT INTO bipp_prod_equival (id_prod, id_loja) " +
+                    "", C.Connect);
 
                 C.cmd.ExecuteNonQuery();
                 return true;
@@ -85,7 +85,9 @@ namespace MIPP.Forms
             try
             {
                 C.Connect.Open();
-                C.DA = new MySqlDataAdapter("SELECT * FROM bipp WHERE id_shop = " + ID, C.Connect);
+                C.DA = new MySqlDataAdapter("SELECT p.id AS `Código`, p.descricao AS `Descrição`" +
+                    " FROM mipp.bipp_prod_equival b JOIN produto p ON p.id = b.id_prod JOIN preco_loja pl ON pl.id_prod = p.id " +
+                    "WHERE b.id_prod = 8846 AND pl.id_loja = " + ID, C.Connect);
                 DataSet DS = new DataSet();
                 C.DA.Fill(DS);
                 return DS;
@@ -284,6 +286,7 @@ namespace MIPP.Forms
                 C.Connect.Close();
             }
         }
+
     }
 }
 

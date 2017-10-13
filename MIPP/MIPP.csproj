@@ -193,6 +193,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MIPP.ico" />
+    <None Include="Resources\BlueDownButton1.png" />
+    <None Include="Resources\BlueUpButton1.png" />
     <None Include="Resources\MagnifierBlue.png" />
     <None Include="Resources\ClearButtonSlinBlue.png" />
     <None Include="Resources\DeleteBlue.png" />
