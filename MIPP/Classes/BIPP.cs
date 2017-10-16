@@ -33,61 +33,14 @@ namespace MIPP.Forms
                 C.Connect.Dispose();
             }
         }
-
-        public Boolean Update(int ProdID, int ProdID1, int ProdID2, int ProdID3, int ShopID)
-        {
-
-            try
-            {
-                C.Connect.Open();
-                C.cmd = new MySqlCommand("UPDATE bipp SET id_prod1 = '" + ProdID1 + "', id_prod2 = '" + ProdID2 + "', id_prod3" + ProdID3 +  
-                                         "WHERE id_prod = '" + ProdID + "'", C.Connect);
-                
-                C.cmd.ExecuteNonQuery();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return false;
-            }
-            finally
-            {
-                C.Connect.Close();
-                C.Connect.Dispose();
-            }
-        }
-
-        public Boolean Delete(int ProdID)
-        {
-            try
-            {
-                C.Connect.Open();
-                C.cmd = new MySqlCommand("DELETE FROM bipp " +
-                                    "WHERE `id_prod`='" + ProdID + "' ", C.Connect);
-                C.cmd.ExecuteNonQuery();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return false;
-            }
-            finally
-            {
-                C.Connect.Close();
-                C.Connect.Dispose();
-            }
-        }
+        
 
         public DataSet LoadGrid(int ID)
         {
             try
             {
                 C.Connect.Open();
-                C.DA = new MySqlDataAdapter("SELECT p.id AS `Código`, p.descricao AS `Descrição`" +
-                    " FROM mipp.bipp_prod_equival b JOIN produto p ON p.id = b.id_prod JOIN preco_loja pl ON pl.id_prod = p.id " +
-                    "WHERE b.id_prod = 8846 AND pl.id_loja = " + ID, C.Connect);
+                C.DA = new MySqlDataAdapter("SELECT * FROM mipp.bipp_prod_equival WHERE id_loja = 1" + ID, C.Connect);
                 DataSet DS = new DataSet();
                 C.DA.Fill(DS);
                 return DS;
@@ -224,7 +177,7 @@ namespace MIPP.Forms
             }
         }
 
-        public string LoadDescription(string ID)
+        public string LoadDescription(int ID)
         {
             string S;
             try
@@ -253,7 +206,7 @@ namespace MIPP.Forms
             }
         }
 
-        public Double LoadPrice(string ID, int ShopID)
+        public Double LoadPrice(int ID, int ShopID)
         {
             Double S;
             try
@@ -282,7 +235,7 @@ namespace MIPP.Forms
             }
         }
 
-        public int LoadDepartament(string ID)
+        public int LoadDepartament(int ID)
         {
             int I;
             try
@@ -377,7 +330,7 @@ namespace MIPP.Forms
             }
         }
 
-        public Image LoadImage1(string ID)
+        public Image LoadImage1(int ID)
         {
             Image image;
             try
