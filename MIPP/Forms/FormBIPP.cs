@@ -56,17 +56,29 @@ namespace MIPP.Forms
         {
             DS = BIPP.LoadGrid(int.Parse(cmbShop.Text));
             dgvBIPPEquival.DataSource = DS.Tables[0];
+            DataGridViewCheckBoxColumn checkColumn = new DataGridViewCheckBoxColumn();
+            checkColumn.Name = "Equivalente";
+            checkColumn.HeaderText = "Equivalente";
+            checkColumn.Width = 50;
+            checkColumn.ReadOnly = false;
+            dgvBIPPEquival.Columns.Add(checkColumn);
         }
 
         private void LoadGridProd()
         {
-            DS = Pr.LoadGrid(int.Parse(cmbShop.Text));
+            DS = BIPP.LoadGrid1(int.Parse(cmbShop.Text));
             dgvProduct.DataSource = DS.Tables[0];
+            DataGridViewCheckBoxColumn checkColumn = new DataGridViewCheckBoxColumn();
+            checkColumn.Name = "Equivalente";
+            checkColumn.HeaderText = "Equivalente";
+            checkColumn.Width = 50;
+            checkColumn.ReadOnly = false;
+            dgvProduct.Columns.Add(checkColumn);
         }
 
         private void LoadGridInsertEquival()
         {
-            DS = Pr.LoadGrid(int.Parse(cmbShop.Text));
+            DS = BIPP.LoadGrid1(int.Parse(cmbShop.Text));
             dgvInsertEquival.DataSource = DS.Tables[0];
         }
 
@@ -77,7 +89,7 @@ namespace MIPP.Forms
                 MessageBox.Show("Insira o ID", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            DS = Pr.LoadGrid_SearchID(int.Parse(mtbID.Text));
+            DS = BIPP.LoadGrid_SearchID1(int.Parse(mtbID.Text));
             dgvProduct.DataSource = DS.Tables[0];
         }
         
@@ -85,10 +97,10 @@ namespace MIPP.Forms
         {
             if (cmbDepart.Text == "")
             {
-                MessageBox.Show("Seleyurw1cione o Departamento", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Selecione o Departamento", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            DS = Pr.LoadGrid_SearchDepart(int.Parse(cmbDepart.Text));
+            DS = BIPP.LoadGrid_SearchDepart1(int.Parse(cmbDepart.Text));
             dgvProduct.DataSource = DS.Tables[0];
         }
 
@@ -99,7 +111,7 @@ namespace MIPP.Forms
                 MessageBox.Show("Insira a descrição", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            DS = Pr.LoadGrid_SearchDesciption(txtDescription.Text);
+            DS = BIPP.LoadGrid_SearchDesciption1(txtDescription.Text);
             dgvProduct.DataSource = DS.Tables[0];
         }
         private void ClearAll()
@@ -127,23 +139,25 @@ namespace MIPP.Forms
             ClearAll();
         }
 
-        private void dgvProduct_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvProduct_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
 
             cmbDepart.Text = "";
 
             int y;
+            string x;
 
             try
             {
                 y = dgvProduct.CurrentRow.Index;
-                
-                    mtbID.Text = (dgvProduct[0, y].Value).ToString();
-                    txtDescription.Text = (string)dgvProduct[1, y].Value;
-                    txtPrice.Text = (dgvProduct[3, y].Value).ToString();
-                    cmbDepart.Text = (dgvProduct[2, y].Value).ToString();
-                    pbPhoto.Image = Pr.LoadImage(int.Parse(mtbID.Text));
-                    dgvProduct.Visible = false;
+                x = (dgvProduct[0, y].Value).ToString();
+
+                mtbID.Text = x;
+                txtDescription.Text = (BIPP.LoadDescription(x)).ToString();
+                txtPrice.Text = (BIPP.LoadPrice(x,int.Parse(cmbShop.Text))).ToString();
+                cmbDepart.Text = (BIPP.LoadDepartament(x)).ToString();
+                pbPhoto.Image = BIPP.LoadImage1(x);
+                dgvProduct.Visible = false;
 
 
             }
@@ -175,49 +189,14 @@ namespace MIPP.Forms
             LoadGridInsertEquival();
         }
 
-        private void dgvBIPPEquival_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvBIPPEquival_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            cmbDepart.Text = "";
-
-            int y;
-
-            try
-            {
-                y = dgvBIPPEquival.CurrentRow.Index;
-                
-                int ID = ((int)dgvBIPPEquival[0, y].Value);
-                int ShopID = int.Parse(cmbShop.Text);
-
-                mtbID.Text = ID.ToString();
-                txtDescription.Text = BIPP.LoadDescription(ID);
-                cmbDepart.Text = BIPP.LoadDepartament(ID).ToString();
-                txtPrice.Text = BIPP.LoadPrice(ID, ShopID).ToString();
-                pbPhoto.Image = Pr.LoadImage(ID);
-
-                ID = ((int)dgvBIPPEquival[1, y].Value);
-                                
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+            
         }
 
-        private void dgvInsertEquival_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvInsertEquival_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            cmbDepart.Text = "";
-
-            int y;
-
-            try
-            {
-                y = dgvInsertEquival.CurrentRow.Index;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+            
         }
 
         private void btnDesEquival_Click(object sender, EventArgs e)
@@ -227,7 +206,7 @@ namespace MIPP.Forms
                 MessageBox.Show("Insira a descrição", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            DS = BIPP.LoadGrid_SearchDesciption(txtDesEquival.Text);
+            DS = BIPP.LoadGrid_SearchDesciption1(txtDesEquival.Text);
             dgvInsertEquival.DataSource = DS.Tables[0];
         }
     } 

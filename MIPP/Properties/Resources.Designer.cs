@@ -113,6 +113,16 @@ namespace MIPP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap NextButtonBlue {
+            get {
+                object obj = ResourceManager.GetObject("NextButtonBlue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SaveBlue {
             get {
                 object obj = ResourceManager.GetObject("SaveBlue", resourceCulture);

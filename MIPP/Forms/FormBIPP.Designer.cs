@@ -46,20 +46,20 @@
             this.label15 = new System.Windows.Forms.Label();
             this.btnLoadGrid = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dgvProduct = new System.Windows.Forms.DataGridView();
             this.pbPhoto = new System.Windows.Forms.PictureBox();
             this.dgvBIPPEquival = new System.Windows.Forms.DataGridView();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.dgvProduct = new System.Windows.Forms.DataGridView();
             this.dgvInsertEquival = new System.Windows.Forms.DataGridView();
             this.txtDesEquival = new System.Windows.Forms.TextBox();
-            this.btnDesEquival = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.btnInsert = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnDesEquival = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBIPPEquival)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInsertEquival)).BeginInit();
             this.SuspendLayout();
             // 
@@ -254,6 +254,17 @@
             this.groupBox3.TabIndex = 1056;
             this.groupBox3.TabStop = false;
             // 
+            // dgvProduct
+            // 
+            this.dgvProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProduct.Location = new System.Drawing.Point(3, 8);
+            this.dgvProduct.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvProduct.Name = "dgvProduct";
+            this.dgvProduct.RowTemplate.Height = 24;
+            this.dgvProduct.Size = new System.Drawing.Size(367, 400);
+            this.dgvProduct.TabIndex = 1064;
+            this.dgvProduct.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduct_CellDoubleClick);
+            // 
             // pbPhoto
             // 
             this.pbPhoto.BackColor = System.Drawing.Color.Chartreuse;
@@ -273,29 +284,7 @@
             this.dgvBIPPEquival.RowTemplate.Height = 24;
             this.dgvBIPPEquival.Size = new System.Drawing.Size(415, 107);
             this.dgvBIPPEquival.TabIndex = 1060;
-            this.dgvBIPPEquival.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBIPPEquival_CellClick);
-            // 
-            // btnClear
-            // 
-            this.btnClear.BackgroundImage = global::MIPP.Properties.Resources.ClearButtonSlinBlue;
-            this.btnClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnClear.Location = new System.Drawing.Point(610, 148);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(37, 33);
-            this.btnClear.TabIndex = 1063;
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // dgvProduct
-            // 
-            this.dgvProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProduct.Location = new System.Drawing.Point(4, 10);
-            this.dgvProduct.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvProduct.Name = "dgvProduct";
-            this.dgvProduct.RowTemplate.Height = 24;
-            this.dgvProduct.Size = new System.Drawing.Size(367, 400);
-            this.dgvProduct.TabIndex = 1064;
-            this.dgvProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduct_CellClick);
+            this.dgvBIPPEquival.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBIPPEquival_CellDoubleClick);
             // 
             // dgvInsertEquival
             // 
@@ -306,6 +295,7 @@
             this.dgvInsertEquival.RowTemplate.Height = 24;
             this.dgvInsertEquival.Size = new System.Drawing.Size(415, 107);
             this.dgvInsertEquival.TabIndex = 1068;
+            this.dgvInsertEquival.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInsertEquival_CellDoubleClick);
             // 
             // txtDesEquival
             // 
@@ -313,6 +303,26 @@
             this.txtDesEquival.Name = "txtDesEquival";
             this.txtDesEquival.Size = new System.Drawing.Size(389, 20);
             this.txtDesEquival.TabIndex = 1066;
+            // 
+            // btnInsert
+            // 
+            this.btnInsert.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnInsert.Image = global::MIPP.Properties.Resources.BlueUpButton;
+            this.btnInsert.Location = new System.Drawing.Point(578, 307);
+            this.btnInsert.Name = "btnInsert";
+            this.btnInsert.Size = new System.Drawing.Size(40, 40);
+            this.btnInsert.TabIndex = 1070;
+            this.btnInsert.UseVisualStyleBackColor = true;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDelete.Image = global::MIPP.Properties.Resources.BlueDownButton;
+            this.btnDelete.Location = new System.Drawing.Point(624, 307);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(40, 40);
+            this.btnDelete.TabIndex = 1069;
+            this.btnDelete.UseVisualStyleBackColor = true;
             // 
             // btnDesEquival
             // 
@@ -325,25 +335,16 @@
             this.btnDesEquival.UseVisualStyleBackColor = true;
             this.btnDesEquival.Click += new System.EventHandler(this.btnDesEquival_Click);
             // 
-            // btnDelete
+            // btnClear
             // 
-            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnDelete.Image = global::MIPP.Properties.Resources.BlueDownButton;
-            this.btnDelete.Location = new System.Drawing.Point(624, 307);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(40, 40);
-            this.btnDelete.TabIndex = 1069;
-            this.btnDelete.UseVisualStyleBackColor = true;
-            // 
-            // btnInsert
-            // 
-            this.btnInsert.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnInsert.Image = global::MIPP.Properties.Resources.BlueUpButton;
-            this.btnInsert.Location = new System.Drawing.Point(578, 307);
-            this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(40, 40);
-            this.btnInsert.TabIndex = 1070;
-            this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnClear.BackgroundImage = global::MIPP.Properties.Resources.ClearButtonSlinBlue;
+            this.btnClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnClear.Location = new System.Drawing.Point(610, 148);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(37, 33);
+            this.btnClear.TabIndex = 1063;
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // FormBIPP
             // 
@@ -369,9 +370,9 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBIPPEquival)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInsertEquival)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

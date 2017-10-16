@@ -200,7 +200,31 @@ namespace MIPP.Forms
             }
         }
 
-        public string LoadDescription(int ID)
+        public DataSet LoadGrid1(int ID)
+        {
+            try
+            {
+                C.Connect.Open();
+                C.DA = new MySqlDataAdapter("SELECT id `Código`, descricao `Descrição`, preco `Preço` FROM produto " +
+                    "INNER JOIN preco_loja ON preco_loja.id_prod = produto.id " +
+                    "WHERE id_loja = " + ID, C.Connect);
+                DataSet DS = new DataSet();
+                C.DA.Fill(DS);
+                return DS;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                C.Connect.Close();
+                C.Connect.Dispose();
+            }
+        }
+
+        public string LoadDescription(string ID)
         {
             string S;
             try
@@ -229,7 +253,7 @@ namespace MIPP.Forms
             }
         }
 
-        public Double LoadPrice(int ID, int ShopID)
+        public Double LoadPrice(string ID, int ShopID)
         {
             Double S;
             try
@@ -258,7 +282,7 @@ namespace MIPP.Forms
             }
         }
 
-        public int LoadDepartament(int ID)
+        public int LoadDepartament(string ID)
         {
             int I;
             try
@@ -285,6 +309,103 @@ namespace MIPP.Forms
                 C.Connect.Dispose();
                 C.Connect.Close();
             }
+        }
+
+        public DataSet LoadGrid_SearchID1(int ID)
+        {
+            try
+            {
+                C.Connect.Open();
+                C.DA = new MySqlDataAdapter("SELECT id, descricao FROM produto WHERE id = " + ID, C.Connect);
+                DataSet DS = new DataSet();
+                C.DA.Fill(DS);
+                return DS;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                C.Connect.Dispose();
+                C.Connect.Close();
+            }
+        }
+
+        public DataSet LoadGrid_SearchDesciption1(string Description)
+        {
+            try
+            {
+                C.Connect.Open();
+                C.DA = new MySqlDataAdapter("SELECT id, descricao FROM produto WHERE descricao LIKE '%" + Description + "%'", C.Connect);
+                DataSet DS = new DataSet();
+                C.DA.Fill(DS);
+                return DS;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                C.Connect.Dispose();
+                C.Connect.Close();
+            }
+        }
+
+        public DataSet LoadGrid_SearchDepart1(int Depart)
+        {
+            try
+            {
+                C.Connect.Open();
+                C.DA = new MySqlDataAdapter("SELECT ID, descricao, id_depto FROM produto WHERE id_depto = " + Depart, C.Connect);
+                DataSet DS = new DataSet();
+                C.DA.Fill(DS);
+                return DS;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                C.Connect.Dispose();
+                C.Connect.Close();
+            }
+        }
+
+        public Image LoadImage1(string ID)
+        {
+            Image image;
+            try
+            {
+
+                MySqlDataReader reader;
+                C.Connect.Open();
+                C.cmd = new MySqlCommand("SELECT foto " +
+                                         "FROM produto " +
+                                         "WHERE id = '" + ID + "' ", C.Connect);
+
+                reader = C.cmd.ExecuteReader();
+                reader.Read();
+                image = (Bitmap)new ImageConverter().ConvertFrom(reader.GetValue(0));
+
+                return image;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return image = null;
+            }
+            finally
+            {
+                C.Connect.Close();
+                C.Connect.Dispose();
+            }
+
         }
 
     }
