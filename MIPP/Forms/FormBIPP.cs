@@ -13,6 +13,7 @@ namespace MIPP.Forms
         Department De = new Department();
         Product Pr = new Product();
         Shop Sh = new Shop();
+        int id_prod;
 
         public FormBIPP()
         {
@@ -54,7 +55,7 @@ namespace MIPP.Forms
 
         private void LoadGrid()
         {
-            DS = BIPP.LoadGrid(int.Parse(cmbShop.Text));
+            DS = BIPP.LoadGrid(int.Parse(cmbShop.Text), id_prod);
             dgvBIPPEquival.DataSource = DS.Tables[0];
         }
 
@@ -72,12 +73,12 @@ namespace MIPP.Forms
 
         private void btnSearchID_Click(object sender, EventArgs e)
         {
-            if (mtbID.Text == "")
+            if (id_prod == 0)
             {
                 MessageBox.Show("Insira o ID", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            DS = BIPP.LoadGrid_SearchID1(int.Parse(mtbID.Text));
+            DS = BIPP.LoadGrid_SearchID1(id_prod);
             dgvProduct.DataSource = DS.Tables[0];
         }
         
@@ -85,7 +86,7 @@ namespace MIPP.Forms
         {
             if (cmbDepart.Text == "")
             {
-                MessageBox.Show("Seleyurw1cione o Departamento", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Selecione o Departamento", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             DS = BIPP.LoadGrid_SearchDepart1(int.Parse(cmbDepart.Text));
@@ -104,7 +105,7 @@ namespace MIPP.Forms
         }
         private void ClearAll()
         {
-            mtbID.Text = "";
+            id_prod = 0;
             txtDescription.Clear();
             cmbDepart.Text = "";
             lblDepart.Text = "";
@@ -138,20 +139,19 @@ namespace MIPP.Forms
             {
                 y = dgvProduct.CurrentRow.Index;
 
-                mtbID.Text = 
+                    id_prod = (int)dgvProduct[0, y].Value;
                     txtDescription.Text = (string)dgvProduct[1, y].Value;
                     txtPrice.Text = (dgvProduct[3, y].Value).ToString();
                     cmbDepart.Text = (dgvProduct[2, y].Value).ToString();
-                    pbPhoto.Image = BIPP.LoadImage1(int.Parse(mtbID.Text));
+                    pbPhoto.Image = BIPP.LoadImage(id_prod);
                     dgvProduct.Visible = false;
-
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            
+            LoadGrid();
         }
 
         private void btnLoadGrid_Click(object sender, EventArgs e)
@@ -170,35 +170,28 @@ namespace MIPP.Forms
         {
             if(cmbShop.Text == "") { return; }
             lblShop.Text = Sh.LoadShop(int.Parse(cmbShop.Text));
+            ClearAll();
             LoadGrid();
             LoadGridProd();
             LoadGridInsertEquival();
         }
 
-        private void dgvBIPPEquival_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvBIPPEquival_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            //dgvBIPPEquival.Columns[4].ReadOnly = true;
         }
 
         private void dgvInsertEquival_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            cmbDepart.Text = "";
 
             int y;
-
-            try
-            {
-                y = dgvInsertEquival.CurrentRow.Index;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+            y = dgvInsertEquival.CurrentRow.Index;
+            int id_equival = (int)dgvInsertEquival[0, y].Value;
         }
 
         private void btnDesEquival_Click(object sender, EventArgs e)
         {
+
             if (txtDesEquival.Text == "")
             {
                 MessageBox.Show("Insira a descrição", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -206,6 +199,40 @@ namespace MIPP.Forms
             }
             DS = BIPP.LoadGrid_SearchDesciption1(txtDesEquival.Text);
             dgvInsertEquival.DataSource = DS.Tables[0];
+        }
+
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+            int y;
+            y = dgvInsertEquival.CurrentRow.Index;
+            int id_equival = (int)dgvInsertEquival[0, y].Value;
+
+            if (BIPP.Insert(id_prod, id_equival, int.Parse(cmbShop.Text))) { return; }
+
+            MessageBox.Show("Salvo!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
+
+            if (id_prod == 0)
+            {
+                MessageBox.Show("Verifique os campos obrigatórios","Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            LoadGrid();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int y;
+            y = dgvBIPPEquival.RowCount-1;
+            while (y > -1)
+            {
+                int id_prod = (int)dgvBIPPEquival[0, y].Value;
+                int id_equival = (int)dgvBIPPEquival[1, y].Value;
+                int id_loja = (int)dgvBIPPEquival[2, y].Value;
+                bool equiv = (bool)dgvBIPPEquival[3, y].Value;
+                BIPP.Update(id_prod,id_equival, id_loja, equiv);
+                y-=1;
+            }
         }
     } 
 

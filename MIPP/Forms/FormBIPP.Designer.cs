@@ -55,6 +55,7 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnDesEquival = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
@@ -256,10 +257,13 @@
             // 
             // dgvProduct
             // 
+            this.dgvProduct.AllowUserToAddRows = false;
+            this.dgvProduct.AllowUserToDeleteRows = false;
             this.dgvProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProduct.Location = new System.Drawing.Point(3, 8);
             this.dgvProduct.Margin = new System.Windows.Forms.Padding(2);
             this.dgvProduct.Name = "dgvProduct";
+            this.dgvProduct.ReadOnly = true;
             this.dgvProduct.RowTemplate.Height = 24;
             this.dgvProduct.Size = new System.Drawing.Size(367, 400);
             this.dgvProduct.TabIndex = 1064;
@@ -277,21 +281,27 @@
             // 
             // dgvBIPPEquival
             // 
+            this.dgvBIPPEquival.AllowUserToAddRows = false;
+            this.dgvBIPPEquival.AllowUserToDeleteRows = false;
             this.dgvBIPPEquival.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBIPPEquival.Location = new System.Drawing.Point(400, 198);
             this.dgvBIPPEquival.Margin = new System.Windows.Forms.Padding(2);
             this.dgvBIPPEquival.Name = "dgvBIPPEquival";
+            this.dgvBIPPEquival.ReadOnly = true;
             this.dgvBIPPEquival.RowTemplate.Height = 24;
             this.dgvBIPPEquival.Size = new System.Drawing.Size(415, 107);
             this.dgvBIPPEquival.TabIndex = 1060;
-            this.dgvBIPPEquival.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBIPPEquival_CellDoubleClick);
+            this.dgvBIPPEquival.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBIPPEquival_CellContentClick);
             // 
             // dgvInsertEquival
             // 
+            this.dgvInsertEquival.AllowUserToAddRows = false;
+            this.dgvInsertEquival.AllowUserToDeleteRows = false;
             this.dgvInsertEquival.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInsertEquival.Location = new System.Drawing.Point(400, 378);
             this.dgvInsertEquival.Margin = new System.Windows.Forms.Padding(2);
             this.dgvInsertEquival.Name = "dgvInsertEquival";
+            this.dgvInsertEquival.ReadOnly = true;
             this.dgvInsertEquival.RowTemplate.Height = 24;
             this.dgvInsertEquival.Size = new System.Drawing.Size(415, 107);
             this.dgvInsertEquival.TabIndex = 1068;
@@ -313,6 +323,7 @@
             this.btnInsert.Size = new System.Drawing.Size(40, 40);
             this.btnInsert.TabIndex = 1070;
             this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
             // btnDelete
             // 
@@ -346,11 +357,22 @@
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(670, 308);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(40, 38);
+            this.button1.TabIndex = 1071;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FormBIPP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(826, 535);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnLoadGrid);
             this.Controls.Add(this.btnInsert);
             this.Controls.Add(this.btnDelete);
@@ -408,5 +430,6 @@
         internal System.Windows.Forms.Button btnDesEquival;
         internal System.Windows.Forms.Button btnDelete;
         internal System.Windows.Forms.Button btnInsert;
+        private System.Windows.Forms.Button button1;
     }
 }

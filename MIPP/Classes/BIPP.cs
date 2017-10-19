@@ -11,13 +11,13 @@ namespace MIPP.Forms
     {
         Connection C = new Connection();
 
-        public Boolean Insert()
+        public Boolean Insert(int ID, int id_equival, int id_loja)
         {
             try
             {
                 C.Connect.Open();
-                C.cmd = new MySqlCommand("INSERT INTO bipp_prod_equival (id_prod, id_loja) " +
-                    "", C.Connect);
+                C.cmd = new MySqlCommand("INSERT INTO bipp_prod_equival(id_prod, id_equival, id_loja, equiv) " +
+                    "VALUES('" + ID + "', '" + id_equival + "', '" + id_loja + "') ", C.Connect);
 
                 C.cmd.ExecuteNonQuery();
                 return true;
@@ -32,15 +32,15 @@ namespace MIPP.Forms
                 C.Connect.Close();
                 C.Connect.Dispose();
             }
-        }
+        }   
         
 
-        public DataSet LoadGrid(int ID)
+        public DataSet LoadGrid(int ID, int id_prod)
         {
             try
             {
                 C.Connect.Open();
-                C.DA = new MySqlDataAdapter("SELECT * FROM mipp.bipp_prod_equival WHERE id_loja = 1" + ID, C.Connect);
+                C.DA = new MySqlDataAdapter("SELECT * FROM bipp_prod_equival WHERE id_loja = " + ID + " AND id_prod = " + id_prod, C.Connect);
                 DataSet DS = new DataSet();
                 C.DA.Fill(DS);
                 return DS;
@@ -158,7 +158,7 @@ namespace MIPP.Forms
             try
             {
                 C.Connect.Open();
-                C.DA = new MySqlDataAdapter("SELECT id `Código`, descricao `Descrição`, preco `Preço` FROM produto " +
+                C.DA = new MySqlDataAdapter("SELECT id `Código`, descricao `Descrição`, id_depto `Departamento`, preco `Preço` FROM produto " +
                     "INNER JOIN preco_loja ON preco_loja.id_prod = produto.id " +
                     "WHERE id_loja = " + ID, C.Connect);
                 DataSet DS = new DataSet();
@@ -361,6 +361,37 @@ namespace MIPP.Forms
 
         }
 
+        public Boolean Update(int id_prod, int id_equival, int id_loja, bool equiv)
+        {
+            int b;
+            if (equiv == false)
+            {
+                b = 0;
+            }
+            else
+            {
+                b = 1;
+            }
+
+            try
+            {
+                C.Connect.Open();
+                C.cmd = new MySqlCommand("UPDATE bipp_prod_equival SET equiv = "+b+" "+
+                    " WHERE id_prod = " + id_prod+ " AND id_equival = "+ id_equival + "  AND id_loja = "+ id_loja, C.Connect);
+                C.cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            finally
+            {
+                C.Connect.Close();
+                C.Connect.Dispose();
+            }
+        }
     }
 }
 
