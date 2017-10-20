@@ -15,10 +15,9 @@ namespace MIPP.Forms
         {
             try
             {
-                C.Connect.Close();
-                C.Connect.Open();
                 C.DA = new MySqlDataAdapter("SELECT id, nome, background, ativo " +
                                             "FROM departamento", C.Connect);
+                C.Connect.Open();
                 DataSet DS = new DataSet();
                 C.DA.Fill(DS);
                 return DS;
@@ -27,6 +26,11 @@ namespace MIPP.Forms
             {
                 MessageBox.Show(ex.Message);
                 return null;
+            }
+            finally
+            {
+                C.Connect.Close();
+                C.Connect.Dispose();
             }
 
         }
@@ -44,7 +48,6 @@ namespace MIPP.Forms
             }
             try
             {
-                C.Connect.Close();
                 C.cmd = new MySqlCommand("INSERT INTO departamento (id, nome, ativo) " +
                                     "VALUES ('" + ID + "', '" + Name + "', '" + b + "')", C.Connect);
                 C.Connect.Open();
@@ -55,6 +58,11 @@ namespace MIPP.Forms
             {
                 MessageBox.Show(ex.Message);
                 return false;
+            }
+            finally
+            {
+                C.Connect.Close();
+                C.Connect.Dispose();
             }
         }
 
@@ -72,7 +80,6 @@ namespace MIPP.Forms
 
             try
             {
-                C.Connect.Close();
                 C.cmd = new MySqlCommand ("UPDATE departamento SET nome = '" + Name + "', " + "ativo = '" + b + "', " + "background = '" + ImageID + "' " +
                                          "WHERE id = '" + ID + "'", C.Connect);
                 C.Connect.Open();
@@ -84,13 +91,17 @@ namespace MIPP.Forms
                 MessageBox.Show(ex.Message);
                 return false;
             }
+            finally
+            {
+                C.Connect.Close();
+                C.Connect.Dispose();
+            }
         }
 
         public Boolean Delete(int ID)
         {
             try
             {
-                C.Connect.Close();
                 C.cmd = new MySqlCommand ("DELETE FROM departamento " +
                                     "WHERE `id`='" + ID + "' ",C.Connect);
                 C.Connect.Open();
@@ -102,14 +113,17 @@ namespace MIPP.Forms
                 MessageBox.Show(ex.Message);
                 return false;
             }
+            finally
+            {
+                C.Connect.Close();
+                C.Connect.Dispose();
+            }
         }
 
         public Boolean InsertBackground(int ID, Image image)
         {
             try
             {
-
-                C.Connect.Close();
                 C.cmd = new MySqlCommand("UPDATE departamento SET background=@Photo " +
                                          "WHERE id = '" + ID + "'", C.Connect);
 
@@ -127,6 +141,11 @@ namespace MIPP.Forms
                 MessageBox.Show(ex.Message);
                 return false;
             }
+            finally
+            {
+                C.Connect.Close();
+                C.Connect.Dispose();
+            }
         }
 
         public Image LoadBackground(int ID)
@@ -135,7 +154,6 @@ namespace MIPP.Forms
             try
             {
                 MySqlDataReader reader;
-                C.Connect.Close();
                 C.cmd = new MySqlCommand("SELECT background " +
                                          "FROM departamento " +
                                          "WHERE id = '" + ID + "'", C.Connect);
@@ -151,6 +169,11 @@ namespace MIPP.Forms
             {
                 MessageBox.Show(ex.Message);
                 return null;
+            }
+            finally
+            {
+                C.Connect.Close();
+                C.Connect.Dispose();
             }
         }
 
