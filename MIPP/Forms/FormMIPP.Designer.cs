@@ -1,6 +1,6 @@
 ﻿namespace MIPP
 {
-    partial class FormScreen
+    partial class FormMIPP
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormScreen));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMIPP));
             this.dgvProd = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbScreen = new System.Windows.Forms.ComboBox();
@@ -100,7 +100,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 53);
+            this.label1.Location = new System.Drawing.Point(17, 85);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(36, 17);
@@ -113,7 +113,7 @@
             this.cmbScreen.FormattingEnabled = true;
             this.cmbScreen.Items.AddRange(new object[] {
             ""});
-            this.cmbScreen.Location = new System.Drawing.Point(60, 50);
+            this.cmbScreen.Location = new System.Drawing.Point(61, 82);
             this.cmbScreen.Margin = new System.Windows.Forms.Padding(4);
             this.cmbScreen.Name = "cmbScreen";
             this.cmbScreen.Size = new System.Drawing.Size(59, 24);
@@ -148,7 +148,7 @@
             this.cmbDepart.FormattingEnabled = true;
             this.cmbDepart.Items.AddRange(new object[] {
             ""});
-            this.cmbDepart.Location = new System.Drawing.Point(61, 82);
+            this.cmbDepart.Location = new System.Drawing.Point(61, 50);
             this.cmbDepart.Margin = new System.Windows.Forms.Padding(4);
             this.cmbDepart.Name = "cmbDepart";
             this.cmbDepart.Size = new System.Drawing.Size(59, 24);
@@ -158,7 +158,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 85);
+            this.label4.Location = new System.Drawing.Point(13, 53);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(51, 17);
@@ -189,11 +189,12 @@
             this.groupBox1.TabIndex = 1019;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tela";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // lblDepart
             // 
             this.lblDepart.AutoSize = true;
-            this.lblDepart.Location = new System.Drawing.Point(128, 85);
+            this.lblDepart.Location = new System.Drawing.Point(128, 53);
             this.lblDepart.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDepart.Name = "lblDepart";
             this.lblDepart.Size = new System.Drawing.Size(16, 17);
@@ -371,7 +372,7 @@
             this.btnMinus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnMinus.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnMinus.Image = ((System.Drawing.Image)(resources.GetObject("btnMinus.Image")));
-            this.btnMinus.Location = new System.Drawing.Point(259, 18);
+            this.btnMinus.Location = new System.Drawing.Point(443, 18);
             this.btnMinus.Margin = new System.Windows.Forms.Padding(4);
             this.btnMinus.Name = "btnMinus";
             this.btnMinus.Size = new System.Drawing.Size(53, 49);
@@ -385,7 +386,7 @@
             this.btnPlus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnPlus.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnPlus.Image = ((System.Drawing.Image)(resources.GetObject("btnPlus.Image")));
-            this.btnPlus.Location = new System.Drawing.Point(197, 18);
+            this.btnPlus.Location = new System.Drawing.Point(381, 18);
             this.btnPlus.Margin = new System.Windows.Forms.Padding(4);
             this.btnPlus.Name = "btnPlus";
             this.btnPlus.Size = new System.Drawing.Size(53, 49);
@@ -398,7 +399,7 @@
             // 
             this.btnPhoto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPhoto.BackgroundImage")));
             this.btnPhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnPhoto.Location = new System.Drawing.Point(320, 18);
+            this.btnPhoto.Location = new System.Drawing.Point(443, 72);
             this.btnPhoto.Margin = new System.Windows.Forms.Padding(4);
             this.btnPhoto.Name = "btnPhoto";
             this.btnPhoto.Size = new System.Drawing.Size(53, 49);
@@ -413,7 +414,7 @@
             this.btnFind.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnFind.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnFind.Image = ((System.Drawing.Image)(resources.GetObject("btnFind.Image")));
-            this.btnFind.Location = new System.Drawing.Point(136, 18);
+            this.btnFind.Location = new System.Drawing.Point(381, 72);
             this.btnFind.Margin = new System.Windows.Forms.Padding(4);
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(53, 49);
@@ -571,7 +572,7 @@
             this.btnPriceUpdate.UseVisualStyleBackColor = true;
             this.btnPriceUpdate.Click += new System.EventHandler(this.btnPriceUpdate_Click);
             // 
-            // FormScreen
+            // FormMIPP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -587,8 +588,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
-            this.Name = "FormScreen";
-            this.Text = "Tela";
+            this.Name = "FormMIPP";
+            this.Text = "MIPP";
             this.Load += new System.EventHandler(this.FormScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProd)).EndInit();
             this.groupBox1.ResumeLayout(false);

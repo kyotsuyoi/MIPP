@@ -9,11 +9,11 @@ using MySql.Data.MySqlClient;
 
 namespace MIPP
 {
-    public partial class FormScreen : Form
+    public partial class FormMIPP : Form
     {
 
         DataSet DS = new DataSet();
-        Forms.Screen SC = new Forms.Screen();
+        Forms.MIPP SC = new Forms.MIPP();
         Midia CI = new Midia();
         Shop Sh = new Shop();
         Department De = new Department();
@@ -21,7 +21,7 @@ namespace MIPP
         int vDepart = 0;
         int ImageID = 0;
 
-        public FormScreen()
+        public FormMIPP()
         {
             InitializeComponent();
         }
@@ -636,6 +636,11 @@ namespace MIPP
             }
             DS = SC.LoadGrid_Prod(int.Parse(cmbLoja.Text), int.Parse(cmbDepart.Text), int.Parse(cmbScreen.Text));
             dgvProd.DataSource = DS.Tables[0];
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

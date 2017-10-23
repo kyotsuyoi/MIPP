@@ -113,15 +113,15 @@
     <Compile Include="Forms\FormShop.Designer.cs">
       <DependentUpon>FormShop.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormScreen.cs">
+    <Compile Include="Forms\FormMIPP.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormScreen.Designer.cs">
-      <DependentUpon>FormScreen.cs</DependentUpon>
+    <Compile Include="Forms\FormMIPP.Designer.cs">
+      <DependentUpon>FormMIPP.cs</DependentUpon>
     </Compile>
     <Compile Include="CommonClasses\InputBox.cs" />
     <Compile Include="Classes\Product.cs" />
-    <Compile Include="Classes\Screen.cs" />
+    <Compile Include="Classes\MIPP.cs" />
     <Compile Include="Classes\Shop.cs" />
     <Compile Include="MDI-MIPP.cs">
       <SubType>Form</SubType>
@@ -152,8 +152,8 @@
     <EmbeddedResource Include="Forms\FormShop.resx">
       <DependentUpon>FormShop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormScreen.resx">
-      <DependentUpon>FormScreen.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormMIPP.resx">
+      <DependentUpon>FormMIPP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDI-MIPP.resx">
       <DependentUpon>MDI-MIPP.cs</DependentUpon>

@@ -13,7 +13,7 @@ namespace MIPP
         FormMidia FM;
         FormShop FSh;
         FormDepartment FD;
-        FormScreen FSc;
+        FormMIPP FSc;
         FormProduct FP;
         FormBIPP BIPP;
         Thread T;
@@ -84,7 +84,7 @@ namespace MIPP
         private void TelasMIPPPlayToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (FSc != null) { FSc.Close(); }
-            FSc = new FormScreen { MdiParent = this };
+            FSc = new FormMIPP { MdiParent = this };
             FSc.Activate();
             FSc.Show();
         }

@@ -7,7 +7,7 @@ using MIPP.CommonClasses;
 
 namespace MIPP.Forms
 {
-    public class Screen
+    public class MIPP
     {
 
         Connection C = new Connection();
