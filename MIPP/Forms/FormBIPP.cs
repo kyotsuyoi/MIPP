@@ -42,6 +42,12 @@ namespace MIPP.Forms
         {
             DS = BIPP.LoadGrid(int.Parse(cmbShop.Text), id_prod);
             dgvBIPPEquival.DataSource = DS.Tables[0];
+            dgvBIPPEquival.Columns[0].Visible = false;
+            dgvBIPPEquival.Columns[1].Visible = false;
+            dgvBIPPEquival.Columns[2].Visible = false;
+            dgvBIPPEquival.Columns[3].Width = 177;
+            dgvBIPPEquival.Columns[4].Width = 50;   
+
         }
 
         private void LoadGridProd()
@@ -58,22 +64,22 @@ namespace MIPP.Forms
         {
             DS = BIPP.LoadGrid1(int.Parse(cmbShop.Text));
             dgvInsertEquival.DataSource = DS.Tables[0];
-            
             dgvInsertEquival.Columns[0].Width = 68;
-            dgvInsertEquival.Columns[1].Width = 158;
+            dgvInsertEquival.Columns[1].Width = 161;
             dgvInsertEquival.Columns[2].Width = 34;
             dgvInsertEquival.Columns[3].Width = 50;
         }
 
         private void btnSearchID_Click(object sender, EventArgs e)
         {
-            if (id_prod == 0)
+            if (mtbID.Text == "")
             {
                 MessageBox.Show("Insira o ID", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            DS = BIPP.LoadGrid_SearchID1(id_prod);
+            DS = BIPP.LoadGrid_SearchID1(int.Parse(mtbID.Text));
             dgvProduct.DataSource = DS.Tables[0];
+
         }
         
         private void btnSearchDepart_Click(object sender, EventArgs e)
@@ -178,14 +184,13 @@ namespace MIPP.Forms
             LoadGridInsertEquival();
         }
 
-        private void dgvBIPPEquival_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvBIPPEquival_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //dgvBIPPEquival.Columns[4].ReadOnly = true;
+
         }
 
         private void dgvInsertEquival_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
             int y;
             y = dgvInsertEquival.CurrentRow.Index;
             int id_equival = (int)dgvInsertEquival[0, y].Value;

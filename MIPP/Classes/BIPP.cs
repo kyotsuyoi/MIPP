@@ -60,7 +60,9 @@ namespace MIPP.Forms
             try
             {
                 C.Connect.Open();
-                C.DA = new MySqlDataAdapter("SELECT * FROM bipp WHERE id_loja = " + ID + " AND id_prod = " + id_prod, C.Connect);
+                C.DA = new MySqlDataAdapter("SELECT id_prod, id_equival, id_loja, descricao, equiv FROM bipp INNER JOIN produto ON produto.id = id_equival " +
+                    "WHERE id_loja = " + ID + " AND id_prod = " + id_prod
+                 , C.Connect);
                 DataSet DS = new DataSet();
                 C.DA.Fill(DS);
                 return DS;
@@ -136,7 +138,7 @@ namespace MIPP.Forms
                 MessageBox.Show(ex.Message);
                 return null;
             }
-            finally
+               finally
             {
                 C.Connect.Dispose();
                 C.Connect.Close();
