@@ -37,22 +37,7 @@ namespace MIPP.Forms
             dgvProduct.Visible = false;
 
         }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
         
-        }
-
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void LoadGrid()
         {
             DS = BIPP.LoadGrid(int.Parse(cmbShop.Text), id_prod);
@@ -63,12 +48,21 @@ namespace MIPP.Forms
         {
             DS = BIPP.LoadGrid1(int.Parse(cmbShop.Text));
             dgvProduct.DataSource = DS.Tables[0];
+            dgvProduct.Columns[0].Width = 68;
+            dgvProduct.Columns[1].Width = 155;
+            dgvProduct.Columns[2].Width = 34;
+            dgvProduct.Columns[3].Width = 50;
         }
 
         private void LoadGridInsertEquival()
         {
             DS = BIPP.LoadGrid1(int.Parse(cmbShop.Text));
             dgvInsertEquival.DataSource = DS.Tables[0];
+            
+            dgvInsertEquival.Columns[0].Width = 68;
+            dgvInsertEquival.Columns[1].Width = 158;
+            dgvInsertEquival.Columns[2].Width = 34;
+            dgvInsertEquival.Columns[3].Width = 50;
         }
 
         private void btnSearchID_Click(object sender, EventArgs e)
@@ -106,11 +100,16 @@ namespace MIPP.Forms
         private void ClearAll()
         {
             id_prod = 0;
+            mtbID.Text = "";
             txtDescription.Clear();
             cmbDepart.Text = "";
             lblDepart.Text = "";
             pbPhoto.Image = null;
             txtPrice.Clear();
+            txtDesEquival.Clear();
+            dgvBIPPEquival.DataSource = null;
+            dgvInsertEquival.DataSource = null;
+            dgvProduct.DataSource = null;
         }
 
         private void cmbDepart_SelectedIndexChanged(object sender, EventArgs e)
@@ -125,10 +124,12 @@ namespace MIPP.Forms
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            cmbShop.Text = "";
+            lblShop.Text = "";
             ClearAll();
         }
 
-        private void dgvProduct_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvProduct_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
             cmbDepart.Text = "";
@@ -139,12 +140,13 @@ namespace MIPP.Forms
             {
                 y = dgvProduct.CurrentRow.Index;
 
-                    id_prod = (int)dgvProduct[0, y].Value;
-                    txtDescription.Text = (string)dgvProduct[1, y].Value;
-                    txtPrice.Text = (dgvProduct[3, y].Value).ToString();
-                    cmbDepart.Text = (dgvProduct[2, y].Value).ToString();
-                    pbPhoto.Image = BIPP.LoadImage(id_prod);
-                    dgvProduct.Visible = false;
+                id_prod = (int)dgvProduct[0, y].Value;
+                mtbID.Text = id_prod.ToString();
+                txtDescription.Text = (string)dgvProduct[1, y].Value;
+                txtPrice.Text = (dgvProduct[3, y].Value).ToString();
+                cmbDepart.Text = (dgvProduct[2, y].Value).ToString();
+                pbPhoto.Image = BIPP.LoadImage(id_prod);
+                dgvProduct.Visible = false;
 
             }
             catch (Exception ex)
@@ -207,14 +209,13 @@ namespace MIPP.Forms
             y = dgvInsertEquival.CurrentRow.Index;
             int id_equival = (int)dgvInsertEquival[0, y].Value;
 
-            if (BIPP.Insert(id_prod, id_equival, int.Parse(cmbShop.Text))) { return; }
+            if (BIPP.Insert(id_prod, id_equival, int.Parse(cmbShop.Text))==false) { return; }
 
             MessageBox.Show("Salvo!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
             
-
             if (id_prod == 0)
             {
-                MessageBox.Show("Verifique os campos obrigatórios","Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Verifique o ID do produto!","Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             LoadGrid();
@@ -233,6 +234,24 @@ namespace MIPP.Forms
                 BIPP.Update(id_prod,id_equival, id_loja, equiv);
                 y-=1;
             }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            int y;
+            y = dgvBIPPEquival.CurrentRow.Index;
+            int id_equival = (int)dgvInsertEquival[0, y].Value;
+
+            if (BIPP.Delete(id_prod, id_equival, int.Parse(cmbShop.Text)) == false) { return; }
+
+            MessageBox.Show("Removido!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            if (id_prod == 0)
+            {
+                MessageBox.Show("Verifique o ID do produto!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            LoadGrid();
         }
     } 
 

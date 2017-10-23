@@ -103,6 +103,36 @@ namespace MIPP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap GridBlue {
+            get {
+                object obj = ResourceManager.GetObject("GridBlue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GridClosedBlue {
+            get {
+                object obj = ResourceManager.GetObject("GridClosedBlue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GridOpenedBlue {
+            get {
+                object obj = ResourceManager.GetObject("GridOpenedBlue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MagnifierBlue {
             get {
                 object obj = ResourceManager.GetObject("MagnifierBlue", resourceCulture);

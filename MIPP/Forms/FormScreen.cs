@@ -43,7 +43,7 @@ namespace MIPP
             }
             dgvImage.Visible = false;
             axWMP.Visible = false;
-            //axWMP.u
+            this.Width = 1320;
 
         }
         
@@ -601,6 +601,8 @@ namespace MIPP
         private void LoadImageOrVideoScreenGridByDepart(Boolean vid)
         {
             axWMP.close();
+            if (cmbLoja.Text == "" || cmbDepart.Text == "" || cmbScreen.Text == "") { return; }
+
             if (cbVideo.Checked == true)
             {
                 DS = CI.LoadVideoScreenGridByDepart(int.Parse(cmbDepart.Text));

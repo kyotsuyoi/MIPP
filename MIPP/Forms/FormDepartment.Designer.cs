@@ -63,9 +63,11 @@
             this.gbDepart.Controls.Add(this.dgvDepart);
             this.gbDepart.Controls.Add(this.btnDelete);
             this.gbDepart.Controls.Add(this.btnSave);
-            this.gbDepart.Location = new System.Drawing.Point(12, 7);
+            this.gbDepart.Location = new System.Drawing.Point(16, 9);
+            this.gbDepart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gbDepart.Name = "gbDepart";
-            this.gbDepart.Size = new System.Drawing.Size(286, 406);
+            this.gbDepart.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbDepart.Size = new System.Drawing.Size(381, 500);
             this.gbDepart.TabIndex = 1022;
             this.gbDepart.TabStop = false;
             this.gbDepart.Text = "Departamentos";
@@ -75,10 +77,11 @@
             this.dgvImage.AllowUserToAddRows = false;
             this.dgvImage.AllowUserToDeleteRows = false;
             this.dgvImage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvImage.Location = new System.Drawing.Point(62, 17);
+            this.dgvImage.Location = new System.Drawing.Point(83, 21);
+            this.dgvImage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvImage.Name = "dgvImage";
             this.dgvImage.ReadOnly = true;
-            this.dgvImage.Size = new System.Drawing.Size(268, 381);
+            this.dgvImage.Size = new System.Drawing.Size(357, 469);
             this.dgvImage.TabIndex = 1023;
             this.dgvImage.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvImage_CellClick);
             this.dgvImage.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvImage_CellDoubleClick);
@@ -87,9 +90,10 @@
             // cbActivated
             // 
             this.cbActivated.AutoSize = true;
-            this.cbActivated.Location = new System.Drawing.Point(226, 18);
+            this.cbActivated.Location = new System.Drawing.Point(301, 22);
+            this.cbActivated.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbActivated.Name = "cbActivated";
-            this.cbActivated.Size = new System.Drawing.Size(50, 17);
+            this.cbActivated.Size = new System.Drawing.Size(61, 21);
             this.cbActivated.TabIndex = 1029;
             this.cbActivated.Text = "Ativo";
             this.cbActivated.UseVisualStyleBackColor = true;
@@ -99,9 +103,10 @@
             // 
             this.btnPhoto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPhoto.BackgroundImage")));
             this.btnPhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnPhoto.Location = new System.Drawing.Point(145, 359);
+            this.btnPhoto.Location = new System.Drawing.Point(193, 442);
+            this.btnPhoto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPhoto.Name = "btnPhoto";
-            this.btnPhoto.Size = new System.Drawing.Size(40, 40);
+            this.btnPhoto.Size = new System.Drawing.Size(53, 49);
             this.btnPhoto.TabIndex = 1019;
             this.btnPhoto.UseVisualStyleBackColor = true;
             this.btnPhoto.Click += new System.EventHandler(this.btnPhoto_Click);
@@ -109,43 +114,48 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(5, 47);
+            this.label2.Location = new System.Drawing.Point(7, 58);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(45, 17);
             this.label2.TabIndex = 1028;
             this.label2.Text = "Nome";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(5, 21);
+            this.label1.Location = new System.Drawing.Point(7, 26);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(18, 13);
+            this.label1.Size = new System.Drawing.Size(21, 17);
             this.label1.TabIndex = 1027;
             this.label1.Text = "ID";
             // 
             // mtbID
             // 
-            this.mtbID.Location = new System.Drawing.Point(46, 18);
+            this.mtbID.Location = new System.Drawing.Point(61, 22);
+            this.mtbID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.mtbID.Mask = "0000";
             this.mtbID.Name = "mtbID";
-            this.mtbID.Size = new System.Drawing.Size(34, 20);
+            this.mtbID.Size = new System.Drawing.Size(44, 22);
             this.mtbID.TabIndex = 1026;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(46, 44);
+            this.txtName.Location = new System.Drawing.Point(61, 54);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(230, 20);
+            this.txtName.Size = new System.Drawing.Size(305, 22);
             this.txtName.TabIndex = 1025;
             // 
             // btnUpdate
             // 
             this.btnUpdate.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnUpdate.BackgroundImage")));
             this.btnUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnUpdate.Location = new System.Drawing.Point(53, 359);
+            this.btnUpdate.Location = new System.Drawing.Point(71, 442);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(40, 40);
+            this.btnUpdate.Size = new System.Drawing.Size(53, 49);
             this.btnUpdate.TabIndex = 1022;
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -155,10 +165,11 @@
             this.dgvDepart.AllowUserToAddRows = false;
             this.dgvDepart.AllowUserToDeleteRows = false;
             this.dgvDepart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDepart.Location = new System.Drawing.Point(8, 74);
+            this.dgvDepart.Location = new System.Drawing.Point(11, 91);
+            this.dgvDepart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvDepart.Name = "dgvDepart";
             this.dgvDepart.ReadOnly = true;
-            this.dgvDepart.Size = new System.Drawing.Size(268, 279);
+            this.dgvDepart.Size = new System.Drawing.Size(357, 343);
             this.dgvDepart.TabIndex = 0;
             this.dgvDepart.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProd_CellClick);
             // 
@@ -166,9 +177,10 @@
             // 
             this.btnDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnDelete.BackgroundImage")));
             this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnDelete.Location = new System.Drawing.Point(99, 359);
+            this.btnDelete.Location = new System.Drawing.Point(132, 442);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(40, 40);
+            this.btnDelete.Size = new System.Drawing.Size(53, 49);
             this.btnDelete.TabIndex = 1023;
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -177,9 +189,10 @@
             // 
             this.btnSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSave.BackgroundImage")));
             this.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnSave.Location = new System.Drawing.Point(7, 359);
+            this.btnSave.Location = new System.Drawing.Point(9, 442);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(40, 40);
+            this.btnSave.Size = new System.Drawing.Size(53, 49);
             this.btnSave.TabIndex = 1024;
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -187,18 +200,21 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.pbBackground);
-            this.groupBox1.Location = new System.Drawing.Point(304, 7);
+            this.groupBox1.Location = new System.Drawing.Point(405, 9);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(732, 406);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(976, 500);
             this.groupBox1.TabIndex = 1021;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Plano de fundo";
             // 
             // pbBackground
             // 
-            this.pbBackground.Location = new System.Drawing.Point(6, 17);
+            this.pbBackground.Location = new System.Drawing.Point(8, 21);
+            this.pbBackground.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbBackground.Name = "pbBackground";
-            this.pbBackground.Size = new System.Drawing.Size(720, 380);
+            this.pbBackground.Size = new System.Drawing.Size(960, 468);
             this.pbBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbBackground.TabIndex = 1017;
             this.pbBackground.TabStop = false;
@@ -206,12 +222,13 @@
             // 
             // FormDepartment
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1022, 423);
+            this.ClientSize = new System.Drawing.Size(1397, 521);
             this.Controls.Add(this.gbDepart);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "FormDepartment";
             this.Text = "Departamento";

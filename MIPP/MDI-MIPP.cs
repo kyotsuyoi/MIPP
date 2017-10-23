@@ -34,7 +34,7 @@ namespace MIPP
             M = new MIPP();
 
             T = new Thread(ThreadProcess);
-            T.Start();
+            //T.Start();
         }
         private void MDI_MIPP_FromClosing(object sender, EventArgs e)
         {

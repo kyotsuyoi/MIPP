@@ -118,28 +118,37 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ClearButtonSlinBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ClearButtonSlinBlue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GridOpenedBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GridOpenedBlue1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="SaveBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SaveBlue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MagnifierBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MagnifierBlue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="UpdateBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\UpdateBlue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BlueDownButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BlueDownButton1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="NextButtonBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NextButtonBlue1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GridBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GridBlue1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="DeleteBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DeleteBlue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UpdateBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UpdateBlue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BlueUpButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BlueUpButton1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ClearButtonSlinBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ClearButtonSlinBlue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="MagnifierBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MagnifierBlue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="NextButtonBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NextButtonBlue1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="GridClosedBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GridClosedBlue1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

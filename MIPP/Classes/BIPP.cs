@@ -16,8 +16,7 @@ namespace MIPP.Forms
             try
             {
                 C.Connect.Open();
-                C.cmd = new MySqlCommand("INSERT INTO bipp_prod_equival(id_prod, id_equival, id_loja, equiv) " +
-                    "VALUES('" + ID + "', '" + id_equival + "', '" + id_loja + "') ", C.Connect);
+                C.cmd = new MySqlCommand("CALL addEquivalence ("+ID +", "+id_equival+", "+id_loja+")", C.Connect);
 
                 C.cmd.ExecuteNonQuery();
                 return true;
@@ -32,15 +31,36 @@ namespace MIPP.Forms
                 C.Connect.Close();
                 C.Connect.Dispose();
             }
-        }   
-        
+        }
+
+        public Boolean Delete(int ID, int id_equival, int id_loja)
+        {
+            try
+            {
+                C.Connect.Open();
+                C.cmd = new MySqlCommand("CALL removeEquivalence (" + ID + ", " + id_equival + ", " + id_loja + ")", C.Connect);
+
+                C.cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            finally
+            {
+                C.Connect.Close();
+                C.Connect.Dispose();
+            }
+        }
 
         public DataSet LoadGrid(int ID, int id_prod)
         {
             try
             {
                 C.Connect.Open();
-                C.DA = new MySqlDataAdapter("SELECT * FROM bipp_prod_equival WHERE id_loja = " + ID + " AND id_prod = " + id_prod, C.Connect);
+                C.DA = new MySqlDataAdapter("SELECT * FROM bipp WHERE id_loja = " + ID + " AND id_prod = " + id_prod, C.Connect);
                 DataSet DS = new DataSet();
                 C.DA.Fill(DS);
                 return DS;
@@ -376,7 +396,7 @@ namespace MIPP.Forms
             try
             {
                 C.Connect.Open();
-                C.cmd = new MySqlCommand("UPDATE bipp_prod_equival SET equiv = "+b+" "+
+                C.cmd = new MySqlCommand("UPDATE bipp SET equiv = "+b+" "+
                     " WHERE id_prod = " + id_prod+ " AND id_equival = "+ id_equival + "  AND id_loja = "+ id_loja, C.Connect);
                 C.cmd.ExecuteNonQuery();
                 return true;
