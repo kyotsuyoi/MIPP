@@ -11,6 +11,79 @@ namespace MIPP.Forms
     {
         Connection C = new Connection();
 
+        public DataSet LoadGrid(int ID, int id_prod)
+        {
+            try
+            {
+                C.Connect.Open();
+                C.DA = new MySqlDataAdapter("SELECT id_prod, id_equival, id_loja, descricao, equiv FROM bipp INNER JOIN produto ON produto.id = id_equival " +
+                    "WHERE id_loja = " + ID + " AND id_prod = " + id_prod
+                 , C.Connect);
+                DataSet DS = new DataSet();
+                C.DA.Fill(DS);
+                return DS;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                C.Connect.Dispose();
+                C.Connect.Close();
+            }
+        }
+
+        public DataSet LoadGrid1(int ID)
+        {
+            try
+            {
+                C.Connect.Open();
+                C.DA = new MySqlDataAdapter("SELECT id `Código`, descricao `Descrição`, id_depto `Departamento`, preco `Preço` FROM produto " +
+                    "INNER JOIN preco_loja ON preco_loja.id_prod = produto.id " +
+                    "WHERE id_loja = " + ID, C.Connect);
+                DataSet DS = new DataSet();
+                C.DA.Fill(DS);
+                return DS;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                C.Connect.Close();
+                C.Connect.Dispose();
+            }
+        }
+
+        public DataSet LoadGrid2(int ID, int id_prod)
+        {
+            try
+            {
+                C.Connect.Open();
+                C.DA = new MySqlDataAdapter("SELECT id Código, descricao Descrição, id_depto Departamento, preco Preço FROM produto p " +
+         "INNER JOIN preco_loja pl ON pl.id_prod = p.id " +
+         "LEFT JOIN bipp b ON b.id_prod = " + id_prod + " AND b.id_equival = p.id " +
+         " WHERE pl.id_loja = " + ID + " AND p.id != " + id_prod + " AND id_equival IS NULL", C.Connect);
+                DataSet DS = new DataSet();
+                C.DA.Fill(DS);
+                return DS;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                C.Connect.Close();
+                C.Connect.Dispose();
+            }
+        }
+
         public Boolean Insert(int ID, int id_equival, int id_loja)
         {
             try
@@ -55,29 +128,6 @@ namespace MIPP.Forms
             }
         }
 
-        public DataSet LoadGrid(int ID, int id_prod)
-        {
-            try
-            {
-                C.Connect.Open();
-                C.DA = new MySqlDataAdapter("SELECT id_prod, id_equival, id_loja, descricao, equiv FROM bipp INNER JOIN produto ON produto.id = id_equival " +
-                    "WHERE id_loja = " + ID + " AND id_prod = " + id_prod
-                 , C.Connect);
-                DataSet DS = new DataSet();
-                C.DA.Fill(DS);
-                return DS;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return null;
-            }
-            finally
-            {
-                C.Connect.Dispose();
-                C.Connect.Close();
-            }
-        }
 
         public DataSet LoadGrid_SearchID(int ID)
         {
@@ -175,29 +225,6 @@ namespace MIPP.Forms
             }
         }
 
-        public DataSet LoadGrid1(int ID)
-        {
-            try
-            {
-                C.Connect.Open();
-                C.DA = new MySqlDataAdapter("SELECT id `Código`, descricao `Descrição`, id_depto `Departamento`, preco `Preço` FROM produto " +
-                    "INNER JOIN preco_loja ON preco_loja.id_prod = produto.id " +
-                    "WHERE id_loja = " + ID, C.Connect);
-                DataSet DS = new DataSet();
-                C.DA.Fill(DS);
-                return DS;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return null;
-            }
-            finally
-            {
-                C.Connect.Close();
-                C.Connect.Dispose();
-            }
-        }
 
         public string LoadDescription(int ID)
         {
@@ -236,7 +263,7 @@ namespace MIPP.Forms
                 MySqlDataReader reader;
                 C.cmd = new MySqlCommand("SELECT preco " +
                                          "FROM preco_loja " +
-                                         "WHERE id_prod = " + ID + " AND id_loja = " + ShopID, C.Connect);
+                                         "WHERE id_prod = " + ID + " AND  = " + ShopID, C.Connect);
 
                 C.Connect.Open();
                 reader = C.cmd.ExecuteReader();
@@ -389,6 +416,7 @@ namespace MIPP.Forms
             if (equiv == false)
             {
                 b = 0;
+
             }
             else
             {
@@ -398,8 +426,7 @@ namespace MIPP.Forms
             try
             {
                 C.Connect.Open();
-                C.cmd = new MySqlCommand("UPDATE bipp SET equiv = "+b+" "+
-                    " WHERE id_prod = " + id_prod+ " AND id_equival = "+ id_equival + "  AND id_loja = "+ id_loja, C.Connect);
+                C.cmd = new MySqlCommand("CALL toggleEquivalence(" + id_prod + ", " + id_equival + ", " + id_loja + ", " + equiv + ")", C.Connect);
                 C.cmd.ExecuteNonQuery();
                 return true;
             }

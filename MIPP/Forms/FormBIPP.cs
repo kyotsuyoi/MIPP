@@ -62,7 +62,7 @@ namespace MIPP.Forms
 
         private void LoadGridInsertEquival()
         {
-            DS = BIPP.LoadGrid1(int.Parse(cmbShop.Text));
+            DS = BIPP.LoadGrid2(int.Parse(cmbShop.Text), id_prod);
             dgvInsertEquival.DataSource = DS.Tables[0];
             dgvInsertEquival.Columns[0].Width = 68;
             dgvInsertEquival.Columns[1].Width = 161;
@@ -72,9 +72,14 @@ namespace MIPP.Forms
 
         private void btnSearchID_Click(object sender, EventArgs e)
         {
-            if (mtbID.Text == "")
+            if (mtbID.Text == "" )
             {
                 MessageBox.Show("Insira o ID", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if(cmbShop.Text == "")
+            {
+                MessageBox.Show("Selecione a Loja", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             DS = BIPP.LoadGrid_SearchID1(int.Parse(mtbID.Text));
@@ -89,6 +94,11 @@ namespace MIPP.Forms
                 MessageBox.Show("Selecione o Departamento", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+            if (cmbShop.Text == "")
+            {
+                MessageBox.Show("Selecione a Loja", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
             DS = BIPP.LoadGrid_SearchDepart1(int.Parse(cmbDepart.Text));
             dgvProduct.DataSource = DS.Tables[0];
         }
@@ -98,6 +108,11 @@ namespace MIPP.Forms
             if (txtDescription.Text == "")
             {
                 MessageBox.Show("Insira a descrição", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            if (cmbShop.Text == "")
+            {
+                MessageBox.Show("Selecione a Loja", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             DS = BIPP.LoadGrid_SearchDesciption1(txtDescription.Text);
@@ -159,7 +174,9 @@ namespace MIPP.Forms
             {
                 MessageBox.Show(ex.Message, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+            LoadGridInsertEquival();
             LoadGrid();
+            
         }
 
         private void btnLoadGrid_Click(object sender, EventArgs e)
@@ -204,6 +221,11 @@ namespace MIPP.Forms
                 MessageBox.Show("Insira a descrição", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+            if (cmbShop.Text == "")
+            {
+                MessageBox.Show("Selecione a Loja", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
             DS = BIPP.LoadGrid_SearchDesciption1(txtDesEquival.Text);
             dgvInsertEquival.DataSource = DS.Tables[0];
         }
@@ -223,6 +245,7 @@ namespace MIPP.Forms
                 MessageBox.Show("Verifique o ID do produto!","Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+            LoadGridInsertEquival();
             LoadGrid();
         }
 
