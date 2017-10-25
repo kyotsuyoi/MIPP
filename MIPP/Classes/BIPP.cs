@@ -413,7 +413,7 @@ namespace MIPP.Forms
         public Boolean Update(int id_prod, int id_equival, int id_loja, bool equiv)
         {
             int b;
-            if (equiv == false)
+            if (equiv == true)
             {
                 b = 0;
 

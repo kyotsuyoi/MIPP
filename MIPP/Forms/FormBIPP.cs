@@ -232,21 +232,20 @@ namespace MIPP.Forms
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
-            int y;
-            y = dgvInsertEquival.CurrentRow.Index;
-            int id_equival = (int)dgvInsertEquival[0, y].Value;
-
-            if (BIPP.Insert(id_prod, id_equival, int.Parse(cmbShop.Text))==false) { return; }
-
-            MessageBox.Show("Salvo!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            
-            if (id_prod == 0)
+            try
             {
-                MessageBox.Show("Verifique o ID do produto!","Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
+                int y;
+                y = dgvInsertEquival.CurrentRow.Index;
+                int id_equival = (int)dgvInsertEquival[0, y].Value;
+
+                if (BIPP.Insert(id_prod, id_equival, int.Parse(cmbShop.Text)) == false) { return; }
+                
+                LoadGrid();
             }
-            LoadGridInsertEquival();
-            LoadGrid();
+            catch
+            {
+                MessageBox.Show("Selecione um produto", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -258,7 +257,7 @@ namespace MIPP.Forms
                 int id_prod = (int)dgvBIPPEquival[0, y].Value;
                 int id_equival = (int)dgvBIPPEquival[1, y].Value;
                 int id_loja = (int)dgvBIPPEquival[2, y].Value;
-                bool equiv = (bool)dgvBIPPEquival[3, y].Value;
+                bool equiv = (bool)dgvBIPPEquival[4, y].Value;
                 BIPP.Update(id_prod,id_equival, id_loja, equiv);
                 y-=1;
             }
@@ -266,20 +265,23 @@ namespace MIPP.Forms
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            int y;
-            y = dgvBIPPEquival.CurrentRow.Index;
-            int id_equival = (int)dgvInsertEquival[0, y].Value;
-
-            if (BIPP.Delete(id_prod, id_equival, int.Parse(cmbShop.Text)) == false) { return; }
-
-            MessageBox.Show("Removido!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            if (id_prod == 0)
+            try
             {
-                MessageBox.Show("Verifique o ID do produto!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
+                int y;
+                y = dgvBIPPEquival.CurrentRow.Index;
+                int id_equival = (int)dgvBIPPEquival[1, y].Value;
+                
+                if (BIPP.Delete(id_prod, id_equival, int.Parse(cmbShop.Text)) == false) { return; }
+
+                MessageBox.Show("Removido!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                LoadGrid();
+
+            } catch
+            {
+
+                MessageBox.Show("Selecione um produto", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            LoadGrid();
         }
     } 
 
