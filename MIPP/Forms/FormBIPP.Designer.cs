@@ -83,9 +83,9 @@
             this.groupBox1.Controls.Add(this.txtPrice);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Location = new System.Drawing.Point(166, 10);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(472, 63);
             this.groupBox1.TabIndex = 1055;
             this.groupBox1.TabStop = false;
@@ -191,6 +191,7 @@
             // 
             this.txtPrice.Location = new System.Drawing.Point(189, 16);
             this.txtPrice.Name = "txtPrice";
+            this.txtPrice.ReadOnly = true;
             this.txtPrice.Size = new System.Drawing.Size(92, 20);
             this.txtPrice.TabIndex = 1062;
             // 
@@ -230,9 +231,9 @@
             this.groupBox3.Controls.Add(this.dgvProduct);
             this.groupBox3.Controls.Add(this.pbPhoto);
             this.groupBox3.Location = new System.Drawing.Point(10, 77);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(375, 414);
             this.groupBox3.TabIndex = 1056;
             this.groupBox3.TabStop = false;
@@ -243,7 +244,7 @@
             this.dgvProduct.AllowUserToDeleteRows = false;
             this.dgvProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProduct.Location = new System.Drawing.Point(3, 8);
-            this.dgvProduct.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvProduct.Margin = new System.Windows.Forms.Padding(2);
             this.dgvProduct.Name = "dgvProduct";
             this.dgvProduct.ReadOnly = true;
             this.dgvProduct.RowTemplate.Height = 24;
@@ -266,8 +267,8 @@
             this.dgvBIPPEquival.AllowUserToAddRows = false;
             this.dgvBIPPEquival.AllowUserToDeleteRows = false;
             this.dgvBIPPEquival.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBIPPEquival.Location = new System.Drawing.Point(4, 10);
-            this.dgvBIPPEquival.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvBIPPEquival.Location = new System.Drawing.Point(4, 9);
+            this.dgvBIPPEquival.Margin = new System.Windows.Forms.Padding(2);
             this.dgvBIPPEquival.Name = "dgvBIPPEquival";
             this.dgvBIPPEquival.RowTemplate.Height = 24;
             this.dgvBIPPEquival.Size = new System.Drawing.Size(372, 156);
@@ -280,7 +281,7 @@
             this.dgvInsertEquival.AllowUserToDeleteRows = false;
             this.dgvInsertEquival.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInsertEquival.Location = new System.Drawing.Point(4, 207);
-            this.dgvInsertEquival.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvInsertEquival.Margin = new System.Windows.Forms.Padding(2);
             this.dgvInsertEquival.Name = "dgvInsertEquival";
             this.dgvInsertEquival.ReadOnly = true;
             this.dgvInsertEquival.RowTemplate.Height = 24;
@@ -311,7 +312,7 @@
             this.btnLoadGrid.BackgroundImage = global::MIPP.Properties.Resources.GridBlue;
             this.btnLoadGrid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnLoadGrid.Location = new System.Drawing.Point(644, 32);
-            this.btnLoadGrid.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLoadGrid.Margin = new System.Windows.Forms.Padding(2);
             this.btnLoadGrid.Name = "btnLoadGrid";
             this.btnLoadGrid.Size = new System.Drawing.Size(38, 41);
             this.btnLoadGrid.TabIndex = 1065;
@@ -367,9 +368,9 @@
             this.groupBox2.Controls.Add(this.cmbShop);
             this.groupBox2.Controls.Add(this.lblShop);
             this.groupBox2.Location = new System.Drawing.Point(9, 10);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(152, 63);
             this.groupBox2.TabIndex = 1072;
             this.groupBox2.TabStop = false;
@@ -386,9 +387,9 @@
             this.groupBox4.Controls.Add(this.btnInsert);
             this.groupBox4.Controls.Add(this.btnDelete);
             this.groupBox4.Location = new System.Drawing.Point(389, 77);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox4.Size = new System.Drawing.Size(425, 414);
             this.groupBox4.TabIndex = 1073;
             this.groupBox4.TabStop = false;
@@ -414,7 +415,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "FormBIPP";
             this.Text = "BIPP - Busca Inteligente PegPese";

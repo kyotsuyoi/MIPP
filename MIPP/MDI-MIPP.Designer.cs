@@ -143,7 +143,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MDI_MIPP";
             this.Text = "MIPP";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MDI_MIPP_FromClosing);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MDI_MIPP_FormClosing);
             this.Load += new System.EventHandler(this.MDI_MIPP_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

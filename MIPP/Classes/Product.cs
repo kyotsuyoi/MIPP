@@ -11,13 +11,13 @@ namespace MIPP.Forms
     {
         Connection C = new Connection();
 
-        public Boolean Insert(int ID, string Description, int ID_Depart)
+        public Boolean Insert(int ID, string Description, int ID_Depart, string EAN)
         {
             try
             {
                 C.Connect.Open();
-                C.cmd = new MySqlCommand("INSERT INTO produto (id, descricao, id_depto) " +
-                                    "VALUES ('" + ID + "', '" + Description + "', '" + ID_Depart + "')", C.Connect);
+                C.cmd = new MySqlCommand("INSERT INTO produto (id, descricao, id_depto, EAN) " +
+                                    "VALUES ('" + ID + "', '" + Description + "', '" + ID_Depart + "' '" + EAN + "')", C.Connect);
 
                 C.cmd.ExecuteNonQuery();
                 return true;
@@ -34,13 +34,13 @@ namespace MIPP.Forms
             }
         }
 
-        public Boolean Update(int ID, string Description, int ID_Depart, Image Photo)
+        public Boolean Update(int ID, string Description, int ID_Depart, Image Photo, string EAN)
         {
 
             try
             {
                 C.Connect.Open();
-                C.cmd = new MySqlCommand("UPDATE produto SET descricao = '" + Description + "', " + "id_depto = '" + ID_Depart + "', " + "foto = @blob " +
+                C.cmd = new MySqlCommand("UPDATE produto SET descricao = '" + Description + "', " + "id_depto = '" + ID_Depart + "', foto = @blob " + ", EAN = '" + EAN + "' " + 
                                          "WHERE id = '" + ID + "'", C.Connect);
                 byte[] b;
 
@@ -89,7 +89,7 @@ namespace MIPP.Forms
             try
             {
                 C.Connect.Open();
-                C.DA = new MySqlDataAdapter("SELECT id, descricao, id_depto FROM produto", C.Connect);
+                C.DA = new MySqlDataAdapter("SELECT id, descricao, id_depto, EAN FROM produto", C.Connect);
                 DataSet DS = new DataSet();
                 C.DA.Fill(DS);
                 return DS;
@@ -135,7 +135,29 @@ namespace MIPP.Forms
             try
             {
                 C.Connect.Open();
-                C.DA = new MySqlDataAdapter("SELECT id, descricao, id_depto FROM produto WHERE id = " + ID, C.Connect);
+                C.DA = new MySqlDataAdapter("SELECT id, descricao, id_depto, EAN FROM produto WHERE id = " + ID, C.Connect);
+                DataSet DS = new DataSet();
+                C.DA.Fill(DS);
+                return DS;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                C.Connect.Dispose();
+                C.Connect.Close();
+            }
+        }
+
+        public DataSet LoadGrid_SearchEAN(Int64 EAN)
+        {
+            try
+            {
+                C.Connect.Open();
+                C.DA = new MySqlDataAdapter("SELECT id, descricao, id_depto, EAN FROM produto WHERE EAN = " + EAN, C.Connect);
                 DataSet DS = new DataSet();
                 C.DA.Fill(DS);
                 return DS;
@@ -157,7 +179,7 @@ namespace MIPP.Forms
             try
             {
                 C.Connect.Open();
-                C.DA = new MySqlDataAdapter("SELECT id, descricao, id_depto FROM produto WHERE descricao LIKE '%" + Description + "%'", C.Connect);
+                C.DA = new MySqlDataAdapter("SELECT id, descricao, id_depto, EAN FROM produto WHERE descricao LIKE '%" + Description + "%'", C.Connect);
                 DataSet DS = new DataSet();
                 C.DA.Fill(DS);
                 return DS;
@@ -179,7 +201,7 @@ namespace MIPP.Forms
             try
             {
                 C.Connect.Open();
-                C.DA = new MySqlDataAdapter("SELECT ID, descricao, id_depto FROM produto WHERE id_depto = " + Depart, C.Connect);
+                C.DA = new MySqlDataAdapter("SELECT ID, descricao, id_depto, EAN FROM produto WHERE id_depto = " + Depart, C.Connect);
                 DataSet DS = new DataSet();
                 C.DA.Fill(DS);
                 return DS;

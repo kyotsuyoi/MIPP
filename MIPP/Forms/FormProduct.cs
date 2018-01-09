@@ -45,6 +45,7 @@ namespace MIPP.Forms
                 txtDescription.Text = (string)dgvProduct[1, y].Value;
                 cmbDepart.Text = (dgvProduct[2, y].Value).ToString();
                 pbPhoto.Image = Pr.LoadImage(int.Parse(mtbID.Text));
+                txtEAN.Text = (string)dgvProduct[3, y].Value;
             }
             catch (Exception ex)
             {
@@ -65,7 +66,7 @@ namespace MIPP.Forms
                 MessageBox.Show("Verifique os campos obrigatórios","Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            if (Pr.Insert(int.Parse(mtbID.Text), txtDescription.Text, int.Parse(cmbDepart.Text)) == false) { return; }
+            if (Pr.Insert(int.Parse(mtbID.Text), txtDescription.Text, int.Parse(cmbDepart.Text), txtEAN.Text) == false) { return; }
 
             MessageBox.Show("Salvo!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadGrid();
@@ -78,7 +79,8 @@ namespace MIPP.Forms
                 MessageBox.Show("Verifique os campos obrigatórios", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            if (Pr.Update(int.Parse(mtbID.Text), txtDescription.Text, int.Parse(cmbDepart.Text), pbPhoto.Image) == false) { return; }
+
+            if (Pr.Update(int.Parse(mtbID.Text), txtDescription.Text, int.Parse(cmbDepart.Text), pbPhoto.Image, txtEAN.Text) == false) { return; }
 
             MessageBox.Show("Alterado!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadGrid();
@@ -162,6 +164,7 @@ namespace MIPP.Forms
             cmbDepart.Text = "";
             lblDepart.Text = "";
             pbPhoto.Image = null;
+            txtEAN.Text = "";
             LoadGrid();
         }
 
@@ -185,6 +188,17 @@ namespace MIPP.Forms
             {
                 pbPhoto.Image = Image.FromFile(OFD.FileName);
             }
+        }
+
+        private void btnEAN_Click(object sender, EventArgs e)
+        {
+            if (txtEAN.Text == "")
+            {
+                MessageBox.Show("Insira a descrição", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            DS = Pr.LoadGrid_SearchEAN(Int64.Parse(txtEAN.Text));
+            dgvProduct.DataSource = DS.Tables[0];
         }
     }
 }

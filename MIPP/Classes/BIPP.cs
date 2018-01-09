@@ -65,9 +65,9 @@ namespace MIPP.Forms
             {
                 C.Connect.Open();
                 C.DA = new MySqlDataAdapter("SELECT id Código, descricao Descrição, id_depto Departamento, preco Preço FROM produto p " +
-         "INNER JOIN preco_loja pl ON pl.id_prod = p.id " +
-         "LEFT JOIN bipp b ON b.id_prod = " + id_prod + " AND b.id_equival = p.id " +
-         " WHERE pl.id_loja = " + ID + " AND p.id != " + id_prod + " AND id_equival IS NULL", C.Connect);
+                                            "INNER JOIN preco_loja pl ON pl.id_prod = p.id " +
+                                            "LEFT JOIN bipp b ON b.id_prod = " + id_prod + " AND b.id_equival = p.id " +
+                                            " WHERE pl.id_loja = " + ID + " AND p.id != " + id_prod + " AND id_equival IS NULL", C.Connect);
                 DataSet DS = new DataSet();
                 C.DA.Fill(DS);
                 return DS;

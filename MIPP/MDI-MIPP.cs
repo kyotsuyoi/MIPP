@@ -17,9 +17,7 @@ namespace MIPP
         FormProduct FP;
         FormBIPP BIPP;
         Thread T;
-        bool vCheck = true;
- 
-        string Version;
+        bool vCheck = true; //Verifica se a Thread deve permanecer em execução
 
         public MDI_MIPP()
         {
@@ -28,17 +26,16 @@ namespace MIPP
 
         private void MDI_MIPP_Load(object sender, EventArgs e)
         {
-            Version = "0.6 Beta";
-            this.Text = this.Text + " " + Version;
             this.WindowState = FormWindowState.Maximized;
             M = new MIPP();
 
             T = new Thread(ThreadProcess);
             //T.Start();
         }
-        private void MDI_MIPP_FromClosing(object sender, EventArgs e)
+
+        private void MDI_MIPP_FormClosing(object sender, EventArgs e)
         {
-            vCheck = false;
+            vCheck = false; //Parar a Thread quando fechar o MDI
         }
 
         private void DepartamentosToolStripMenuItem_Click(object sender, EventArgs e)
