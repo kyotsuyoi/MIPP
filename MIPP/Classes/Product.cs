@@ -152,7 +152,7 @@ namespace MIPP.Forms
             }
         }
 
-        public DataSet LoadGrid_SearchEAN(Int64 EAN)
+        public DataSet LoadGrid_SearchEAN(string EAN)
         {
             try
             {

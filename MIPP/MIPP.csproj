@@ -62,10 +62,11 @@
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>4DCE83732CE2DCE3A7CD5C5C554655DC3ED2847C</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>F41197AA2F0334EBFB5D772DF921CBD2133F0B2C</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>MIPP_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>

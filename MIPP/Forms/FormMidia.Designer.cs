@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMidia));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.RbPhoto = new System.Windows.Forms.RadioButton();
+            this.lblDepart = new System.Windows.Forms.Label();
             this.axWMP = new AxWMPLib.AxWindowsMediaPlayer();
             this.rbVideo = new System.Windows.Forms.RadioButton();
             this.btnClear = new System.Windows.Forms.Button();
@@ -46,7 +48,6 @@
             this.pbImage = new System.Windows.Forms.PictureBox();
             this.pbBackground = new System.Windows.Forms.PictureBox();
             this.dgvImage = new System.Windows.Forms.DataGridView();
-            this.lblDepart = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axWMP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
@@ -56,6 +57,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.RbPhoto);
             this.groupBox1.Controls.Add(this.lblDepart);
             this.groupBox1.Controls.Add(this.axWMP);
             this.groupBox1.Controls.Add(this.rbVideo);
@@ -80,6 +82,29 @@
             this.groupBox1.TabIndex = 1020;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tela";
+            // 
+            // RbPhoto
+            // 
+            this.RbPhoto.AutoSize = true;
+            this.RbPhoto.Location = new System.Drawing.Point(192, 52);
+            this.RbPhoto.Margin = new System.Windows.Forms.Padding(4);
+            this.RbPhoto.Name = "RbPhoto";
+            this.RbPhoto.Size = new System.Drawing.Size(57, 21);
+            this.RbPhoto.TabIndex = 1052;
+            this.RbPhoto.TabStop = true;
+            this.RbPhoto.Text = "Foto";
+            this.RbPhoto.UseVisualStyleBackColor = true;
+            this.RbPhoto.CheckedChanged += new System.EventHandler(this.RbPhoto_CheckedChanged);
+            // 
+            // lblDepart
+            // 
+            this.lblDepart.AutoSize = true;
+            this.lblDepart.Location = new System.Drawing.Point(484, 58);
+            this.lblDepart.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDepart.Name = "lblDepart";
+            this.lblDepart.Size = new System.Drawing.Size(16, 17);
+            this.lblDepart.TabIndex = 1051;
+            this.lblDepart.Text = "_";
             // 
             // axWMP
             // 
@@ -106,6 +131,7 @@
             // 
             // btnClear
             // 
+            this.btnClear.BackgroundImage = global::MIPP.Properties.Resources.ClearButtonSlinBlue;
             this.btnClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnClear.Location = new System.Drawing.Point(913, 22);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4);
@@ -265,16 +291,6 @@
             this.dgvImage.TabIndex = 2;
             this.dgvImage.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvImage_CellClick);
             // 
-            // lblDepart
-            // 
-            this.lblDepart.AutoSize = true;
-            this.lblDepart.Location = new System.Drawing.Point(484, 58);
-            this.lblDepart.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDepart.Name = "lblDepart";
-            this.lblDepart.Size = new System.Drawing.Size(16, 17);
-            this.lblDepart.TabIndex = 1051;
-            this.lblDepart.Text = "_";
-            // 
             // FormMidia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -318,5 +334,6 @@
         private System.Windows.Forms.RadioButton rbVideo;
         private AxWMPLib.AxWindowsMediaPlayer axWMP;
         private System.Windows.Forms.Label lblDepart;
+        private System.Windows.Forms.RadioButton RbPhoto;
     }
 }

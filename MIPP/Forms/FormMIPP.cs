@@ -86,10 +86,18 @@ namespace MIPP
                     MessageBox.Show(ex.Message);
                 }
             }
+            else if (SC.LoadType_Screen(cmbScreen.SelectedIndex, vShop, vDepart) == 3)
+            {
+                cbPhoto.Checked = true;
+                pbBackground.Image = SC.LoadImage_Screen(cmbScreen.SelectedIndex, vShop, vDepart);
+                return;
+            }
             else
             {
                 cbVideo.Checked = false;
+                cbPhoto.Checked = false;
                 pbScreen.Image = SC.LoadImage_Screen(cmbScreen.SelectedIndex, vShop, vDepart);
+                pbBackground.Image = SC.LoadImage_BackgroundScreen(int.Parse(cmbDepart.Text));
             }
 
             DS = SC.LoadGrid_ProdScreen(vShop, vDepart, cmbScreen.SelectedIndex);
@@ -586,18 +594,42 @@ namespace MIPP
         {
             if (cbVideo.Checked == true)
             {
+                cbPhoto.Checked = false;
                 gbScreen.Visible = false;
                 axWMP.Visible = true;
             }
-            else
+            else if (cbPhoto.Checked == false)
             {
                 gbScreen.Visible = true;
-                axWMP.Visible = false;
+                pbScreen.Visible = true;
+                pbBackground.Visible = true;
+                dgvProdScreen.Visible = true;
+                axWMP.Visible = !true;
             }
 
             LoadImageOrVideoScreenGridByDepart(cbVideo.Checked);
         }
-        
+
+        private void cbPhoto_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbPhoto.Checked == true)
+            {
+                cbVideo.Checked = false;
+                gbScreen.Visible = true;
+                pbBackground.Visible = true;
+                pbScreen.Visible = false;
+                dgvProdScreen.Visible = false;
+                axWMP.Visible = false;
+            }
+            else if (cbVideo.Checked == false)
+            {
+                gbScreen.Visible = true;
+                pbScreen.Visible = true;
+                pbBackground.Visible = true;
+                dgvProdScreen.Visible = true;
+            }
+        }
+
         private void LoadImageOrVideoScreenGridByDepart(Boolean vid)
         {
             axWMP.close();
@@ -638,9 +670,5 @@ namespace MIPP
             dgvProd.DataSource = DS.Tables[0];
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
     }
 }

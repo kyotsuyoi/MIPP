@@ -66,6 +66,11 @@ namespace MIPP.Forms
                         image = pbBackground.Image;
                         type = 1;
                     }
+                    else if (RbPhoto.Checked == true)
+                    {
+                        image = pbBackground.Image;
+                        type = 3;
+                    }
                     else
                     {
                         image = pbImage.Image;
@@ -115,6 +120,11 @@ namespace MIPP.Forms
                     {
                         image = pbBackground.Image;
                         type = 1;
+                    }
+                    else if(RbPhoto.Checked == true)
+                    {
+                        image = pbBackground.Image;
+                        type = 3;
                     }
                     else
                     {
@@ -171,9 +181,9 @@ namespace MIPP.Forms
 
         private void btnPhoto_Click(object sender, EventArgs e)
         {
-            if (rbImage.Checked == false && rbBackground.Checked == false && rbVideo.Checked == false)
+            if (rbImage.Checked == false && rbBackground.Checked == false && rbVideo.Checked == false && RbPhoto.Checked == false)
             {
-                MessageBox.Show("Selecione a posição como imagem, como plano de fundo ou  como video!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Selecione a posição como imagem, como plano de fundo, como video ou como foto!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             OpenFileDialog OFD = new OpenFileDialog();
@@ -191,6 +201,8 @@ namespace MIPP.Forms
 
             if (OFD.ShowDialog() == DialogResult.OK)
             {
+                pbImage.Visible = true;
+
                 if (rbImage.Checked == true)
                 {
                     pbImage.Image = Image.FromFile(OFD.FileName);
@@ -201,7 +213,13 @@ namespace MIPP.Forms
                     pbBackground.Image = Image.FromFile(OFD.FileName);
                     pbImage.Image = null;
                 }
-                else
+                else if (RbPhoto.Checked == true)
+                {
+                    pbBackground.Image = Image.FromFile(OFD.FileName);
+                    pbImage.Image = null;
+                    pbImage.Visible = false;
+                }
+                else 
                 {
                     var strTempFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "vid.mp4");
 
@@ -269,6 +287,23 @@ namespace MIPP.Forms
             }
         }
 
+        private void RbPhoto_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbBackground.Image == null && RbPhoto.Checked == true && rbImage.Checked == false)
+            {
+                pbBackground.Image = pbImage.Image;
+                pbImage.Image = null;
+            }
+            axWMP.URL = null;
+
+            if (RbPhoto.Checked == true)
+            {
+                pbImage.Visible = false;
+                pbBackground.Visible = true;
+                axWMP.Visible = false;
+            }
+        }
+
         private void dgvImage_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int y;
@@ -285,14 +320,21 @@ namespace MIPP.Forms
                 if (type == 0) { rbImage.Checked = true; }
                 if (type == 1) { rbBackground.Checked = true; }
                 if (type == 2) { rbVideo.Checked = true; }
+                if (type == 3) { RbPhoto.Checked = true; }
 
-                if (type == 0 || type == 1)
+                if (type == 0 || type == 1 || type == 3)
                 {
                     Image image = Mi.LoadImage(ID, int.Parse(cmbDepart.Text));
+                    pbImage.Visible = true;
 
                     if (rbBackground.Checked == true)
                     {
                         pbBackground.Image = image;
+                    }
+                    else if(RbPhoto.Checked == true)
+                    {
+                        pbBackground.Image = image;
+                        pbImage.Visible = false;
                     }
                     else
                     {
@@ -356,7 +398,7 @@ namespace MIPP.Forms
                 return false;
             }
 
-            if ((rbImage.Checked == false && rbBackground.Checked == false && rbVideo.Checked == false) || (pbImage.Image == null && pbBackground.Image == null && axWMP.URL == null))
+            if ((rbImage.Checked == false && rbBackground.Checked == false && rbVideo.Checked == false && RbPhoto.Checked == false) || (pbImage.Image == null && pbBackground.Image == null && axWMP.URL == null))
             {
                 MessageBox.Show("Selecione o local da imagem ou o video e depois insira!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;

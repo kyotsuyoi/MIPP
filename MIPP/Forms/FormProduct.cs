@@ -197,7 +197,7 @@ namespace MIPP.Forms
                 MessageBox.Show("Insira a descrição", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            DS = Pr.LoadGrid_SearchEAN(Int64.Parse(txtEAN.Text));
+            DS = Pr.LoadGrid_SearchEAN(txtEAN.Text);
             dgvProduct.DataSource = DS.Tables[0];
         }
     }
