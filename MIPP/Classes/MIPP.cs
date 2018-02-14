@@ -154,7 +154,7 @@ namespace MIPP.Forms
                 C.Connect.Open();
                 C.cmd = new MySqlCommand("SELECT i.img AS background " +
                                          "FROM departamento AS d " +
-                                         "JOIN imagem AS i ON d.background = i.id " +
+                                         "JOIN midia AS i ON d.background = i.id " +
                                          "WHERE d.id = " + Depart_ID, C.Connect);
 
                 reader = C.cmd.ExecuteReader();
@@ -200,7 +200,7 @@ namespace MIPP.Forms
                 C.Connect.Open();
                 C.cmd = new MySqlCommand("SELECT i.img AS imagem " +
                                          "FROM tela AS t " +
-                                         "JOIN imagem AS i ON i.id = id_imagem " +
+                                         "JOIN midia AS i ON i.id = id_imagem " +
                                          "WHERE t.id = " + Sceen_ID + " " +
                                          "AND id_loja = " + Shop_ID + " " +
                                          "AND t.id_depart = " + Depart_ID, C.Connect);
@@ -228,7 +228,7 @@ namespace MIPP.Forms
                 C.Connect.Open();
                 C.cmd = new MySqlCommand("SELECT i.img AS imagem " +
                                          "FROM tela AS t " +
-                                         "JOIN imagem AS i ON i.id = id_imagem " +
+                                         "JOIN midia AS i ON i.id = id_imagem " +
                                          "WHERE t.id = " + Sceen_ID + " " +
                                          "AND id_loja = " + Shop_ID + " " +
                                          "AND t.id_depart = " + Depart_ID, C.Connect);
@@ -256,7 +256,7 @@ namespace MIPP.Forms
                 C.Connect.Open();
                 C.cmd = new MySqlCommand("SELECT i.tipo AS imagem " +
                                          "FROM tela AS t " +
-                                         "JOIN imagem AS i ON i.id = id_imagem " +
+                                         "JOIN midia AS i ON i.id = id_imagem " +
                                          "WHERE t.id = " + Sceen_ID + " " +
                                          "AND id_loja = " + Shop_ID + " " +
                                          "AND t.id_depart = " + Depart_ID, C.Connect);

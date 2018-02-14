@@ -17,7 +17,7 @@ namespace MIPP.Forms
             try
             {
                 C.Connect.Open();
-                C.cmd = new MySqlCommand("INSERT INTO imagem (id_depto, descricao, tipo, img) " +
+                C.cmd = new MySqlCommand("INSERT INTO midia (id_depto, descricao, tipo, img) " +
                                     "VALUES ('" + DepartID + "', '" + Description + "', '" + tipo + "', @blob)", C.Connect);
                 byte[] b;
                 if (image != null)
@@ -50,7 +50,7 @@ namespace MIPP.Forms
             try
             {
                 C.Connect.Open();
-                C.cmd = new MySqlCommand("UPDATE imagem SET id_depto = '"+ DepartID +"', descricao = '" + Description + "', " + "tipo = '" + type + "', " + "img = @blob " +
+                C.cmd = new MySqlCommand("UPDATE midia SET id_depto = '"+ DepartID +"', descricao = '" + Description + "', " + "tipo = '" + type + "', " + "img = @blob " +
                                          "WHERE id = '" + ID + "'", C.Connect);
                 byte[] b;
                 if (image != null)
@@ -83,7 +83,7 @@ namespace MIPP.Forms
             try
             {
                 C.Connect.Open();
-                C.cmd = new MySqlCommand("DELETE FROM imagem " +
+                C.cmd = new MySqlCommand("DELETE FROM midia " +
                                     "WHERE `id`='" + ID + "'", C.Connect);
                 C.cmd.ExecuteNonQuery();
                 return true;
@@ -105,7 +105,7 @@ namespace MIPP.Forms
             try
             {
                 C.Connect.Open();
-                C.DA = new MySqlDataAdapter("SELECT i.id, id_depto, descricao, tipo FROM imagem AS i " +
+                C.DA = new MySqlDataAdapter("SELECT i.id, id_depto, descricao, tipo FROM midia AS i " +
                                             "JOIN departamento AS d ON i.id_depto = d.id " +
                                             "WHERE d.ativo = 1", C.Connect);
                 DataSet DS = new DataSet();
@@ -129,7 +129,7 @@ namespace MIPP.Forms
             try
             {
                 C.Connect.Open();
-                C.DA = new MySqlDataAdapter("SELECT id, id_depto, descricao, tipo FROM imagem WHERE id_depto ='" + ID + "'", C.Connect);
+                C.DA = new MySqlDataAdapter("SELECT id, id_depto, descricao, tipo FROM midia WHERE id_depto ='" + ID + "'", C.Connect);
                 DataSet DS = new DataSet();
                 C.DA.Fill(DS);
                 return DS;
@@ -151,7 +151,7 @@ namespace MIPP.Forms
             try
             {
                 C.Connect.Open();
-                C.DA = new MySqlDataAdapter("SELECT id, descricao FROM imagem WHERE id_depto ='" + ID + "' AND tipo = '0'", C.Connect);
+                C.DA = new MySqlDataAdapter("SELECT id, descricao FROM midia WHERE id_depto ='" + ID + "' AND tipo = '0'", C.Connect);
                 DataSet DS = new DataSet();
                 C.DA.Fill(DS);
                 return DS;
@@ -168,12 +168,33 @@ namespace MIPP.Forms
             }
         }
 
+        public DataSet LoadPhotoGridByDepart(int ID)
+        {
+            try
+            {
+                C.Connect.Open();
+                C.DA = new MySqlDataAdapter("SELECT id, descricao FROM midia WHERE id_depto ='" + ID + "' AND tipo = '3'", C.Connect);
+                DataSet DS = new DataSet();
+                C.DA.Fill(DS);
+                return DS;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                C.Connect.Close();
+                C.Connect.Dispose();
+            }
+        }
         public DataSet LoadVideoScreenGridByDepart(int ID)
         {
             try
             {
                 C.Connect.Open();
-                C.DA = new MySqlDataAdapter("SELECT id, descricao FROM imagem WHERE id_depto ='" + ID + "' AND tipo = '2'", C.Connect);
+                C.DA = new MySqlDataAdapter("SELECT id, descricao FROM midia WHERE id_depto ='" + ID + "' AND tipo = '2'", C.Connect);
                 DataSet DS = new DataSet();
                 C.DA.Fill(DS);
                 return DS;
@@ -195,7 +216,7 @@ namespace MIPP.Forms
             try
             {
                 C.Connect.Open();
-                C.DA = new MySqlDataAdapter("SELECT id, descricao FROM imagem WHERE id_depto ='" + ID + "' AND tipo = '1'", C.Connect);
+                C.DA = new MySqlDataAdapter("SELECT id, descricao FROM midia WHERE id_depto ='" + ID + "' AND tipo = '1'", C.Connect);
                 DataSet DS = new DataSet();
                 C.DA.Fill(DS);
                 return DS;
@@ -221,7 +242,7 @@ namespace MIPP.Forms
                 MySqlDataReader reader;
                 C.Connect.Open();
                 C.cmd = new MySqlCommand("SELECT img " +
-                                         "FROM imagem " +
+                                         "FROM midia " +
                                          "WHERE id = '" + ID + "' " +
                                          "AND id_depto = '" + Depart_ID + "'", C.Connect);
 
@@ -253,7 +274,7 @@ namespace MIPP.Forms
                 MySqlDataReader reader;
                 C.Connect.Open();
                 C.cmd = new MySqlCommand("SELECT img " +
-                                         "FROM imagem " +
+                                         "FROM midia " +
                                          "WHERE id = '" + ID + "' " +
                                          "AND id_depto = '" + Depart_ID + "'", C.Connect);
 
@@ -285,7 +306,7 @@ namespace MIPP.Forms
                 MySqlDataReader reader;
                 C.Connect.Open();
                 C.cmd = new MySqlCommand("SELECT img " +
-                                         "FROM imagem " +
+                                         "FROM midia " +
                                          "WHERE id = '" + ID + "' ", C.Connect);
 
                 reader = C.cmd.ExecuteReader();
@@ -316,7 +337,7 @@ namespace MIPP.Forms
                 MySqlDataReader reader;
                 C.Connect.Open();
                 C.cmd = new MySqlCommand("SELECT img " +
-                                         "FROM imagem " +
+                                         "FROM midia " +
                                          "WHERE id = '" + ID + "' ", C.Connect);
 
                 reader = C.cmd.ExecuteReader();

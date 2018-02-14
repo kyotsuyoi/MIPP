@@ -82,7 +82,7 @@ namespace MIPP.Forms
                 MessageBox.Show("Selecione a Loja", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            DS = BIPP.LoadGrid_SearchID1(int.Parse(mtbID.Text));
+            DS = BIPP.LoadGrid_SearchID1(int.Parse(mtbID.Text), int.Parse(cmbShop.Text));
             dgvProduct.DataSource = DS.Tables[0];
 
         }
@@ -99,7 +99,7 @@ namespace MIPP.Forms
                 MessageBox.Show("Selecione a Loja", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            DS = BIPP.LoadGrid_SearchDepart1(int.Parse(cmbDepart.Text));
+            DS = BIPP.LoadGrid_SearchDepart1(int.Parse(cmbDepart.Text), int.Parse(cmbShop.Text));
             dgvProduct.DataSource = DS.Tables[0];
         }
 
@@ -115,7 +115,7 @@ namespace MIPP.Forms
                 MessageBox.Show("Selecione a Loja", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            DS = BIPP.LoadGrid_SearchDesciption1(txtDescription.Text);
+            DS = BIPP.LoadGrid_SearchDesciption1(txtDescription.Text, int.Parse(cmbShop.Text));
             dgvProduct.DataSource = DS.Tables[0];
         }
         private void ClearAll()
@@ -226,7 +226,7 @@ namespace MIPP.Forms
                 MessageBox.Show("Selecione a Loja", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            DS = BIPP.LoadGrid_SearchDesciption1(txtDesEquival.Text);
+            DS = BIPP.LoadGrid_SearchDesciption1(txtDesEquival.Text, int.Parse(cmbShop.Text));
             dgvInsertEquival.DataSource = DS.Tables[0];
         }
 

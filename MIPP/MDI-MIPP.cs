@@ -2,6 +2,7 @@
 using System.Threading;
 using System.Windows.Forms;
 using MIPP.Forms;
+using MIPP.CommonClasses;
 
 namespace MIPP
 {
@@ -9,6 +10,7 @@ namespace MIPP
     {
         //string system_version;
 
+        MIPPOracle MO;
         MIPP M;
         FormMidia FM;
         FormShop FSh;
@@ -28,9 +30,15 @@ namespace MIPP
         {
             this.WindowState = FormWindowState.Maximized;
             M = new MIPP();
+            MO = new MIPPOracle();
 
             T = new Thread(ThreadProcess);
             //T.Start();
+            //var DT = MO.Test();
+
+            //string ID = String.Format("{0}", DT[0]);
+
+            //lblAtualization.Text = ID;
         }
 
         private void MDI_MIPP_FormClosing(object sender, EventArgs e)

@@ -105,3 +105,4 @@ C:\Users\admin\Source\Repos\MIPP-Desktop\MIPP\bin\Debug\MIPP.exe.manifest
 C:\Users\admin\Source\Repos\MIPP-Desktop\MIPP\bin\Debug\MIPP.application
 C:\Users\admin\Source\Repos\MIPP-Desktop\MIPP\obj\Debug\MIPP.exe.manifest
 C:\Users\admin\Source\Repos\MIPP-Desktop\MIPP\obj\Debug\MIPP.application
+C:\Users\admin\Source\Repos\MIPP-Desktop\MIPP\bin\Debug\Oracle.ManagedDataAccess.dll

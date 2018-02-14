@@ -313,12 +313,14 @@ namespace MIPP.Forms
             }
         }
 
-        public DataSet LoadGrid_SearchID1(int ID)
+        public DataSet LoadGrid_SearchID1(int ID, int Shop)
         {
             try
             {
                 C.Connect.Open();
-                C.DA = new MySqlDataAdapter("SELECT id, descricao FROM produto WHERE id = " + ID, C.Connect);
+                C.DA = new MySqlDataAdapter("SELECT id `Código`, descricao `Descrição`, id_depto `Departamento`, preco `Preço` FROM produto " +
+                    "INNER JOIN preco_loja ON preco_loja.id_prod = produto.id " +
+                    "WHERE id = " + ID + " AND id_loja = " + Shop, C.Connect);
                 DataSet DS = new DataSet();
                 C.DA.Fill(DS);
                 return DS;
@@ -335,12 +337,14 @@ namespace MIPP.Forms
             }
         }
 
-        public DataSet LoadGrid_SearchDesciption1(string Description)
+        public DataSet LoadGrid_SearchDesciption1(string Description, int Shop)
         {
             try
             {
                 C.Connect.Open();
-                C.DA = new MySqlDataAdapter("SELECT id, descricao FROM produto WHERE descricao LIKE '%" + Description + "%'", C.Connect);
+                C.DA = new MySqlDataAdapter("SELECT id `Código`, descricao `Descrição`, id_depto `Departamento`, preco `Preço` FROM produto " +
+                    "INNER JOIN preco_loja ON preco_loja.id_prod = produto.id " + 
+                    "WHERE descricao LIKE '" + Description + "' AND id_loja = " + Shop, C.Connect);
                 DataSet DS = new DataSet();
                 C.DA.Fill(DS);
                 return DS;
@@ -357,12 +361,14 @@ namespace MIPP.Forms
             }
         }
 
-        public DataSet LoadGrid_SearchDepart1(int Depart)
+        public DataSet LoadGrid_SearchDepart1(int Depart, int Shop)
         {
             try
             {
                 C.Connect.Open();
-                C.DA = new MySqlDataAdapter("SELECT ID, descricao, id_depto FROM produto WHERE id_depto = " + Depart, C.Connect);
+                C.DA = new MySqlDataAdapter("SELECT id `Código`, descricao `Descrição`, id_depto `Departamento`, preco `Preço` FROM produto " +
+                    "INNER JOIN preco_loja ON preco_loja.id_prod = produto.id " +
+                    "WHERE id_depto = " + Depart + " AND id_loja = " + Shop, C.Connect);
                 DataSet DS = new DataSet();
                 C.DA.Fill(DS);
                 return DS;

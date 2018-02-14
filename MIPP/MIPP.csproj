@@ -23,7 +23,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>6</ApplicationRevision>
+    <ApplicationRevision>7</ApplicationRevision>
     <ApplicationVersion>0.6.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -79,6 +79,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\GIPP\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -97,6 +98,7 @@
     <Compile Include="Classes\BIPP.cs" />
     <Compile Include="Classes\Midia.cs" />
     <Compile Include="Classes\Department.cs" />
+    <Compile Include="CommonClasses\ConnectionOracle.cs" />
     <Compile Include="Forms\FormBIPP.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +146,7 @@
       <DependentUpon>MDI-MIPP.cs</DependentUpon>
     </Compile>
     <Compile Include="MIPP.cs" />
+    <Compile Include="MIPPOracle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource1.Designer.cs">

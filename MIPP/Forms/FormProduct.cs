@@ -198,6 +198,7 @@ namespace MIPP.Forms
                 return;
             }
             DS = Pr.LoadGrid_SearchEAN(txtEAN.Text);
+            if (DS == null){ return; }
             dgvProduct.DataSource = DS.Tables[0];
         }
     }

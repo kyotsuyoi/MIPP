@@ -14,7 +14,7 @@ namespace MIPP
 
         DataSet DS = new DataSet();
         Forms.MIPP SC = new Forms.MIPP();
-        Midia CI = new Midia();
+        Midia MD = new Midia();
         Shop Sh = new Shop();
         Department De = new Department();
 
@@ -157,10 +157,7 @@ namespace MIPP
             LoadCombo_Screen();
             LoadDGV_Prod();
             pbBackground.Image = SC.LoadImage_BackgroundScreen(int.Parse(cmbDepart.Text));
-            if (cmbDepart.Text != "")
-            {
-                LoadImageOrVideoScreenGridByDepart(cbVideo.Checked);
-            }
+
         }
 
         private Boolean ComboTest()
@@ -175,7 +172,7 @@ namespace MIPP
 
         private void btnPlus_Click(object sender, EventArgs e)
         {
-            if (int.Parse(cmbLoja.Text) <= 0 || int.Parse(cmbDepart.Text) <= 0)
+            if ((cmbLoja.Text == "") || (cmbDepart.Text == ""))
             {
                 MessageBox.Show("Selecione Loja e Departamento para inserir a nova tela!","Atenção",MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
@@ -199,9 +196,9 @@ namespace MIPP
                 cmbScreen.Items.Add(cmbScreen.Items.Count);
                 cmbScreen.SelectedIndex = cmbScreen.Items.Count - 1;
 
-                if (cmbDepart.SelectedIndex != vDepart)
+                if (int.Parse(cmbDepart.Text) != vDepart)
                 {
-                    vDepart = cmbDepart.SelectedIndex;
+                    vDepart = int.Parse(cmbDepart.Text);
                     //pbBackground.Image = SC.LoadImage_BackgroundScreen(vDepart);
                 }
 
@@ -231,6 +228,7 @@ namespace MIPP
             {
                 axWMP.close();
                 cbVideo.Checked = false;
+                cbPhoto.Checked = false;
                 if (SC.DeleteScreen(cmbScreen.Items.Count - 1, int.Parse(cmbLoja.Text), int.Parse(cmbDepart.Text)) == false) { return; }
                 LoadCombo_Screen();
                 cmbScreen.SelectedItem = 0;
@@ -254,6 +252,11 @@ namespace MIPP
             {
                 MessageBox.Show("Não foram encontradas imagens para este departamento!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
+            }
+
+            if (cmbDepart.Text != "")
+            {
+                LoadImageOrVideoScreenGridByDepart(cbVideo.Checked);
             }
             dgvImage.Visible = true;
         }
@@ -308,7 +311,7 @@ namespace MIPP
 
                     try
                     {
-                        byte[] video = CI.LoadSpecificVideo(ImageID);
+                        byte[] video = MD.LoadSpecificVideo(ImageID);
                         File.WriteAllBytes(strTempFile, video);
                         axWMP.URL = strTempFile;
                         axWMP.Ctlcontrols.play();
@@ -318,9 +321,13 @@ namespace MIPP
                         MessageBox.Show(ex.Message);
                     }
                 }
+                else if (cbPhoto.Checked==true)
+                {
+                    pbBackground.Image = MD.LoadSpecificImage(ImageID);
+                }
                 else
                 {
-                    pbScreen.Image = CI.LoadSpecificImage(ImageID);
+                    pbScreen.Image = MD.LoadSpecificImage(ImageID);
                 }
 
             }
@@ -633,19 +640,23 @@ namespace MIPP
         private void LoadImageOrVideoScreenGridByDepart(Boolean vid)
         {
             axWMP.close();
-            if (cmbLoja.Text == "" || cmbDepart.Text == "" || cmbScreen.Text == "") { return; }
+            if (cmbLoja.Text == "" || cmbDepart.Text == "") { return; }
 
             if (cbVideo.Checked == true)
             {
-                DS = CI.LoadVideoScreenGridByDepart(int.Parse(cmbDepart.Text));
+                DS = MD.LoadVideoScreenGridByDepart(int.Parse(cmbDepart.Text));
+            }
+            else if (cbPhoto.Checked==true){
+                DS = MD.LoadPhotoGridByDepart(int.Parse(cmbDepart.Text));
             }
             else
             {
-                DS = CI.LoadImageScreenGridByDepart(int.Parse(cmbDepart.Text));
+                DS = MD.LoadImageScreenGridByDepart(int.Parse(cmbDepart.Text));
             }
 
             dgvImage.DataSource = DS.Tables[0];
         }
+
         private void btnSearch_Click(object sender, EventArgs e)
         {
             if (cmbLoja.Text == "" || cmbDepart.Text == "" || cmbScreen.Text == "" || txtSearch.Text == "")
